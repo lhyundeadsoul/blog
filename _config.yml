@@ -79,7 +79,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:lhyundeadsoul/lhyundeadsoul.github.io
+  repo: https://github.com/lhyundeadsoul/lhyundeadsoul.github.io.git
   branch: master
 
 symbols_count_time:
@@ -92,8 +92,3 @@ symbols_count_time:
 #  path: search.xml
 #  field: post
 
-backup:
-  type: git
-  theme: next 
-  repository:
-    github: git@github.com:lhyundeadsoul/lhyundeadsoul.github.io.git,hexo
