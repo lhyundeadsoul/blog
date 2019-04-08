@@ -1,0 +1,8 @@
+language: node_js
+node_js: --lts
+before_script:
+  - git config user.name "Jared Li"
+  - git config user.email "lhyundeadsoul@gmail.com"
+  - sed -i'' "s~https://github.com/lhyundeadsoul/lhyundeadsoul.github.io.git~https://${GITHUB_ACCESS_TOKEN}@github.com/lhyundeadsoul/lhyundeadsoul.github.io.git~" _config.yml
+script:
+  - hexo d -g 
