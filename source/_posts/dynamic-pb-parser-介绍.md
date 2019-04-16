@@ -11,6 +11,8 @@ Github:https://github.com/lhyundeadsoul/pb-parser
 
 ## Demo
 ```java
+DynamicPBParser.load("target/test-classes/test.desc");
+DynamicPBParser.syntax("StandardSyntax");
 DynamicPBParser.parse(content, 'geo.log.LogRecord$logMetaData.level');
 DynamicPBParser.parse(content, 'geo.log.LogRecord$logMetaData.serverName');
 DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf.extensionNames');
@@ -26,17 +28,17 @@ DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf
 
 ### 出参、入参和语法
 
-6. `DynamicPBParser.parse`有两个入参：
-	7. 用Base64编码后的pb数据
-	8. 需要解析的字段路径
-7. 字段路径语法：
-	8. 使用`$`符号分隔类名和字段名
-	8. 嵌套对象的格式：`package_name.message_name$field1_name.field2_name`
-	9. 嵌套数组的格式：`package_name.message_name$field1_name[*].field2_name[0]`，其中`field1_name[*]`也可简写为`field1_name`
-	10. 扩展字段
-        10. 对于message A 扩展字段x 定义在message B里的情况，解析x，可以把A的数据当作B来看，例：
-        
-        ```
+1. `DynamicPBParser.parse`有两个入参：
+	2. 用Base64编码后的pb数据
+	3. 需要解析的字段路径
+
+2. 字段路径语法：
+	1. 使用`$`符号分隔类名和字段名
+	2. 嵌套对象的格式：`package_name.message_name$field1_name.field2_name`
+	3. 嵌套数组的格式：`package_name.message_name$field1_name[*].field2_name[0]`，其中`field1_name[*]`也可简写为`field1_name`
+	4. 扩展字段
+		1. 对于message A 扩展字段x 定义在message B里的情况，解析x，可以把A的数据当作B来看，例：
+		```java
         package a.b;
         message A {
             extensions 100 to 199;
@@ -50,12 +52,10 @@ DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf
         }
         
         data=Base64(A);
-        result = get_pb_object(data, 'c.d.B$x'); 
+        result = DynamicPBParser.parse(data, 'c.d.B$x'); 
         ```
-        
-        11. 对于message A 扩展字段x 未定义在某message里的情况，而是直接定义在package下的情况，解析x，需要写明确完整扩展字段路径，并用英文小括号`()`括起来，例：
-        
-        ```
+        2. 对于message A 扩展字段x 未定义在某message里的情况，而是直接定义在package下的情况，解析x，需要写明确完整扩展字段路径，并用英文小括号`()`括起来，例：
+		 ```java
         package a.b;
         message A {
             extensions 100 to 199;
@@ -67,8 +67,10 @@ DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf
         }
         
         data=Base64(A);
-        result = get_pb_object(data, "a.b.A$(c.d.x)");
-        ``` 
+        result = DynamicPBParser.parse(data, 'a.b.A$(c.d.x)');
+        ```
+        
+         
 10. 出参：
 	11. 永远是string类型
 	12. 如果返回的是object
