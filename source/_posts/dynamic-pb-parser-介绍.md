@@ -8,6 +8,9 @@ categories: 开源产品
 `dynamic-pb-parser`提供类似hive的`get_json_object`的功能，可以动态解析用Protobuf描述的数据。
 
 Github:https://github.com/lhyundeadsoul/pb-parser
+# 使用方法
+
+>因为Protobuf序列化的数据不能自解释，所以需要使用此函数的同学自行编译自己的proto文件为desc文件(命令见下文)，并将desc文件路径传入
 
 ## Demo
 ```java
@@ -22,11 +25,8 @@ DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf
 ```
 <!--more-->
 
-## 使用方法
 
->因为Protobuf序列化的数据不能自解释，所以需要使用此函数的同学自行编译自己的proto文件为desc文件(命令见下文)，并将desc文件路径传入
-
-### 出参、入参和语法
+## 出参、入参和语法
 
 1. `DynamicPBParser.parse`有两个入参：
 	2. 用Base64编码后的pb数据
@@ -71,15 +71,15 @@ DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf
         ```
         
          
-10. 出参：
-	11. 永远是string类型
-	12. 如果返回的是object
-		13. 会返回用Base64编码后的object PB序列化结果，类似`"CggKBG5pa2UQARC2YA=="`
-		13. 如果是Byte数组，会返回Base64编码后的字符串
-		14. 其它情况返回toString()的结果
-	13. 如果返回的是数组类型，会返回`[xxx,xxx,xxx]`
-		14. 如果元素是数字类型，会返回数字本身，如`[1,2,3]`
-		15. 其中当元素是object类型时，同2
+3. 出参：
+	1. 永远是string类型
+	2. 如果返回的是object
+		1. 会返回用Base64编码后的object PB序列化结果，类似`"CggKBG5pa2UQARC2YA=="`
+		2. 如果是Byte数组，会返回Base64编码后的字符串
+		3. 其它情况返回toString()的结果
+	3. 如果返回的是数组类型，会返回`[xxx,xxx,xxx]`
+		1. 如果元素是数字类型，会返回数字本身，如`[1,2,3]`
+		2. 其中当元素是object类型时，同2
 
 # Q&A
 1. 发生异常`java.lang.IllegalArgumentException: XXX.XXX can not be found in any description file! Please check out if it exist.`，请检查desc文件中是否含有XXX.XXX的message定义，或仔细核对是否`package_name`和`message_name`有笔误
