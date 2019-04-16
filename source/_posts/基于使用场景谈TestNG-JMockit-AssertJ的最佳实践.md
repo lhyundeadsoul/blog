@@ -2,7 +2,7 @@
 title: 基于使用场景谈TestNG+JMockit+AssertJ的最佳实践
 date: 2019-04-02 00:50:26
 tags: UnitTest
-categories: 工具
+categories: 总结思考 
 ---
 
 ## 个人对单测的理解

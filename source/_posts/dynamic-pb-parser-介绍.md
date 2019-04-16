@@ -8,6 +8,8 @@ categories: 开源产品
 
 `dynamic-pb-parser`提供类似hive的`get_json_object`的功能，可以动态解析用Protobuf描述的数据。
 
+Github:https://github.com/lhyundeadsoul/pb-parser
+
 ## Demo
 ```java
 DynamicPBParser.parse(content, 'geo.log.LogRecord$logMetaData.level');
@@ -18,6 +20,7 @@ DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf
 DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf.data'), 'geo.log.RequestLogRecord$metaData.appleRpcHeader.appId');
 ```
 <!--more-->
+
 ## 使用方法
 
 >因为Protobuf序列化的数据不能自解释，所以需要使用此函数的同学自行编译自己的proto文件为desc文件(命令见下文)，并将desc文件路径传入
@@ -32,7 +35,7 @@ DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf
     ```
     protoc --include_imports -I. -oall.desc *.proto
     ```
-3. ```DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf.extensionNames');```
+3. `DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf.extensionNames');`
 
 ### 出参、入参和语法
 
