@@ -25,18 +25,6 @@ DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf
 
 >因为Protobuf序列化的数据不能自解释，所以需要使用此函数的同学自行编译自己的proto文件为desc文件(命令见下文)，并将desc文件路径传入
 
-### 接入方式
-基于以上原因，此UDF提供两种接入方式
-
-1. 在[这里](https://market.dw.alibaba-inc.com/#/detail/9920)申请公共UDF使用权限，但是使用时需要写明`access_id, access_key`
-2. 使用jar包自行创建UDF，步骤多，不能自动更新版本，但是不需要写`access_id, access_key`
-
-1. 使用protoc命令将proto文件转换为desc文件(desc文件名可自定义)：
-    ```
-    protoc --include_imports -I. -oall.desc *.proto
-    ```
-3. `DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf.extensionNames');`
-
 ### 出参、入参和语法
 
 6. `DynamicPBParser.parse`有两个入参：
