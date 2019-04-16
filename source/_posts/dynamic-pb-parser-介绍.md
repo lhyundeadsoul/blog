@@ -4,7 +4,6 @@ date: 2019-04-17 00:45:47
 tags: pb-parser
 categories: 开源产品
 ---
-# `dynamic-pb-parser` 介绍
 
 `dynamic-pb-parser`提供类似hive的`get_json_object`的功能，可以动态解析用Protobuf描述的数据。
 
