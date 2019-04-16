@@ -17,6 +17,7 @@ DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf.data');
 DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf.data'), 'geo.log.RequestLogRecord$metaData.requestTime');
 DynamicPBParser.parse(DynamicPBParser.parse(content, 'geo.log.LogRecord$protobuf.data'), 'geo.log.RequestLogRecord$metaData.appleRpcHeader.appId');
 ```
+<!--more-->
 ## 使用方法
 
 >因为Protobuf序列化的数据不能自解释，所以需要使用此函数的同学自行编译自己的proto文件为desc文件(命令见下文)，并将desc文件路径传入
