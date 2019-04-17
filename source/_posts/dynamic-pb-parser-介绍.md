@@ -20,13 +20,15 @@ categories: 开源产品
     ```
 2. 用法如下：
 	```java
-	DynamicPBParser.load("target/test-classes/test.desc");
-	DynamicPBParser.syntax("StandardSyntax");
-	DynamicPBParser.parse(content, 'me.lihongyu.bean.Person$name');
-	DynamicPBParser.parse(content, 'me.lihongyu.bean.Person$cloth.brand.type');
-	DynamicPBParser.parse(DynamicPBParser.parse(content, 'me.lihongyu.bean.Person$proto_data'), 'me.lihongyu.bean.AddressBook$email');
+	DynamicPBParser parser = DynamicPBParser.newBuilder()  
+        .descFilePath("target/test-classes/test.desc")  
+        .syntax("StandardSyntax")  
+        .build();  
+   parser.parse(content, 'me.lihongyu.bean.Person$name');  
+   parser.parse(content, 'me.lihongyu.bean.Person$cloth.brand.type');  
+   parser.parse(DynamicPBParser.parse(content, 'me.lihongyu.bean.Person$proto_data'), 'me.lihongyu.bean.AddressBook$email');  
 	```
-
+<!--more-->
 ### 出参、入参和语法
 
 1. `DynamicPBParser.parse`有两个入参：
@@ -55,7 +57,6 @@ categories: 开源产品
         data=Base64(A);
         result = get_pb_object(data, 'c.d.B$x'); 
         ```
-        
         2. 对于message A 扩展字段x 未定义在某message里的情况，而是直接定义在package下的情况，解析x，需要写明确完整扩展字段路径，并用英文小括号`()`括起来，例：
         
         ```
