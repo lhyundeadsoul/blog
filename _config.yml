@@ -88,7 +88,9 @@ symbols_count_time:
   total_symbols: true
   total_time: true
 
-#search:
-#  path: search.xml
-#  field: post
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 
