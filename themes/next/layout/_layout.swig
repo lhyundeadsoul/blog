@@ -21,6 +21,9 @@
   <title>{% block title %}{% endblock %}</title>
   {% include '_third-party/analytics/index.swig' %}
   {{ partial('_scripts/noscript.swig', {}, {cache: theme.cache.enable}) }}
+  <!-- Google AdSense start -->
+  {% include '_custom/google_adsense.swig' %}
+  <!-- Google AdSense end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
