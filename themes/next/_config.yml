@@ -602,8 +602,8 @@ calendar:
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true 
+  shortname: jaredli
   count: true
   lazyload: false
 
