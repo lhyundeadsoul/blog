@@ -1,6 +1,13 @@
-为什么TDengine 这么秀
+---
+title: 为什么TDengine 这么秀
+date: 2020-12-23 21:09:36
+tags: [设计原则]
+categories: 数据库
+---
 
 听了陶老师的分享，很有收获，摘录了一些细节，备用，同时也可以和[《在线服务设计方法论》](https://lihongyu.me/2020/05/12/%E5%9C%A8%E7%BA%BF%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/)很好的契合起来。
+
+<!-- more -->
 
 以下
 
