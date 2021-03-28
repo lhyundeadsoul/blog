@@ -15,7 +15,7 @@ Steaming benchmark
 
 ### 非全局checkpoint
 
-
+<!-- more -->
 
 ### 全链路数据实时化 to 实时离线一体化
 
