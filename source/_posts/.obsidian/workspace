@@ -1,0 +1,102 @@
+{
+  "main": {
+    "id": "957ef92485b274c1",
+    "type": "split",
+    "children": [
+      {
+        "id": "8aba55d68f9ebe0a",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "最近一些零星的认知汇总.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7e341276b34fde76",
+    "type": "split",
+    "children": [
+      {
+        "id": "d0aa1bc55734b541",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d27953d24e600cea",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "49ba888d8213ffcf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "629c6e4e042d39e7",
+    "type": "split",
+    "children": [
+      {
+        "id": "1d15a1dcebc75da7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "114cfeefb8dd769e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "最近一些零星的认知汇总.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "8aba55d68f9ebe0a",
+  "lastOpenFiles": [
+    "最近一些零星的认知汇总.md",
+    "关于开源商业模式的思考.md",
+    "怎么变得越来越差.md",
+    "认知分层标准以及我们应该争论什么.md",
+    "dynamic-pb-parser-介绍.md",
+    "认知分层标准以及我们到底应该争论什么.md",
+    "跨学科工具箱1——热力学第二定律.md",
+    "基于使用场景谈TestNG-JMockit-AssertJ的最佳实践.md",
+    "关于围棋这个RTS的一些想法.md",
+    "关于时空数据的初步了解.md"
+  ]
+}
