@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "最近一些零星的认知汇总.md",
-            "mode": "source"
+            "file": "搞定睡眠这件大事.md",
+            "mode": "preview"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "最近一些零星的认知汇总.md",
+                "file": "搞定睡眠这件大事.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "8aba55d68f9ebe0a",
   "lastOpenFiles": [
+    "搞定睡眠这件大事.md",
+    "为什么TDengine 这么秀.md",
     "最近一些零星的认知汇总.md",
-    "关于开源商业模式的思考.md",
-    "怎么变得越来越差.md",
-    "认知分层标准以及我们应该争论什么.md",
-    "dynamic-pb-parser-介绍.md",
-    "认知分层标准以及我们到底应该争论什么.md",
-    "跨学科工具箱1——热力学第二定律.md",
-    "基于使用场景谈TestNG-JMockit-AssertJ的最佳实践.md",
-    "关于围棋这个RTS的一些想法.md",
-    "关于时空数据的初步了解.md"
+    "最佳实践有多重要？.md",
+    "走吧，去火星！.md",
+    "一个产品开发的复杂度都是怎么被解决的？.md",
+    "一个人工智能的诞生.md",
+    "一些工作方式心得.md",
+    "跨学科工具箱2——系统论.md",
+    "认知分层标准以及我们应该争论什么.md"
   ]
 }
