@@ -9,10 +9,23 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "dynamic-pb-parser-介绍.md",
+            "file": "在线服务设计方法论.md",
             "mode": "source"
           }
-        }
+        },
+        "group": "66f7a825c5f6fbca"
+      },
+      {
+        "id": "843d0678da1b186d",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "在线服务设计方法论.md",
+            "mode": "preview"
+          }
+        },
+        "group": "66f7a825c5f6fbca"
       }
     ],
     "direction": "vertical"
@@ -68,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "dynamic-pb-parser-介绍.md",
+                "file": "在线服务设计方法论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +101,8 @@
   },
   "active": "8aba55d68f9ebe0a",
   "lastOpenFiles": [
+    "在线服务设计方法论.md",
+    "部署Metabase到Kubernetes集群.md",
     "dynamic-pb-parser-介绍.md",
     "搞定睡眠这件大事.md",
     "关于大数据的几个论断.md",
@@ -95,8 +110,6 @@
     "最近一些零星的认知汇总.md",
     "最佳实践有多重要？.md",
     "走吧，去火星！.md",
-    "一个产品开发的复杂度都是怎么被解决的？.md",
-    "一个人工智能的诞生.md",
-    "一些工作方式心得.md"
+    "一个产品开发的复杂度都是怎么被解决的？.md"
   ]
 }
