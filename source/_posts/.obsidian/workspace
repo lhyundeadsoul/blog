@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "在线服务设计方法论.md",
+            "file": "关于开源商业模式的思考.md",
             "mode": "source"
           }
         },
@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "在线服务设计方法论.md",
+            "file": "关于开源商业模式的思考.md",
             "mode": "preview"
           }
         },
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "开源",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,7 +61,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -81,7 +82,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "在线服务设计方法论.md",
+                "file": "关于开源商业模式的思考.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,6 +102,7 @@
   },
   "active": "8aba55d68f9ebe0a",
   "lastOpenFiles": [
+    "关于开源商业模式的思考.md",
     "在线服务设计方法论.md",
     "部署Metabase到Kubernetes集群.md",
     "dynamic-pb-parser-介绍.md",
@@ -109,7 +111,6 @@
     "为什么TDengine 这么秀.md",
     "最近一些零星的认知汇总.md",
     "最佳实践有多重要？.md",
-    "走吧，去火星！.md",
-    "一个产品开发的复杂度都是怎么被解决的？.md"
+    "走吧，去火星！.md"
   ]
 }
