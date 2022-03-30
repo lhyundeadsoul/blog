@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "《家庭财务管理》笔记.md",
+            "file": "在线服务设计方法论.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "《家庭财务管理》笔记.md",
+                "file": "在线服务设计方法论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,10 +88,10 @@
   },
   "active": "7f83cf67f01b6192",
   "lastOpenFiles": [
+    "在线服务设计方法论.md",
     "《家庭财务管理》笔记.md",
     "Untitled.md",
     "关于开源商业模式的思考.md",
-    "在线服务设计方法论.md",
     "部署Metabase到Kubernetes集群.md",
     "dynamic-pb-parser-介绍.md",
     "搞定睡眠这件大事.md",
