@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "在线服务设计方法论.md",
+            "file": "开源技术沙龙.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "在线服务设计方法论.md",
+                "file": "开源技术沙龙.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "7f83cf67f01b6192",
   "lastOpenFiles": [
-    "在线服务设计方法论.md",
+    "开源技术沙龙.md",
     "《家庭财务管理》笔记.md",
-    "Untitled.md",
-    "关于开源商业模式的思考.md",
-    "部署Metabase到Kubernetes集群.md",
-    "dynamic-pb-parser-介绍.md",
-    "搞定睡眠这件大事.md",
-    "关于大数据的几个论断.md",
-    "为什么TDengine 这么秀.md",
-    "最近一些零星的认知汇总.md"
+    "小学数学应该学什么.md",
+    "images/计数图1.jpg.md",
+    "跨学科工具箱2——系统论.md",
+    "一个产品开发的复杂度都是怎么被解决的？.md",
+    "说通ABTest的数学逻辑.md",
+    "数据库字段规范及乐观锁常见错误.md",
+    "数据开发领域的点线面体.md",
+    "认知分层标准以及我们应该争论什么.md"
   ]
 }
