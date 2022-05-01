@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "升维思考.md",
-            "mode": "source"
+            "file": "《一课经济学》读后感.md",
+            "mode": "preview"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "升维思考.md",
+                "file": "《一课经济学》读后感.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "2a40278de6f80646",
   "lastOpenFiles": [
-    "升维思考.md",
-    "跨学科工具箱1——热力学第二定律.md",
-    "Untitled.md",
-    "开源技术沙龙.md",
-    "《家庭财务管理》笔记.md",
-    "小学数学应该学什么.md",
-    "images/计数图1.jpg.md",
+    "《一课经济学》读后感.md",
+    "源自《事实》的一点启发.md",
+    "零知识证明原理.md",
+    "部署Metabase到Kubernetes集群.md",
     "跨学科工具箱2——系统论.md",
-    "一个产品开发的复杂度都是怎么被解决的？.md",
-    "说通ABTest的数学逻辑.md"
+    "跨学科工具箱1——热力学第二定律.md",
+    "走吧，去火星！.md",
+    "说通ABTest的数学逻辑.md",
+    "认知分层标准以及我们应该争论什么.md",
+    "《家庭财务管理》笔记.md"
   ]
 }
