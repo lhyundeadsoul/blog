@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "小学数学应该学什么.md",
-            "mode": "source"
+            "file": "开源技术沙龙.md",
+            "mode": "preview"
           }
         }
       }
@@ -48,7 +48,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -68,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "小学数学应该学什么.md",
+                "file": "开源技术沙龙.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +89,15 @@
   },
   "active": "2a40278de6f80646",
   "lastOpenFiles": [
+    "开源技术沙龙.md",
+    "关于开源商业模式的思考.md",
+    "如何设计一个吸引人的演讲.md",
+    "升维思考.md",
+    "最近一些零星的认知汇总.md",
+    "dynamic-pb-parser-介绍.md",
+    "Untitled.md",
     "小学数学应该学什么.md",
     "images/计数图2.jpg.md",
-    "升维思考.md",
-    "跨学科工具箱1——热力学第二定律.md",
-    "Untitled.md",
-    "开源技术沙龙.md",
-    "《家庭财务管理》笔记.md",
-    "images/计数图1.jpg.md",
-    "跨学科工具箱2——系统论.md",
-    "一个产品开发的复杂度都是怎么被解决的？.md"
+    "跨学科工具箱1——热力学第二定律.md"
   ]
 }
