@@ -9,8 +9,13 @@
         "state": {
           "type": "markdown",
           "state": {
+<<<<<<< HEAD
             "file": "开源技术沙龙.md",
             "mode": "preview"
+=======
+            "file": "说通ABTest的数学逻辑.md",
+            "mode": "source"
+>>>>>>> b43f81d6fbfa207d816d003a5bf0b3de5dc77da4
           }
         }
       }
@@ -69,7 +74,11 @@
             "state": {
               "type": "backlink",
               "state": {
+<<<<<<< HEAD
                 "file": "开源技术沙龙.md",
+=======
+                "file": "说通ABTest的数学逻辑.md",
+>>>>>>> b43f81d6fbfa207d816d003a5bf0b3de5dc77da4
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +98,7 @@
   },
   "active": "2a40278de6f80646",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "开源技术沙龙.md",
     "关于开源商业模式的思考.md",
     "如何设计一个吸引人的演讲.md",
@@ -99,5 +109,17 @@
     "小学数学应该学什么.md",
     "images/计数图2.jpg.md",
     "跨学科工具箱1——热力学第二定律.md"
+=======
+    "说通ABTest的数学逻辑.md",
+    "《一课经济学》读后感.md",
+    "怎么变得越来越差.md",
+    "源自《事实》的一点启发.md",
+    "零知识证明原理.md",
+    "部署Metabase到Kubernetes集群.md",
+    "跨学科工具箱2——系统论.md",
+    "跨学科工具箱1——热力学第二定律.md",
+    "走吧，去火星！.md",
+    "认知分层标准以及我们应该争论什么.md"
+>>>>>>> b43f81d6fbfa207d816d003a5bf0b3de5dc77da4
   ]
 }
