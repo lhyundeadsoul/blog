@@ -1,37 +1,47 @@
 {
   "main": {
-    "id": "957ef92485b274c1",
+    "id": "6d4c9090cd83ae51",
     "type": "split",
     "children": [
       {
-        "id": "2a40278de6f80646",
+        "id": "5c1a5256617cba3a",
         "type": "leaf",
+        "dimension": 50.13966480446928,
         "state": {
           "type": "markdown",
           "state": {
-<<<<<<< HEAD
-            "file": "开源技术沙龙.md",
-            "mode": "preview"
-=======
-            "file": "说通ABTest的数学逻辑.md",
+            "file": "系统构建英语语法.md",
             "mode": "source"
->>>>>>> b43f81d6fbfa207d816d003a5bf0b3de5dc77da4
           }
-        }
+        },
+        "group": "8855adc3a06b7ad7"
+      },
+      {
+        "id": "a6723df72a57213b",
+        "type": "leaf",
+        "dimension": 49.86033519553072,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "系统构建英语语法.md",
+            "mode": "preview"
+          }
+        },
+        "group": "8855adc3a06b7ad7"
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "7e341276b34fde76",
+    "id": "7a969c9c9c71e793",
     "type": "split",
     "children": [
       {
-        "id": "d0aa1bc55734b541",
+        "id": "9bd419a30ab53abb",
         "type": "tabs",
         "children": [
           {
-            "id": "d27953d24e600cea",
+            "id": "03c549d5887e0e8d",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -39,46 +49,41 @@
             }
           },
           {
-            "id": "49ba888d8213ffcf",
+            "id": "8e02cdf257723420",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "开源",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
     "width": 300
   },
   "right": {
-    "id": "629c6e4e042d39e7",
+    "id": "c159871eeb6b4af9",
     "type": "split",
     "children": [
       {
-        "id": "1d15a1dcebc75da7",
+        "id": "a019df5057feabfb",
         "type": "tabs",
         "children": [
           {
-            "id": "114cfeefb8dd769e",
+            "id": "7e2226162c9b139f",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-<<<<<<< HEAD
-                "file": "开源技术沙龙.md",
-=======
-                "file": "说通ABTest的数学逻辑.md",
->>>>>>> b43f81d6fbfa207d816d003a5bf0b3de5dc77da4
+                "file": "系统构建英语语法.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,30 +101,9 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "2a40278de6f80646",
+  "active": "5c1a5256617cba3a",
   "lastOpenFiles": [
-<<<<<<< HEAD
-    "开源技术沙龙.md",
-    "关于开源商业模式的思考.md",
-    "如何设计一个吸引人的演讲.md",
-    "升维思考.md",
-    "最近一些零星的认知汇总.md",
-    "dynamic-pb-parser-介绍.md",
-    "Untitled.md",
-    "小学数学应该学什么.md",
-    "images/计数图2.jpg.md",
-    "跨学科工具箱1——热力学第二定律.md"
-=======
-    "说通ABTest的数学逻辑.md",
-    "《一课经济学》读后感.md",
-    "怎么变得越来越差.md",
-    "源自《事实》的一点启发.md",
-    "零知识证明原理.md",
-    "部署Metabase到Kubernetes集群.md",
-    "跨学科工具箱2——系统论.md",
-    "跨学科工具箱1——热力学第二定律.md",
-    "走吧，去火星！.md",
-    "认知分层标准以及我们应该争论什么.md"
->>>>>>> b43f81d6fbfa207d816d003a5bf0b3de5dc77da4
+    "系统构建英语语法.md",
+    "为什么TDengine 这么秀.md"
   ]
 }
