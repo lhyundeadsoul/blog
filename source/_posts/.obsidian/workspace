@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "开源技术沙龙.md",
+            "file": "开源技术和商业化的思考.md",
             "mode": "source"
           }
         },
@@ -23,7 +23,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "开源技术沙龙.md",
+            "file": "开源技术和商业化的思考.md",
             "mode": "preview"
           }
         },
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "开源技术沙龙.md",
+                "file": "开源技术和商业化的思考.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,8 @@
   },
   "active": "5c1a5256617cba3a",
   "lastOpenFiles": [
-    "开源技术沙龙.md",
+    "开源技术和商业化的思考.md",
+    "跨学科工具箱1——热力学第二定律.md",
     "基于Flink的思考.md",
     "一个人工智能的诞生.md",
     "在线服务设计方法论.md",
