@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "开源技术和商业化的思考.md",
+            "file": "如何减缓软件复杂度的增长.md",
             "mode": "source"
           }
         },
@@ -23,7 +23,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "开源技术和商业化的思考.md",
+            "file": "如何减缓软件复杂度的增长.md",
             "mode": "preview"
           }
         },
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Doris.md",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "开源技术和商业化的思考.md",
+                "file": "如何减缓软件复杂度的增长.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,13 +103,15 @@
   },
   "active": "5c1a5256617cba3a",
   "lastOpenFiles": [
+    "如何减缓软件复杂度的增长.md",
+    "数据开发领域的点线面体.md",
+    "说通ABTest的数学逻辑.md",
+    "数据库字段规范及乐观锁常见错误.md",
+    "搞定睡眠这件大事.md",
     "开源技术和商业化的思考.md",
     "跨学科工具箱1——热力学第二定律.md",
     "基于Flink的思考.md",
     "一个人工智能的诞生.md",
-    "在线服务设计方法论.md",
-    "系统构建英语语法.md",
-    "小学数学应该学什么.md",
-    "为什么TDengine 这么秀.md"
+    "在线服务设计方法论.md"
   ]
 }
