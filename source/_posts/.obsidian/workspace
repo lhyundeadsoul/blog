@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "在线服务设计方法论.md",
+            "file": "开源技术沙龙.md",
             "mode": "source"
           }
         },
@@ -23,7 +23,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "在线服务设计方法论.md",
+            "file": "开源技术沙龙.md",
             "mode": "preview"
           }
         },
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Doris.md",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "在线服务设计方法论.md",
+                "file": "开源技术沙龙.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,8 +103,10 @@
   },
   "active": "5c1a5256617cba3a",
   "lastOpenFiles": [
-    "在线服务设计方法论.md",
+    "开源技术沙龙.md",
     "基于Flink的思考.md",
+    "一个人工智能的诞生.md",
+    "在线服务设计方法论.md",
     "系统构建英语语法.md",
     "小学数学应该学什么.md",
     "为什么TDengine 这么秀.md"
