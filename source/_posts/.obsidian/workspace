@@ -4,30 +4,26 @@
     "type": "split",
     "children": [
       {
-        "id": "5c1a5256617cba3a",
+        "id": "e75f7141ed3bed1a",
         "type": "leaf",
-        "dimension": 50.13966480446928,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "在线服务设计方法论.md",
+            "file": "Why-do-we-need-Paxos-and-and-How-it-works.md",
             "mode": "source"
           }
-        },
-        "group": "8855adc3a06b7ad7"
+        }
       },
       {
-        "id": "a6723df72a57213b",
+        "id": "4c684c3a4542159e",
         "type": "leaf",
-        "dimension": 49.86033519553072,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "在线服务设计方法论.md",
+            "file": "Why-do-we-need-Paxos-and-and-How-it-works.md",
             "mode": "preview"
           }
-        },
-        "group": "8855adc3a06b7ad7"
+        }
       }
     ],
     "direction": "vertical"
@@ -54,7 +50,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "mermaid",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -83,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "在线服务设计方法论.md",
+                "file": "Why-do-we-need-Paxos-and-and-How-it-works.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,17 +97,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "5c1a5256617cba3a",
+  "active": "e75f7141ed3bed1a",
   "lastOpenFiles": [
-    "在线服务设计方法论.md",
-    "跨学科工具箱2——系统论.md",
-    "开源技术和商业化的思考.md",
-    "如何减缓软件复杂度的增长.md",
+    "Why-do-we-need-Paxos-and-and-How-it-works.md",
+    "走吧，去火星！.md",
+    "dynamic-pb-parser-介绍.md",
+    "一些工作方式心得.md",
     "数据开发领域的点线面体.md",
+    "升维思考.md",
     "说通ABTest的数学逻辑.md",
-    "数据库字段规范及乐观锁常见错误.md",
-    "搞定睡眠这件大事.md",
-    "跨学科工具箱1——热力学第二定律.md",
-    "基于Flink的思考.md"
+    "基于使用场景谈TestNG-JMockit-AssertJ的最佳实践.md",
+    "部署Metabase到Kubernetes集群.md",
+    "《一课经济学》读后感.md"
   ]
 }
