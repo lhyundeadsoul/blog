@@ -21,7 +21,9 @@ tags:
 		写前读: 7
 {% endmermaid %}
 
-<!--
+<!-- more -->
+mermaid 的图有遮盖，看下面这个脑补看不到的汉字吧 :)
+
 ```mermaid
 journey
 	title Why do we need Paxos？How it works?
@@ -35,5 +37,5 @@ journey
 	section Paxos
 		写前读: 7
 ```
--->
+
 
