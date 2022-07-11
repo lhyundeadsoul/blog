@@ -4,24 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "e75f7141ed3bed1a",
+        "id": "c2569cea03a5078b",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
             "file": "Why-do-we-need-Paxos-and-and-How-it-works.md",
             "mode": "source"
-          }
-        }
-      },
-      {
-        "id": "4c684c3a4542159e",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Why-do-we-need-Paxos-and-and-How-it-works.md",
-            "mode": "preview"
           }
         }
       }
@@ -50,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "mermaid",
+                "query": "README",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -97,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "e75f7141ed3bed1a",
+  "active": "c2569cea03a5078b",
   "lastOpenFiles": [
     "Why-do-we-need-Paxos-and-and-How-it-works.md",
     "走吧，去火星！.md",
+    "README.zh.md",
     "dynamic-pb-parser-介绍.md",
+    "df.md",
     "一些工作方式心得.md",
     "数据开发领域的点线面体.md",
     "升维思考.md",
     "说通ABTest的数学逻辑.md",
-    "基于使用场景谈TestNG-JMockit-AssertJ的最佳实践.md",
-    "部署Metabase到Kubernetes集群.md",
-    "《一课经济学》读后感.md"
+    "基于使用场景谈TestNG-JMockit-AssertJ的最佳实践.md"
   ]
 }

@@ -1,7 +1,7 @@
 ---
 title: Why do we need Paxos and and How it works
 date: 2022-06-30 20:49:55
-tags:
+tags: 一致性共识
 ---
 
 > 参考[《可靠分布式系统-paxos的直观解释》](https://blog.openacid.com/algo/paxos/)
@@ -45,3 +45,5 @@ journey
 ```
 
 
+### Raft 动画演示
+http://www.kailing.pub/raft/index.html
