@@ -24,7 +24,7 @@ tags: 一致性共识
 <!-- more -->
 一些方便理解的重点
 * 每个Paxos实例只维护一个值的状态
-* 每个Paxos实例有多轮（Round）尝试写入，每个Round有2个Phase(Phase-1 写前读，Phase-2 写)
+* 每个Paxos实例有多轮（Round）尝试写入，每个Round有2个Phase(Phase-1 写前读，Phase-2 写)，只有Phase-1和Phase-2之间没有任何其他终端进行过Phase-1和Phase-2时才能成功完成Phase-2
 * 每个Round都必然有且仅有一个多数派读，但是不一定有多数派写（可能Phase-2之前有更新的Round的Phase-1出现）
 
 
