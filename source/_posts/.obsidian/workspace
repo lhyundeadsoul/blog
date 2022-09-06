@@ -9,8 +9,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Why-do-we-need-Paxos-and-and-How-it-works.md",
-            "mode": "source"
+            "file": "蔚来之夏•贝尔生存训练营•神农架站.md",
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -68,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Why-do-we-need-Paxos-and-and-How-it-works.md",
+                "file": "蔚来之夏•贝尔生存训练营•神农架站.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +89,15 @@
   },
   "active": "c2569cea03a5078b",
   "lastOpenFiles": [
-    "Why-do-we-need-Paxos-and-and-How-it-works.md",
-    "走吧，去火星！.md",
-    "README.zh.md",
-    "dynamic-pb-parser-介绍.md",
-    "df.md",
-    "一些工作方式心得.md",
-    "数据开发领域的点线面体.md",
-    "升维思考.md",
+    "一个产品开发的复杂度都是怎么被解决的？.md",
+    "小学数学应该学什么.md",
+    "系统构建英语语法.md",
+    "为什么TDengine 这么秀.md",
     "说通ABTest的数学逻辑.md",
-    "基于使用场景谈TestNG-JMockit-AssertJ的最佳实践.md"
+    "数据开发领域的点线面体.md",
+    "如何设计一个吸引人的演讲.md",
+    "数据库字段规范及乐观锁常见错误.md",
+    "在线服务设计方法论.md",
+    "怎么变得越来越差.md"
   ]
 }
