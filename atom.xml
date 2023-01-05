@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lihongyu.me/"/>
-  <updated>2022-12-03T04:46:46.279Z</updated>
+  <updated>2023-01-05T11:08:21.307Z</updated>
   <id>http://lihongyu.me/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>到底有没有前途</title>
+    <link href="http://lihongyu.me/2023/01/05/%E5%88%B0%E5%BA%95%E6%9C%89%E6%B2%A1%E6%9C%89%E5%89%8D%E9%80%94/"/>
+    <id>http://lihongyu.me/2023/01/05/到底有没有前途/</id>
+    <published>2023-01-05T10:35:11.000Z</published>
+    <updated>2023-01-05T11:08:21.307Z</updated>
+    
+    <content type="html"><![CDATA[<p>八年前看罗胖的视频<a href="https://www.youtube.com/watch?v=00xxWbbk9CI" target="_blank" rel="noopener">《中国为什么有前途》</a>，当时总结中国有前途的几个依据如下：</p><ol><li>资源陷阱：摆脱资源的诅咒</li><li>人口陷阱：<ol><li>人口被控制住了</li><li>年轻人，人人都奋斗，都拼搏，人人都不甘于现状</li><li>受教育人口多，可以有更细密的分工与合作（西班牙百万人–&gt;英国千万人–&gt;美国亿人–&gt;中国十亿人）</li></ol></li><li>赶超陷阱：不挑不拣，不封闭</li><li>政治陷阱：我们有强人政治，可以避免错误的民族主义抬头<br>视频的意思是，能同时绕开这四个陷阱的国家历史上只有新加坡做到过，而我们，将是第二个！</li></ol><a id="more"></a><p>然而，<br>八后之后，<br>我们再回看，<br>你觉得我们绕过了几个呢？</p><ol><li>人口被控制住了还是好事吗？</li><li>年轻人还想着奋斗吗？</li><li>还是不封闭吗？</li><li>民族主义抬头了吗？</li></ol><p>现在：</p><p>我们到底是法治还是人治？<br>人口老龄化势不可挡？<br>创新能成为国家增长支柱了吗？<br>科学规律、市场规律我们尊重了吗？</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;八年前看罗胖的视频&lt;a href=&quot;https://www.youtube.com/watch?v=00xxWbbk9CI&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《中国为什么有前途》&lt;/a&gt;，当时总结中国有前途的几个依据如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;资源陷阱：摆脱资源的诅咒&lt;/li&gt;
+&lt;li&gt;人口陷阱：&lt;ol&gt;
+&lt;li&gt;人口被控制住了&lt;/li&gt;
+&lt;li&gt;年轻人，人人都奋斗，都拼搏，人人都不甘于现状&lt;/li&gt;
+&lt;li&gt;受教育人口多，可以有更细密的分工与合作（西班牙百万人–&amp;gt;英国千万人–&amp;gt;美国亿人–&amp;gt;中国十亿人）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;赶超陷阱：不挑不拣，不封闭&lt;/li&gt;
+&lt;li&gt;政治陷阱：我们有强人政治，可以避免错误的民族主义抬头&lt;br&gt;视频的意思是，能同时绕开这四个陷阱的国家历史上只有新加坡做到过，而我们，将是第二个！&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>《还原真实的美联储》</title>
@@ -41,11 +70,11 @@
       <category term="读后感" scheme="http://lihongyu.me/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
     
     
+      <category term="经济" scheme="http://lihongyu.me/tags/%E7%BB%8F%E6%B5%8E/"/>
+    
       <category term="美联储" scheme="http://lihongyu.me/tags/%E7%BE%8E%E8%81%94%E5%82%A8/"/>
     
       <category term="金融" scheme="http://lihongyu.me/tags/%E9%87%91%E8%9E%8D/"/>
-    
-      <category term="经济" scheme="http://lihongyu.me/tags/%E7%BB%8F%E6%B5%8E/"/>
     
   </entry>
   
@@ -512,26 +541,6 @@
     
     
       <category term="演讲" scheme="http://lihongyu.me/tags/%E6%BC%94%E8%AE%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一个产品开发的复杂度都是怎么被解决的？</title>
-    <link href="http://lihongyu.me/2021/03/28/%E4%B8%80%E4%B8%AA%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E9%83%BD%E6%98%AF%E6%80%8E%E4%B9%88%E8%A2%AB%E8%A7%A3%E5%86%B3%E7%9A%84%EF%BC%9F/"/>
-    <id>http://lihongyu.me/2021/03/28/一个产品开发的复杂度都是怎么被解决的？/</id>
-    <published>2021-03-28T05:36:24.000Z</published>
-    <updated>2022-12-03T04:25:50.630Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/产品复杂度及对策.jpg" alt></p><a id="more"></a><p>本质复杂度无论用什么技术和工具都是不会解决的；<br>而偶然复杂度正在被 Low-code/Serveless/SerivceMesh 逐步简化，如果你的能力只体现在这部分，那么你应该对自己的可替代性提起注意了</p><h2 id="纯后端"><a href="#纯后端" class="headerlink" title="纯后端"></a>纯后端</h2><h3 id="Low-code"><a href="#Low-code" class="headerlink" title="Low code"></a>Low code</h3><p>简单业务逻辑可视化编程<br><img src="https://ucc.alicdn.com/pic/developer-ecology/0c60af73ee8b4c67a6d1f6bf61356099.png" alt></p><h3 id="Serveless"><a href="#Serveless" class="headerlink" title="Serveless"></a>Serveless</h3><p>docker+k8s解决web开发中横向扩展的问题</p><h3 id="ServiceMesh"><a href="#ServiceMesh" class="headerlink" title="ServiceMesh"></a>ServiceMesh</h3><p>解决web开发中纵向逻辑拆分的问题：业务逻辑和中间件逻辑</p><h2 id="前后端协作"><a href="#前后端协作" class="headerlink" title="前后端协作"></a>前后端协作</h2><h3 id="GraphQL"><a href="#GraphQL" class="headerlink" title="GraphQL"></a>GraphQL</h3><ol><li>web开发本质上是在做一个信息流，流动的双方是前端 和 后端，前端是后端 的client，后端 是前端 的数据库</li><li>数据库有一个很好的设计 ，就是用sql表达”我要什么数据”， 用sql解析器和存储引擎表达”我怎么得到数据”</li><li>因此，给前端 一个QL，让真正对数据有需求的前端 表达”我要什么数据”，让数据拥有者只解决怎么得到数据的问题</li><li>GraphQL诞生</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/产品复杂度及对策.jpg&quot; alt&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="http://lihongyu.me/tags/web/"/>
     
   </entry>
   
