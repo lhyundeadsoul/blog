@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="Jared&#39;s Blog">
 <meta property="og:description" content="工作多年，期间既做过要求强一致的系统，也做过要求低延时、高吞吐的系统，还搞过微服务的拆分和管理等工作。 在这个领域里做了这么久，零零散散写过些东西，但是一直没有完整、系统地总结过这个领域里的方法论，现在是时候完成它了。 千言万语一张表：（注意里面子项有链接，可以深入了解）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-12-03T04:25:50.634Z">
+<meta property="og:updated_time" content="2023-01-05T14:16:16.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在线服务设计方法论">
 <meta name="twitter:description" content="工作多年，期间既做过要求强一致的系统，也做过要求低延时、高吞吐的系统，还搞过微服务的拆分和管理等工作。 在这个领域里做了这么久，零零散散写过些东西，但是一直没有完整、系统地总结过这个领域里的方法论，现在是时候完成它了。 千言万语一张表：（注意里面子项有链接，可以深入了解）">
@@ -482,7 +482,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2022-12-03 12:25:50" itemprop="dateModified" datetime="2022-12-03T12:25:50+08:00">2022-12-03</time>
+                <time title="Modified: 2023-01-05 22:16:16" itemprop="dateModified" datetime="2023-01-05T22:16:16+08:00">2023-01-05</time>
               
             
           </span>
@@ -535,7 +535,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">556</span>
+                <span title="Symbols count in article">888</span>
               
 
               
@@ -615,6 +615,21 @@
 </tr>
 </tbody>
 </table>
+<h3 id="开发原则总结"><a href="#开发原则总结" class="headerlink" title="开发原则总结"></a>开发原则总结</h3><ol>
+<li>用下一次的同步来表征上一次同步的ack，减少ack过程</li>
+<li>运营支撑系统很重要，看不到业务监控等于没有业务</li>
+<li>实现需求最大的困难不是设计出一个方案并实现出来，而是需要在若干个可能的方案中，甄选出最简单实用的那个。</li>
+<li>大系统小做：除了最原子的业务（e.g.支付、打标）是开发出来的，大部分业务是涌现出来的（e.g.支付+补全—&gt;下发、微信单聊/群聊 对接收消息逻辑来说是统一的）</li>
+<li>极简设计：最简单的方案最一致，最一致的方案最可靠</li>
+<li>监控</li>
+<li><ol>
+<li>COE报告侧重于：如何避免同类型故障再次发生、提高故障主动发现能力、缩短故障响应和处理过程</li>
+<li>ump key—&gt;agent collect—&gt;统一监控页面和报警配置</li>
+</ol>
+</li>
+<li>master-master</li>
+<li>协程</li>
+</ol>
 
       
     </div>
@@ -728,8 +743,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -989,6 +1013,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发原则总结"><span class="nav-number">1.</span> <span class="nav-text">开发原则总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -1025,7 +1066,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">1:01</span>
+    <span title="Reading time total">1:02</span>
   
 </div>
 
