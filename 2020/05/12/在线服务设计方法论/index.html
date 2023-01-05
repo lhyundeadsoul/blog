@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="Jared&#39;s Blog">
 <meta property="og:description" content="工作多年，期间既做过要求强一致的系统，也做过要求低延时、高吞吐的系统，还搞过微服务的拆分和管理等工作。 在这个领域里做了这么久，零零散散写过些东西，但是一直没有完整、系统地总结过这个领域里的方法论，现在是时候完成它了。 千言万语一张表：（注意里面子项有链接，可以深入了解）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2023-01-05T14:16:16.286Z">
+<meta property="og:updated_time" content="2023-01-05T14:18:11.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在线服务设计方法论">
 <meta name="twitter:description" content="工作多年，期间既做过要求强一致的系统，也做过要求低延时、高吞吐的系统，还搞过微服务的拆分和管理等工作。 在这个领域里做了这么久，零零散散写过些东西，但是一直没有完整、系统地总结过这个领域里的方法论，现在是时候完成它了。 千言万语一张表：（注意里面子项有链接，可以深入了解）">
@@ -482,7 +482,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2023-01-05 22:16:16" itemprop="dateModified" datetime="2023-01-05T22:16:16+08:00">2023-01-05</time>
+                <time title="Modified: 2023-01-05 22:18:11" itemprop="dateModified" datetime="2023-01-05T22:18:11+08:00">2023-01-05</time>
               
             
           </span>
@@ -535,7 +535,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">888</span>
+                <span title="Symbols count in article">1.8k</span>
               
 
               
@@ -549,7 +549,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -630,6 +630,24 @@
 <li>master-master</li>
 <li>协程</li>
 </ol>
+<h3 id="订单系统感悟汇总"><a href="#订单系统感悟汇总" class="headerlink" title="订单系统感悟汇总"></a>订单系统感悟汇总</h3><p>在订单二期需求讨论过程中，订单中心的定位和各字段的理解在不断更新和变化。拥抱需求变化，但是要以开发过程有可固化的原则为前提。</p>
+<p>以下是讨论过程中形成的订单中心系统构建原则，欢迎拍砖，没被砖拍到的地方就默认可以执行了：</p>
+<p>to 产品：</p>
+<p>1、订单类型用于区分不同的状态流（如：实物、服务），订单打标用于区分同一状态流下的不同业务分支（如：定时达、周期送）</p>
+<p>2、订单中心与外系统的关联关系只通过系统id保持（如：订单号，支付单号，结算单号……），不存储外系统内部业务信息</p>
+<p>3、只提供订单号到外系统id的正向翻译功能，不提供逆向翻译功能</p>
+<p>4、废除的原则：订单中心不主动改变订单状态，一切状态变更由外系统触发；改为：订单中心只做业务状态（如：等待付款、配送中）和系统状态（系统取消、暂停）的互转</p>
+<p>to 研发：</p>
+<p>1、如订单状态、订单类型等一切业务属性定义的变更都以支撑业务运转为准，只要系统技术结构不变，开发人员无需过多干预</p>
+<p>2、领域系统（订单系统、结算系统）是骨骼，骨骼和骨骼之间要有关节，跨领域的领域语言翻译工作应在“关节”上进行</p>
+<p>to All：</p>
+<p>个人认为：</p>
+<p>系统最后僵化死亡，往往是因为过多的业务限制，而不是技术无法支持，典型：京东现有的订单系统。所以在业务梳理中，最好不要以“流程是通的，流程可用”为目标。</p>
+<p>订单中心做为业务核心系统，无论在业务上还是技术上，都应尽量将其设计成功能可插拔的插件式结构，方便扩展维护。</p>
+<p>目前，业务上可以认为各系统id就是业务数据上的唯一插件接口，希望各位尽量保持这个插件接口的纯洁性。</p>
+<p>技术上的插件式结构还在探索中，欢迎提供好的建议。</p>
+<p>另外，有一个观点，欢迎大家拍砖：</p>
+<p>系统开发是有边界的，不能和现实世界所有特殊情况都完全对应（例如系统里不会有“配送员发生交通事故，正在就医”这种状态，但是现实世界会有），实际业务开展应该以系统操作和线下灵活处理共同完成，不能一切都依赖系统。实际业务中的特殊情况应首要考虑线下灵活处理，而不是增加系统功能。总之，系统功能应该是可预期的，功能数量应该是可收敛的。</p>
 
       
     </div>
@@ -1023,7 +1041,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发原则总结"><span class="nav-number">1.</span> <span class="nav-text">开发原则总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发原则总结"><span class="nav-number">1.</span> <span class="nav-text">开发原则总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#订单系统感悟汇总"><span class="nav-number">2.</span> <span class="nav-text">订单系统感悟汇总</span></a></li></ol></div>
             
 
           </div>
@@ -1057,7 +1075,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">37k</span>
+    <span title="Symbols count total">38k</span>
   
 
   
@@ -1066,7 +1084,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">1:02</span>
+    <span title="Reading time total">1:03</span>
   
 </div>
 
