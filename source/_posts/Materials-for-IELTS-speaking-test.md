@@ -29,7 +29,7 @@ As you know, F1 is one of the most competitive sports in the world. Some have qu
 
 ### PERSON
 
-I'm going to describe who I think is the most respectful person: Zhou Guanyu, the first-ever Chinese F1 driver.
+I'm going to describe who I think is the most respected person: Zhou Guanyu, the first-ever Chinese F1 driver.
 
 As you know, F1 is one of the most competitive sports in the world, as there are only 20 places available in each race. Therefore, it's tough to survive in F1, and the people who participate in the game must have the most **enthusiasm and energy** to compete at such a high level. Undoubtedly, Zhou is one of these people.
 
