@@ -31,7 +31,7 @@ As you know, F1 is one of the most competitive sports in the world. Some have qu
 
 I'm going to describe who I think is the most respected person: Zhou Guanyu, the first-ever Chinese F1 driver.
 
-As you know, F1 is one of the most competitive sports in the world, as there are only 20 places available in each race. Therefore, it's tough to survive in F1, and the people who participate in the game must have the most **enthusiasm and energy** to compete at such a high level. Undoubtedly, Zhou is one of these people.
+As you know, F1 is one of the most competitive sports in the world, as there are only 20 places available in each race. Therefore, it's tough to survive in F1, and the people who participate in the game must have the most **enthusiasm and energy** to compete at such a high level. No one can deny the fact that Zhou is one of these people.
 
 Furthermore, he has had to deal with **enormous pressure** since becoming China's first Formula One driver. If we consider **all the expectations f**rom his Chinese fans, it's clear that this can **create a huge amount of pressure** on him. So when he finished in the 10th position and scored a point in **his debut in F1**, he cried with excitement. It is an absolute **once-in-a-lifetime experience.** I could feel his **immense** relief. I vividly remember how he executed a string of overtaking moves during the race, which **demonstrated** his determination to succeed. As Chinese fans, we were all proud of him.
 
