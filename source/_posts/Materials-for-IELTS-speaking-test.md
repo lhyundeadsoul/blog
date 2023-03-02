@@ -3,9 +3,11 @@ title: Materials for IELTS speaking test
 date: 2023-03-02 21:34:41
 tags: English
 ---
-<!-- more -->
+
 
 ### EVENT
+
+<!-- more -->
 
 I’m going to describe what I think was the most **memorable** event in recent years: the first F1 Grand Prix in 2022, the Bahrain Grand Prix.
 
