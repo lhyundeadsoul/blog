@@ -1,115 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2020 Flink forward 大会</title>
-    <url>/2020/12/24/2020%20Flink%20forward%E5%A4%A7%E4%BC%9A/</url>
-    <content><![CDATA[<h3 id="标准benchmark"><a href="#标准benchmark" class="headerlink" title="标准benchmark"></a>标准benchmark</h3><p>Steaming benchmark</p>
-<h3 id="单节点重启"><a href="#单节点重启" class="headerlink" title="单节点重启"></a>单节点重启</h3><h3 id="非全局checkpoint"><a href="#非全局checkpoint" class="headerlink" title="非全局checkpoint"></a>非全局checkpoint</h3><a id="more"></a>
-<h3 id="全链路数据实时化-to-实时离线一体化"><a href="#全链路数据实时化-to-实时离线一体化" class="headerlink" title="全链路数据实时化 to 实时离线一体化"></a>全链路数据实时化 to 实时离线一体化</h3><p>2021是元年</p>
-<p>数据批量集成和增量集成一体化</p>
-<p>技术栈分离</p>
-<p>逻辑分离</p>
-<p>团队分离</p>
-<h3 id="数据湖-flink-iceberg-比较成熟"><a href="#数据湖-flink-iceberg-比较成熟" class="headerlink" title="数据湖 flink+iceberg 比较成熟"></a>数据湖 flink+iceberg 比较成熟</h3><p>支持数据更新</p>
-<h3 id="PyFlink-AI-支持Python"><a href="#PyFlink-AI-支持Python" class="headerlink" title="PyFlink   AI 支持Python"></a>PyFlink   AI 支持Python</h3><h3 id="大数据和AI一体化"><a href="#大数据和AI一体化" class="headerlink" title="大数据和AI一体化"></a>大数据和AI一体化</h3><h4 id="Alink-开源算法"><a href="#Alink-开源算法" class="headerlink" title="Alink 开源算法"></a>Alink 开源算法</h4><h4 id="flink-AI-extended-alibaba"><a href="#flink-AI-extended-alibaba" class="headerlink" title="flink AI extended(alibaba)"></a>flink AI extended(alibaba)</h4><h5 id="DL-on-Flink"><a href="#DL-on-Flink" class="headerlink" title="DL on Flink"></a>DL on Flink</h5><h5 id="Flink-AI-Flow"><a href="#Flink-AI-Flow" class="headerlink" title="Flink AI Flow"></a>Flink AI Flow</h5><h3 id="Flink-Native-on-K8s"><a href="#Flink-Native-on-K8s" class="headerlink" title="Flink Native on K8s"></a>Flink Native on K8s</h3><h3 id="京东Flink"><a href="#京东Flink" class="headerlink" title="京东Flink"></a>京东Flink</h3><h4 id="容器化k8s部署，用物理机网络解决虚拟网络性能问题"><a href="#容器化k8s部署，用物理机网络解决虚拟网络性能问题" class="headerlink" title="容器化k8s部署，用物理机网络解决虚拟网络性能问题"></a>容器化k8s部署，用物理机网络解决虚拟网络性能问题</h4><h4 id="framework和业务日志隔离和级别动态配置"><a href="#framework和业务日志隔离和级别动态配置" class="headerlink" title="framework和业务日志隔离和级别动态配置"></a>framework和业务日志隔离和级别动态配置</h4><h4 id="窗口支持增量运算"><a href="#窗口支持增量运算" class="headerlink" title="窗口支持增量运算"></a>窗口支持增量运算</h4>]]></content>
-      <categories>
-        <category>技术趋势</category>
-      </categories>
-      <tags>
-        <tag>Flink</tag>
-        <tag>批流一体</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Dynamic-PB-Parser：搞定Protobuf数据动态解析</title>
-    <url>/2019/04/17/dynamic-pb-parser-%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="核心痛点"><a href="#核心痛点" class="headerlink" title="核心痛点"></a>核心痛点</h3><p>使用ODPS(hive) SQL解析JSON数据的时候你可能用过get_json_object这个内置UDF，其灵活性给JSON数据解析带来了很多的便利。</p>
-<p>但是对于Protobuf描述的数据，解析工作就麻烦太多了，即使解析一个字段，也要写一个完整的UDF(或UDTF)，并且上传各种protobuf的jar，然而这还没有完，如果新需求来了，即使仅改了一个字段的解析需求，也需要再重新开发一个新的UDF来完成。时间久了，项目里会有很多地方散落着各种Protobuf数据解析的逻辑，如果再有些公共逻辑改变，还要涉及到重构。维护工作繁重。<br><a id="more"></a></p>
-<h3 id="本质原因"><a href="#本质原因" class="headerlink" title="本质原因"></a>本质原因</h3><p>出现以上问题的本质原因实际上是我们把“我们想要A字段”和“我们如何得到A字段”两件事给耦合在一起了。按照函数式的编程思想，“控制”和“逻辑”要分开，并且互不干扰，这个问题里，“我们如何得到A字段”就是控制，而“我们想要A字段”就是逻辑。</p>
-<h3 id="破局"><a href="#破局" class="headerlink" title="破局"></a>破局</h3><p>既然找到了耦合点，想办法解耦就是出路了。<br>首先，定义一套描述字段路径的语法规则，让它去表达“我们想要A字段”这件事；然后，开发一个可以解析这套语法的程序（类似编译器），去完成“我们如何得到A字段”这件事。这样就可以让两件事互相独立演进了。至此， <code>Dynamic-PB-Parser</code>也就呼之欲出了。</p>
-<h2 id="Dynamic-PB-Parser-能做什么"><a href="#Dynamic-PB-Parser-能做什么" class="headerlink" title="Dynamic-PB-Parser 能做什么"></a><code>Dynamic-PB-Parser</code> 能做什么</h2><p>一句话概括<code>Dynamic-PB-Parser</code>的功能：</p>
-<blockquote>
-<p>按一种简单的语法规则描述字段路径，并动态解析Protobuf数据中对应的字段值。</p>
-</blockquote>
-<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DynamicPBParser parser = DynamicPBParser.newBuilder()  </span><br><span class="line">.descFilePath(<span class="string">"xxx/xxx.desc"</span>)  </span><br><span class="line">.syntax(<span class="string">"StandardSyntax"</span>)  </span><br><span class="line">.build(); </span><br><span class="line">String name = parser.parse(content, <span class="string">'me.lihongyu.bean.Person$name'</span>);  </span><br><span class="line">BrandType brandType = parser.parse(content, <span class="string">'me.lihongyu.bean.Person$cloth.brand.type'</span>);  </span><br><span class="line">String email = parser.parse(parser.parse(content, <span class="string">'me.lihongyu.bean.Person$proto_data'</span>), <span class="string">'me.lihongyu.bean.AddressBook$email'</span>);</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
-<h2 id="Dynamic-PB-Parser-怎么做的"><a href="#Dynamic-PB-Parser-怎么做的" class="headerlink" title="Dynamic-PB-Parser 怎么做的"></a><code>Dynamic-PB-Parser</code> 怎么做的</h2><p>总体的思路：动态拿到schema(也就是message的定义)，用schema解析pb的数据得到一个完整对象，沿着字段路径，不断循环得到下一级对象直到最后一级。一图胜千言：<br><img src="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/acda938c9e08972c18fb2217c0fab686.png" alt="图片.png"></p>
-<h3 id="实现过程中的一些细节"><a href="#实现过程中的一些细节" class="headerlink" title="实现过程中的一些细节"></a>实现过程中的一些细节</h3><h4 id="可扩展的语法接口"><a href="#可扩展的语法接口" class="headerlink" title="可扩展的语法接口"></a>可扩展的语法接口</h4><p>在<code>Dynamic-PB-Parser</code>里定义了<code>Syntax</code>接口，其中定义了语法相关的解析逻辑，实现此接口，可以自定义一套自己的字段路径语法规则。默认提供的标准语法类似这样：<code>pkg1.XXX $ field1.field2[*].(pkg1.extension_field)[1]</code>，既支持数据，也支持用<code>()</code>表达的扩展字段。详细介绍见参考中的ATA文章。</p>
-<h4 id="获取FieldValue"><a href="#获取FieldValue" class="headerlink" title="获取FieldValue"></a>获取FieldValue</h4><p>按FieldDescriptor获取FieldValue时，如果是扩展字段，需要在<code>UnknownFields</code>里找到字段值，并按不同字段类型选择不同的取值逻辑。</p>
-<table>
-<thead>
-<tr>
-<th>字段值存储位置(in Field)</th>
-<th>字段类型</th>
-<th>取值逻辑</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>VarintList</td>
-<td>ENUM</td>
-<td>按ENUM定义的序号获取</td>
-</tr>
-<tr>
-<td>VarintList</td>
-<td>BOOLEAN</td>
-<td>0代表FALSE、1代表TRUE</td>
-</tr>
-<tr>
-<td>VarintList</td>
-<td>INT</td>
-<td>直接取VarintList[0]</td>
-</tr>
-<tr>
-<td>VarintList</td>
-<td>LONG</td>
-<td>直接取VarintList[0]</td>
-</tr>
-<tr>
-<td>Fixed32List</td>
-<td>FLOAT</td>
-<td>将用int表达的字节转为float：Float.intBitsToFloat</td>
-</tr>
-<tr>
-<td>Fixed64List</td>
-<td>DOUBLE</td>
-<td>将用long表达的字节转为double：Double.longBitsToDouble</td>
-</tr>
-<tr>
-<td>LengthDelimitedList</td>
-<td>MESSAGE</td>
-<td>DynamicMessage.parseFrom(LengthDelimitedList[0])</td>
-</tr>
-<tr>
-<td>LengthDelimitedList</td>
-<td>STRING</td>
-<td>LengthDelimitedList[0].toStringUtf8()</td>
-</tr>
-<tr>
-<td>LengthDelimitedList</td>
-<td>BYTE_STRING</td>
-<td>直接输出LengthDelimitedList[0]</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Dynamic-PB-Parser-的性能优化"><a href="#Dynamic-PB-Parser-的性能优化" class="headerlink" title="Dynamic-PB-Parser 的性能优化"></a><code>Dynamic-PB-Parser</code> 的性能优化</h2><h3 id="解析逻辑的两个阶段"><a href="#解析逻辑的两个阶段" class="headerlink" title="解析逻辑的两个阶段"></a>解析逻辑的两个阶段</h3><p><code>Dynamic-PB-Parser</code>将解析逻辑分为<code>load</code>和<code>parse</code>两个阶段：</p>
-<ol>
-<li><code>load</code>阶段完成schema的加载过程，其中包括了对扩展字段的schema处理</li>
-<li><code>parse</code>阶段完成字段路径的解析，和按路径逐步找到字段值的功能</li>
-</ol>
-<h3 id="通过缓存减少重复的parse逻辑"><a href="#通过缓存减少重复的parse逻辑" class="headerlink" title="通过缓存减少重复的parse逻辑"></a>通过缓存减少重复的parse逻辑</h3><ol>
-<li><code>descriptorCache</code>在<code>load</code>阶段初始化，缓存了descriptorName和descriptor的对应关系，在同一个JVM里只需要初始化一次即可</li>
-<li><code>extensionFieldCache</code>在<code>load</code>阶段初始化，缓存了desc文件里全部扩展字段名和扩展字段实例的对应关系。用于后续解析扩展字段时提取FieldDescriptor</li>
-<li><code>fieldPathCache</code>在<code>parse</code>阶段初始化，缓存了完整字段路径和字段拆分后结果的对应关系。避免每次都需要做split和对<code>()</code>表达的扩展字段路径的解析</li>
-<li><code>fieldNameCache</code>和<code>fieldIndexCache</code>在<code>parse</code>阶段初始化，分别缓存了field和fieldName（<code>abc[*]-&gt;abc</code>），以及field和fieldIndex（<code>abc[*]-&gt;*</code>）的对应关系，避免每次解析都要执行正则匹配。</li>
-</ol>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p><code>Dynamic-PB-Parser</code>具体的实现细节还有很多，感兴趣的同学可以checkout Github repo。虽然不是什么高深的技术，但是背后也是对“控制和逻辑正交”的函数式编程思维的一次成功实践。<br>由于所在项目组的特殊性，这种用Protobuf描述的数据又非常多且普遍，用传统的protobuf的解析方式给开发人员的维护工作带来了很大痛苦，因此开发了<code>Dynamic-PB-Parser</code>这个工具，希望能帮助到更多和我有类似问题的开发同学。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>hive UDFJson:<a href="https://github.com/apache/hive/blob/master/ql/src/java/org/apache/hadoop/hive/ql/udf/UDFJson.java" target="_blank" rel="noopener">https://github.com/apache/hive/blob/master/ql/src/java/org/apache/hadoop/hive/ql/udf/UDFJson.java</a><br>github：<a href="https://github.com/lhyundeadsoul/pb-parser" target="_blank" rel="noopener">https://github.com/lhyundeadsoul/pb-parser</a><br>欢迎提issue和MR</p>
+    <title>How to handle this small matter of learning English</title>
+    <url>/2023/03/02/How-to-handle-this-small-matter-of-learning-English/</url>
+    <content><![CDATA[<p>If your goal is to speak English in practical conversation, then all you need to know is:<br><a id="more"></a><br><code>An English sentence is basically a complete &quot;subject-verb-object&quot; structure, with all other elements serving as modifiers or qualifiers.</code><br><br><br>and<br><br><br>` </p>
+<ul>
+<li><p>表达思想、观点</p>
+<ul>
+<li><p>What I think is that…</p>
+</li>
+<li><p>All I want to do is …</p>
+</li>
+<li><p>…, which I think is (adj.) 我觉得这个…</p>
+</li>
+<li><p>…, which means that … 这意味着…</p>
+</li>
+</ul>
+</li>
+<li><p>表达原因</p>
+<ul>
+<li><p>the reason why … is that …</p>
+</li>
+<li><p>the reason … is because …</p>
+</li>
+<li><p>… and this is why …</p>
+</li>
+<li><p>Given the fact that… 鉴于…</p>
+</li>
+</ul>
+</li>
+<li><p>表达一般假设</p>
+<ul>
+<li><p>if/ provided that/as long as …</p>
+<ul>
+<li>Provided that I am free at the weekend, I go back to my parent’s place.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>表达虚拟假设</p>
+<ul>
+<li><p>It would be… if … were/could/had…</p>
+</li>
+<li><p>I wish… were/could/had …</p>
+</li>
+</ul>
+</li>
+<li><p>表达可能性</p>
+<ul>
+<li><p>It’s highly likely that …</p>
+</li>
+<li><p>there will definitely/probably be (adj.)</p>
+<ul>
+<li>There will definitely be fewer and fewer people regarding newspapers as their main source of information.</li>
+</ul>
+</li>
+<li><p>It’s unlikely that</p>
+</li>
+</ul>
+</li>
+<li><p>表达转折</p>
+<ul>
+<li><p>despite the fact that …, …</p>
+</li>
+<li><p>…unless…</p>
+</li>
+<li><p>… whereas…</p>
+</li>
+</ul>
+</li>
+<li><p>表达对比</p>
+<ul>
+<li><p>unlike…</p>
+</li>
+<li><p>much/ a lot/ far more … than …</p>
+</li>
+<li><p>it’s not as … as …</p>
+<ul>
+<li>Living in a city is not as much comfortable as living in the countryside</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>表达肯定的态度</p>
+<ul>
+<li><p>there is no doubt that…</p>
+</li>
+<li><p>it goes without saying that …</p>
+</li>
+<li><p>no one can deny the fact that…</p>
+</li>
+</ul>
+</li>
+<li><p>表达无论何时（何地）…</p>
+<ul>
+<li><p>wherever/whenever</p>
+</li>
+<li><p>no matter where/ no matter when</p>
+</li>
+</ul>
+</li>
+<li><p>表达每当…</p>
+<ul>
+<li>Every time I …</li>
+</ul>
+</li>
+<li><p>表达强调</p>
+<ul>
+<li><p>It is … that/who …</p>
+</li>
+<li><p>It is important/essential/crucial/vital that …</p>
+</li>
+<li><p>It is important/necessary/convenient/not uncommon for sb. to do …</p>
+</li>
+</ul>
+</li>
+<li><p>表达趋势（变得越来越…）</p>
+<ul>
+<li><p>is becoming/ has become + increasingly/ more and more …</p>
+<ul>
+<li>My hometown is becoming increasingly congested.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>表达能够</p>
+<ul>
+<li>will be able to do</li>
+</ul>
+</li>
+<li><p>表达目的</p>
+<ul>
+<li><p>so that…</p>
+</li>
+<li><p>in order to…</p>
+</li>
+</ul>
+</li>
+<li><p>表达是否</p>
+<ul>
+<li><p>whether or not…</p>
+<ul>
+<li>It’s not a question of whether or not we should relax, it should be how we relax.<br>`</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
-      <categories>
-        <category>开源产品</category>
-      </categories>
       <tags>
-        <tag>pb-parser</tag>
+        <tag>english</tag>
       </tags>
   </entry>
   <entry>
@@ -138,442 +178,6 @@
       </categories>
       <tags>
         <tag>经济学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《家庭财务管理》笔记</title>
-    <url>/2022/03/08/%E3%80%8A%E5%AE%B6%E5%BA%AD%E8%B4%A2%E5%8A%A1%E7%AE%A1%E7%90%86%E3%80%8B%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ol>
-<li><strong>财务管理</strong>本质是<strong>事务管理</strong>，而不是投资赚钱</li>
-<li>财务管理就是定目标、选策略、用工具（理财工具、负债工具）</li>
-<li><strong>目标事务</strong>：医疗&gt;买房&gt;养老（生存问题）&gt;教育（发展问题）<ol>
-<li>日常开支账户：随时保证3-6个月应急储备，不能动</li>
-</ol>
-</li>
-</ol>
-<a id="more"></a>
-<ol start="4">
-<li><strong>理财工具</strong><ol>
-<li>明确为什么事而理财更重要！旅行？教育？专款专用</li>
-<li>三步法确定理财方案：事务的时间点、可以承担的风险、可以参与的本金（本金=收入-日常-储蓄-负债）</li>
-<li>收入盈余（就是上一条的本金）20-50万的，防守:稳定:进攻=2:7:1</li>
-</ol>
-</li>
-<li><strong>负债工具</strong><ol>
-<li>负债是一种未来收入折现的现金流管理方案，可以提供流动性，是中性的产品</li>
-<li>刚性支出可负债，柔性支出酌情负债，投资支出不可负债</li>
-<li>健康负责标准：收入-日常消费-储蓄&gt;负债</li>
-</ol>
-</li>
-<li><strong>健康是第一要务</strong><ol>
-<li>小病：医保+普惠医疗（京惠保？）</li>
-<li>中病：医疗险-&gt;保医疗费用（保当下）</li>
-<li>重疾：重疾险-&gt;赔付（保未来）<ol>
-<li>保额=5年生活支出总额（重疾平均5年治疗期）</li>
-<li>消费型（保额大）要优先于储蓄型（有返还），因为这笔钱就是要解决重疾问题</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><strong>买房</strong><ol>
-<li>自住？投资？逻辑完全不同</li>
-<li>房贷占收入比40-60%</li>
-</ol>
-</li>
-<li><strong>孩子</strong>，只需要关注健康和教育<ol>
-<li>健康：“一老一小”</li>
-<li>教育：非义务教育阶段（高中、大学）的规划</li>
-<li>自己的优先级要高于孩子</li>
-</ol>
-</li>
-<li><strong>养老</strong>，未来百岁人生是常态，需要有三个账户处理养老问题<ol>
-<li>日常支出：社保养老、房租养老、商业养老</li>
-<li>应急支出：储蓄、重疾险</li>
-<li>休闲支出：剩余闲钱，可承担一定风险</li>
-<li>养老三阶段：自由养老、居家养老、介入式养老；花钱由少变多</li>
-</ol>
-</li>
-<li><strong>遗产传承</strong>，每个家庭的标准动作，不是富人的专利<ol>
-<li>传：钱给谁？给多少？怎么给？什么时间给？<ol>
-<li>立遗嘱：找律师，录视频，避免家庭纠纷</li>
-<li>现金杠杆：保险（年金保险）</li>
-</ol>
-</li>
-<li>承：要下一代用得好这笔钱：信托、慈善基金会</li>
-</ol>
-</li>
-</ol>
-<h3 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h3><ul>
-<li style="list-style: none"><input type="checkbox"> 应急账户</li>
-<li style="list-style: none"><input type="checkbox"> 医疗保险不足</li>
-<li style="list-style: none"><input type="checkbox"> 养老保险不足</li>
-<li style="list-style: none"><input type="checkbox"> 理财目标不明确，没有做到专款专用</li>
-<li style="list-style: none"><input type="checkbox"> 盈余理财结构不合理</li>
-<li style="list-style: none"><input type="checkbox"> 京惠保？</li>
-<li style="list-style: none"><input type="checkbox"> 教育规划不明确？</li>
-</ul>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>理财</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《文明、现代化、价值投资与中国》</title>
-    <url>/2020/10/27/%E3%80%8A%E6%96%87%E6%98%8E%E3%80%81%E7%8E%B0%E4%BB%A3%E5%8C%96%E3%80%81%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E4%B8%AD%E5%9B%BD%E3%80%8B/</url>
-    <content><![CDATA[<h2 id="文明划分的维度"><a href="#文明划分的维度" class="headerlink" title="文明划分的维度"></a>文明划分的维度</h2><ol>
-<li>能量的汲取能力</li>
-<li>社会单元组织动员能力</li>
-<li>科技实力</li>
-</ol>
-<a id="more"></a>
-<h2 id="现代化的定义"><a href="#现代化的定义" class="headerlink" title="现代化的定义"></a>现代化的定义</h2><p><code>现代化 = 现代科技 × 自由市场经济</code></p>
-<p>自由市场：自由商品交换 1+1&gt;2，自由的知识 1+1&gt;4</p>
-<h2 id="当前国际发展的刚性限制"><a href="#当前国际发展的刚性限制" class="headerlink" title="当前国际发展的刚性限制"></a>当前国际发展的刚性限制</h2><h3 id="市场越大效率越高，所以最终全球只会有一个大市场"><a href="#市场越大效率越高，所以最终全球只会有一个大市场" class="headerlink" title="市场越大效率越高，所以最终全球只会有一个大市场"></a>市场越大效率越高，所以最终全球只会有一个大市场</h3><p>3.0文明铁律：最大的市场终将成为唯一的市场</p>
-<h3 id="核武器时代下的共同毁灭原则（Mutually-Assured-Destruction）M-A-D机制"><a href="#核武器时代下的共同毁灭原则（Mutually-Assured-Destruction）M-A-D机制" class="headerlink" title="核武器时代下的共同毁灭原则（Mutually Assured Destruction）M.A.D机制"></a>核武器时代下的共同毁灭原则（Mutually Assured Destruction）M.A.D机制</h3><h3 id="全人类合作关联成一个整体"><a href="#全人类合作关联成一个整体" class="headerlink" title="全人类合作关联成一个整体"></a>全人类合作关联成一个整体</h3><p>温室气体排放、极端恐怖分子、金融危机</p>
-<h2 id="价值投资"><a href="#价值投资" class="headerlink" title="价值投资"></a>价值投资</h2><h3 id="四个理念"><a href="#四个理念" class="headerlink" title="四个理念"></a>四个理念</h3><ol>
-<li>股票不仅是可以买卖的证券，实际上是代表对公司所有权的证书。</li>
-<li>市场是证券买卖的工具，并不是老师。它只告诉你价格，不会告诉你价值</li>
-<li>投资要留有安全边际，公司市场价格远远低于内在价值时买入</li>
-<li>建立自己的能力圈，赚能力圈里的钱。能力圈是边界，没有边界的能力不是真的能力。如果你 一个观点，你必须要能够告诉我这个观点不成立的条件，这时它才是一个真正的观点</li>
-</ol>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>历史</tag>
-        <tag>文明</tag>
-        <tag>经济</tag>
-        <tag>投资</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Why do we need Paxos and and How it works</title>
-    <url>/2022/06/30/Why-do-we-need-Paxos-and-and-How-it-works/</url>
-    <content><![CDATA[<blockquote>
-<p>参考<a href="https://blog.openacid.com/algo/paxos/" target="_blank" rel="noopener">《可靠分布式系统-paxos的直观解释》</a></p>
-</blockquote>
-<pre class="mermaid" style="text-align: center;">
-            journey
-            %%{init: {'theme':'default'}}%%
-	title Why do we need Paxos？How it works?
-	section 单机
-		单机: 1 : 可用性低
-	section 多副本
-		异步复制:  2: 一致性低
-		同步复制:  2: 可用性低
-		半同步复制:  3: 一致性低, 2个写并发导致2个状态
-		多数派读写+时间戳: 5: 一致性低, client宕机导致读到2个状态, 2并发写覆盖
-	section Paxos
-		写前读: 7
-          </pre>
-<a id="more"></a>
-<p>一些方便理解的重点</p>
-<ul>
-<li>每个Paxos实例只维护一个值的状态</li>
-<li>每个Paxos实例有多轮（Round）尝试写入，每个Round有2个Phase(Phase-1 写前读，Phase-2 写)，只有Phase-1和Phase-2之间没有任何其他终端进行过Phase-1和Phase-2时才能成功完成Phase-2</li>
-<li>客户端取到时间戳不一致的两个不同值时，有义务让更早的向更新的版本去对齐</li>
-<li>每个Round都必然有且仅有一个多数派读，但是不一定有多数派写（可能Phase-2之前有更新的Round的Phase-1出现）</li>
-</ul>
-<p><em>mermaid 的图有遮盖，看下面这个脑补看不到的汉字吧 :)</em></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">journey</span><br><span class="line">	title Why do we need Paxos？How it works?</span><br><span class="line">	section 单机</span><br><span class="line">		单机: 1 : 可用性低</span><br><span class="line">	section 多副本</span><br><span class="line">		异步复制:  2: 一致性低</span><br><span class="line">		同步复制:  2: 可用性低</span><br><span class="line">		半同步复制:  3: 一致性低, 2个写并发导致2个状态</span><br><span class="line">		多数派读写+时间戳: 5: 一致性低, client宕机导致读到2个状态, 2并发写覆盖</span><br><span class="line">	section Paxos</span><br><span class="line">		写前读: 7</span><br></pre></td></tr></table></figure>
-<h3 id="Raft-动画演示"><a href="#Raft-动画演示" class="headerlink" title="Raft 动画演示"></a>Raft 动画演示</h3><p><a href="http://www.kailing.pub/raft/index.html" target="_blank" rel="noopener">http://www.kailing.pub/raft/index.html</a></p>
-]]></content>
-      <tags>
-        <tag>一致性共识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个产品开发的复杂度都是怎么被解决的？</title>
-    <url>/2021/03/28/%E4%B8%80%E4%B8%AA%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E9%83%BD%E6%98%AF%E6%80%8E%E4%B9%88%E8%A2%AB%E8%A7%A3%E5%86%B3%E7%9A%84%EF%BC%9F/</url>
-    <content><![CDATA[<p><img src="/images/产品复杂度及对策.jpg" alt></p>
-<a id="more"></a>
-<p>本质复杂度无论用什么技术和工具都是不会解决的；<br>而偶然复杂度正在被 Low-code/Serveless/SerivceMesh 逐步简化，如果你的能力只体现在这部分，那么你应该对自己的可替代性提起注意了</p>
-<h2 id="纯后端"><a href="#纯后端" class="headerlink" title="纯后端"></a>纯后端</h2><h3 id="Low-code"><a href="#Low-code" class="headerlink" title="Low code"></a>Low code</h3><p>简单业务逻辑可视化编程<br><img src="https://ucc.alicdn.com/pic/developer-ecology/0c60af73ee8b4c67a6d1f6bf61356099.png" alt></p>
-<h3 id="Serveless"><a href="#Serveless" class="headerlink" title="Serveless"></a>Serveless</h3><p>docker+k8s解决web开发中横向扩展的问题</p>
-<h3 id="ServiceMesh"><a href="#ServiceMesh" class="headerlink" title="ServiceMesh"></a>ServiceMesh</h3><p>解决web开发中纵向逻辑拆分的问题：业务逻辑和中间件逻辑</p>
-<h2 id="前后端协作"><a href="#前后端协作" class="headerlink" title="前后端协作"></a>前后端协作</h2><h3 id="GraphQL"><a href="#GraphQL" class="headerlink" title="GraphQL"></a>GraphQL</h3><ol>
-<li>web开发本质上是在做一个信息流，流动的双方是前端 和 后端，前端是后端 的client，后端 是前端 的数据库</li>
-<li>数据库有一个很好的设计 ，就是用sql表达”我要什么数据”， 用sql解析器和存储引擎表达”我怎么得到数据”</li>
-<li>因此，给前端 一个QL，让真正对数据有需求的前端 表达”我要什么数据”，让数据拥有者只解决怎么得到数据的问题</li>
-<li>GraphQL诞生</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个人工智能的诞生</title>
-    <url>/2021/01/02/%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E8%AF%9E%E7%94%9F/</url>
-    <content><![CDATA[<h1 id="一个人工智能的诞生"><a href="#一个人工智能的诞生" class="headerlink" title="一个人工智能的诞生"></a>一个人工智能的诞生</h1><h2 id="智能即分类"><a href="#智能即分类" class="headerlink" title="智能即分类"></a>智能即分类</h2><a id="more"></a>
-<h3 id="让数据可被分类"><a href="#让数据可被分类" class="headerlink" title="让数据可被分类"></a>让数据可被分类</h3><ol>
-<li>增加层数<ol>
-<li>目的：改变坐标系</li>
-<li>那改变坐标系的目的是什么呢？是因为一些在原坐标系下交叉的数据用线性结构（直线、平面、超平面）无法分开；要想分开，要结合改变坐标系和数据重分布两个手段</li>
-</ol>
-</li>
-<li>增加激活函数<ol>
-<li>目的：引入非线性变换，让数据重新分布。被激活函数作用后的数据会有机会重新分开</li>
-</ol>
-</li>
-<li>增加维度<ol>
-<li>目的：让低维中的数据在高维空间中变得稀疏，从而可分开</li>
-</ol>
-</li>
-</ol>
-<h3 id="通过不断的迭代，让数据真的被分开"><a href="#通过不断的迭代，让数据真的被分开" class="headerlink" title="通过不断的迭代，让数据真的被分开"></a>通过不断的迭代，让数据真的被分开</h3><ol>
-<li>增加loss函数<ol>
-<li>目的：给逼近“真相”一个依据，让loss函数的值最小即是模型的最终形态</li>
-</ol>
-</li>
-<li>增加学习率<ol>
-<li>目的：让梯度下降找loss函数最小值的过程既不要太慢，也不要因为太快而找不到真正的最小值</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>人工智能</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些工作方式心得</title>
-    <url>/2020/03/04/%E4%B8%80%E4%BA%9B%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%BF%83%E5%BE%97/</url>
-    <content><![CDATA[<ol>
-<li><p>自身</p>
-<ol>
-<li>关于思考方式<ol>
-<li>空间域：结构化思考：点线面体</li>
-<li>时间域：终局思维</li>
-<li>问题域：<ol>
-<li>定义问题、关键字、解题</li>
-<li>问题是。。。方案有1。。2。。。因为xxxx的原因，我推荐方案xxx</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>关于行事方式<ol>
-<li>反复复盘总结、抽象</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>与合作方的桥梁</p>
-<ol>
-<li>关于沟通<ol>
-<li>保持高频又高效的沟通</li>
-<li>YES! AND!</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>合作方</p>
-<ol>
-<li>关于同事<ol>
-<li>每个人都有太多问题了，看到这个不难，还是加油看看别人的闪光点吧</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>心领神会</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《还原真实的美联储》</title>
-    <url>/2022/12/02/%E3%80%8A%E8%BF%98%E5%8E%9F%E7%9C%9F%E5%AE%9E%E7%9A%84%E7%BE%8E%E8%81%94%E5%82%A8%E3%80%8B/</url>
-    <content><![CDATA[<ol>
-<li>美联储是一个分权制衡的组织结构，独立运营且不受个别机构控制</li>
-<li>通过调节短期利率影响长期利率<ol>
-<li>金融危机时直接影响长期利率</li>
-</ol>
-</li>
-<li>美联储的货币政策瞄准的是“<strong>通胀率2%</strong>”，而不是货币供应量等其它指标</li>
-<li><strong> 社会运转效率（资金运转效率，资源优化配置效率，人才流动效率等）是一切金融现象背后的本质。</strong><a id="more"></a>
-<ol>
-<li>以日本为例<ol>
-<li>当下的局面：滞胀<ol>
-<li>高通胀</li>
-<li>低增长</li>
-<li>高失业</li>
-</ol>
-</li>
-<li>原因<ol>
-<li>劳动力市场不灵活（人才流动效率低）</li>
-<li>银行给低效企业输血（优化配置效率低）</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>以中国开放国际资本市场为例 <ol>
-<li>先提高国内市场经济效率（利率市场化等）【先把自己的效率提上来，和国际拉齐，再开放才能平稳】</li>
-<li>再放弃固定汇率</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>经济</tag>
-        <tag>美联储</tag>
-        <tag>金融</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>为什么TDengine 这么秀</title>
-    <url>/2020/12/23/%E4%B8%BA%E4%BB%80%E4%B9%88TDengine%20%E8%BF%99%E4%B9%88%E7%A7%80/</url>
-    <content><![CDATA[<p>听了陶老师的分享，很有收获，摘录了一些细节，备用，同时也可以和<a href="https://lihongyu.me/2020/05/12/%E5%9C%A8%E7%BA%BF%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/">《在线服务设计方法论》</a>很好的契合起来。</p>
-<a id="more"></a>
-<p>以下</p>
-<ol>
-<li>快：利用了物联网大数据的十个特点</li>
-<li>小 2.7MB：不利用第三方开源软件</li>
-<li>技术创新<ol>
-<li>性能<ol>
-<li>一个采集点一张表（本质是动静数据分离，采集点的静态数据只存一次，表里只有动态数据，就可以做成只追加，不修改了。同时数据波动范围是稳定的）</li>
-<li>列存，给数据压缩提供土壤</li>
-<li>按块存储，块内连续存储，块索引</li>
-<li>两级索引：标签（本质是空间索引），时序数据（本质是时间索引）</li>
-<li>资源利用<ol>
-<li>按时间分区、按vnode（含一个或多个采集点）分片</li>
-<li>多级存储：内存-&gt;SSD-&gt;HD-&gt;S3</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>高可靠<ol>
-<li>write ahead log    WAL</li>
-</ol>
-</li>
-<li>高可用<ol>
-<li>Master-slave 多副本</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>其它亮点<ol>
-<li>滑动窗口+聚合时间段 分开表达</li>
-<li>数据订阅</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>设计原则</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于大数据的几个结论</title>
-    <url>/2021/07/07/%E5%85%B3%E4%BA%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E8%AE%BA%E6%96%AD/</url>
-    <content><![CDATA[<h1 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h1><h2 id="数据中台三阶段"><a href="#数据中台三阶段" class="headerlink" title="数据中台三阶段"></a>数据中台三阶段</h2><p>What（描述事实） -&gt; why（诊断归因：自动归因） -&gt; how（指导业务）</p>
-<blockquote>
-<p>arch问题本质都是耦合问题，都是balance问题</p>
-<ol>
-<li>业务数据化</li>
-<li>数据资产化</li>
-<li>资产服务化</li>
-<li>服务可视化</li>
-</ol>
-</blockquote>
-<a id="more"></a>
-<h2 id="数据治理"><a href="#数据治理" class="headerlink" title="数据治理"></a>数据治理</h2><p>数据质量、数据元数据管理、数据生命周期、数据安全</p>
-<h2 id="数据索引就是数据特征"><a href="#数据索引就是数据特征" class="headerlink" title="数据索引就是数据特征"></a>数据索引就是数据特征</h2><h2 id="九大思维模型"><a href="#九大思维模型" class="headerlink" title="九大思维模型"></a>九大思维模型</h2><ol>
-<li>OLAP业务需求抽象分析至简思维模型</li>
-<li>大数据架构设计本质思维模型：CAP、BASE</li>
-<li>动态灵活组合大数据组件思维模型</li>
-<li>根据场景平衡折中balance：适度超前：0.5-2年未来预期</li>
-<li>个人影响力思维模型</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>大数据</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于围棋这个RTS的一些想法</title>
-    <url>/2020/03/09/%E5%85%B3%E4%BA%8E%E5%9B%B4%E6%A3%8B%E8%BF%99%E4%B8%AARTS%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="关于围棋这个RTS"><a href="#关于围棋这个RTS" class="headerlink" title="关于围棋这个RTS"></a>关于围棋这个RTS</h2><p>我比较喜欢即时战略类游戏，最近开始研究围棋。</p>
-<p>昨天感觉自己对围棋的理解成功从“数气”阶段，晋升到“走棋形”的阶段，在野狐上喜提12连胜，连升3级（12级。。。还是弱鸡）。</p>
-<p>以我对围棋粗浅的理解，和扑克、war3做了一个比较，如下：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>围棋</th>
-<th>扑克</th>
-<th>war3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>信息对称性</td>
-<td><font color="red">对称</font></td>
-<td><font color="gree">不对称</font></td>
-<td><font color="gree">不对称</font></td>
-</tr>
-<tr>
-<td>局面复杂性（玩家数）</td>
-<td><font color="red">少</font></td>
-<td><font color="yellow">中</font></td>
-<td><font color="gree">多</font></td>
-</tr>
-<tr>
-<td>[运气成分]出生是否均衡</td>
-<td><font color="yellow">弱均衡（需要贴目）</font></td>
-<td><font color="red">不均衡</font></td>
-<td><font color="gree">均衡</font></td>
-</tr>
-<tr>
-<td>战略意图</td>
-<td><font color="gree">强</font></td>
-<td><font color="red">弱</font></td>
-<td><font color="yellow">中</font></td>
-</tr>
-</tbody>
-</table>
-<p>这么看来，war3游戏性更强是有道理了。</p>
-<a id="more"></a>
-<h2 id="游戏性"><a href="#游戏性" class="headerlink" title="游戏性"></a>游戏性</h2><p>实际上，游戏性是分了几个维度来衡量的：养成性、预判、代入感、新鲜感。</p>
-<p>详情见<a href="https://www.gameres.com/850887.html" target="_blank" rel="noopener">https://www.gameres.com/850887.html</a></p>
-<p>后面有了深入的体会再讨论。</p>
-]]></content>
-      <tags>
-        <tag>心领神会</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>中国史纲</title>
-    <url>/2023/01/05/%E4%B8%AD%E5%9B%BD%E5%8F%B2%E7%BA%B2/</url>
-    <content><![CDATA[<p>中国史纲<br><a id="more"></a></p>
-<p><img src="/images/中国史纲.JPG" alt></p>
-]]></content>
-      <tags>
-        <tag>历史</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于时空数据的初步了解</title>
-    <url>/2020/03/16/%E5%85%B3%E4%BA%8E%E6%97%B6%E7%A9%BA%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/</url>
-    <content><![CDATA[<h2 id="工具平台：GeoMesa-Hbase-spark"><a href="#工具平台：GeoMesa-Hbase-spark" class="headerlink" title="工具平台：GeoMesa+Hbase+spark"></a>工具平台：GeoMesa+Hbase+spark</h2><a id="more"></a>
-<h2 id="时空数据的独特性"><a href="#时空数据的独特性" class="headerlink" title="时空数据的独特性"></a>时空数据的独特性</h2><h3 id="空间结构在现实生活中是分层的，且不同分层结构有不同目标和特点。"><a href="#空间结构在现实生活中是分层的，且不同分层结构有不同目标和特点。" class="headerlink" title="空间结构在现实生活中是分层的，且不同分层结构有不同目标和特点。"></a>空间结构在现实生活中是分层的，且不同分层结构有不同目标和特点。</h3><p>在时间和空间方面，它们都拥有专属的距离与空间层次。从距离上说，比如两个点之间的距离、两边之和大于第三边三角不等式以及地理学第一定律；从空间上说，包括一个城市、不同区域、不同街道、不同小区。处在不同的层次，它所代表的含义是不一样的，那么你在不同层次上的表达，对于运算的体现与帮助也是有差别的。</p>
-<h3 id="时间属性：包括临近性、周期性以及趋势性三大块。"><a href="#时间属性：包括临近性、周期性以及趋势性三大块。" class="headerlink" title="时间属性：包括临近性、周期性以及趋势性三大块。"></a>时间属性：包括临近性、周期性以及趋势性三大块。</h3><h2 id="要关注的三个问题"><a href="#要关注的三个问题" class="headerlink" title="要关注的三个问题"></a>要关注的三个问题</h2><p>效率问题：开源<br>版权保护问题：数字水印<br>安全问题：联邦学习</p>
-<h2 id="时空数据库设计时的独特性"><a href="#时空数据库设计时的独特性" class="headerlink" title="时空数据库设计时的独特性"></a>时空数据库设计时的独特性</h2><p>怎么将时空属性给 encode 进去？要利于保护时空数据的专有属性，否则 只把它当成一个数据来做的话，周期性、趋势性就会反映不出来，你的结果就不会十分准确。</p>
-]]></content>
-      <tags>
-        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -738,6 +342,417 @@
       </tags>
   </entry>
   <entry>
+    <title>《文明、现代化、价值投资与中国》</title>
+    <url>/2020/10/27/%E3%80%8A%E6%96%87%E6%98%8E%E3%80%81%E7%8E%B0%E4%BB%A3%E5%8C%96%E3%80%81%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E4%B8%AD%E5%9B%BD%E3%80%8B/</url>
+    <content><![CDATA[<h2 id="文明划分的维度"><a href="#文明划分的维度" class="headerlink" title="文明划分的维度"></a>文明划分的维度</h2><ol>
+<li>能量的汲取能力</li>
+<li>社会单元组织动员能力</li>
+<li>科技实力</li>
+</ol>
+<a id="more"></a>
+<h2 id="现代化的定义"><a href="#现代化的定义" class="headerlink" title="现代化的定义"></a>现代化的定义</h2><p><code>现代化 = 现代科技 × 自由市场经济</code></p>
+<p>自由市场：自由商品交换 1+1&gt;2，自由的知识 1+1&gt;4</p>
+<h2 id="当前国际发展的刚性限制"><a href="#当前国际发展的刚性限制" class="headerlink" title="当前国际发展的刚性限制"></a>当前国际发展的刚性限制</h2><h3 id="市场越大效率越高，所以最终全球只会有一个大市场"><a href="#市场越大效率越高，所以最终全球只会有一个大市场" class="headerlink" title="市场越大效率越高，所以最终全球只会有一个大市场"></a>市场越大效率越高，所以最终全球只会有一个大市场</h3><p>3.0文明铁律：最大的市场终将成为唯一的市场</p>
+<h3 id="核武器时代下的共同毁灭原则（Mutually-Assured-Destruction）M-A-D机制"><a href="#核武器时代下的共同毁灭原则（Mutually-Assured-Destruction）M-A-D机制" class="headerlink" title="核武器时代下的共同毁灭原则（Mutually Assured Destruction）M.A.D机制"></a>核武器时代下的共同毁灭原则（Mutually Assured Destruction）M.A.D机制</h3><h3 id="全人类合作关联成一个整体"><a href="#全人类合作关联成一个整体" class="headerlink" title="全人类合作关联成一个整体"></a>全人类合作关联成一个整体</h3><p>温室气体排放、极端恐怖分子、金融危机</p>
+<h2 id="价值投资"><a href="#价值投资" class="headerlink" title="价值投资"></a>价值投资</h2><h3 id="四个理念"><a href="#四个理念" class="headerlink" title="四个理念"></a>四个理念</h3><ol>
+<li>股票不仅是可以买卖的证券，实际上是代表对公司所有权的证书。</li>
+<li>市场是证券买卖的工具，并不是老师。它只告诉你价格，不会告诉你价值</li>
+<li>投资要留有安全边际，公司市场价格远远低于内在价值时买入</li>
+<li>建立自己的能力圈，赚能力圈里的钱。能力圈是边界，没有边界的能力不是真的能力。如果你 一个观点，你必须要能够告诉我这个观点不成立的条件，这时它才是一个真正的观点</li>
+</ol>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>历史</tag>
+        <tag>文明</tag>
+        <tag>经济</tag>
+        <tag>投资</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《还原真实的美联储》</title>
+    <url>/2022/12/02/%E3%80%8A%E8%BF%98%E5%8E%9F%E7%9C%9F%E5%AE%9E%E7%9A%84%E7%BE%8E%E8%81%94%E5%82%A8%E3%80%8B/</url>
+    <content><![CDATA[<ol>
+<li>美联储是一个分权制衡的组织结构，独立运营且不受个别机构控制</li>
+<li>通过调节短期利率影响长期利率<ol>
+<li>金融危机时直接影响长期利率</li>
+</ol>
+</li>
+<li>美联储的货币政策瞄准的是“<strong>通胀率2%</strong>”，而不是货币供应量等其它指标</li>
+<li><strong> 社会运转效率（资金运转效率，资源优化配置效率，人才流动效率等）是一切金融现象背后的本质。</strong><a id="more"></a>
+<ol>
+<li>以日本为例<ol>
+<li>当下的局面：滞胀<ol>
+<li>高通胀</li>
+<li>低增长</li>
+<li>高失业</li>
+</ol>
+</li>
+<li>原因<ol>
+<li>劳动力市场不灵活（人才流动效率低）</li>
+<li>银行给低效企业输血（优化配置效率低）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>以中国开放国际资本市场为例 <ol>
+<li>先提高国内市场经济效率（利率市场化等）【先把自己的效率提上来，和国际拉齐，再开放才能平稳】</li>
+<li>再放弃固定汇率</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>经济</tag>
+        <tag>美联储</tag>
+        <tag>金融</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个产品开发的复杂度都是怎么被解决的？</title>
+    <url>/2021/03/28/%E4%B8%80%E4%B8%AA%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E9%83%BD%E6%98%AF%E6%80%8E%E4%B9%88%E8%A2%AB%E8%A7%A3%E5%86%B3%E7%9A%84%EF%BC%9F/</url>
+    <content><![CDATA[<p><img src="/images/产品复杂度及对策.jpg" alt></p>
+<a id="more"></a>
+<p>本质复杂度无论用什么技术和工具都是不会解决的；<br>而偶然复杂度正在被 Low-code/Serveless/SerivceMesh 逐步简化，如果你的能力只体现在这部分，那么你应该对自己的可替代性提起注意了</p>
+<h2 id="纯后端"><a href="#纯后端" class="headerlink" title="纯后端"></a>纯后端</h2><h3 id="Low-code"><a href="#Low-code" class="headerlink" title="Low code"></a>Low code</h3><p>简单业务逻辑可视化编程<br><img src="https://ucc.alicdn.com/pic/developer-ecology/0c60af73ee8b4c67a6d1f6bf61356099.png" alt></p>
+<h3 id="Serveless"><a href="#Serveless" class="headerlink" title="Serveless"></a>Serveless</h3><p>docker+k8s解决web开发中横向扩展的问题</p>
+<h3 id="ServiceMesh"><a href="#ServiceMesh" class="headerlink" title="ServiceMesh"></a>ServiceMesh</h3><p>解决web开发中纵向逻辑拆分的问题：业务逻辑和中间件逻辑</p>
+<h2 id="前后端协作"><a href="#前后端协作" class="headerlink" title="前后端协作"></a>前后端协作</h2><h3 id="GraphQL"><a href="#GraphQL" class="headerlink" title="GraphQL"></a>GraphQL</h3><ol>
+<li>web开发本质上是在做一个信息流，流动的双方是前端 和 后端，前端是后端 的client，后端 是前端 的数据库</li>
+<li>数据库有一个很好的设计 ，就是用sql表达”我要什么数据”， 用sql解析器和存储引擎表达”我怎么得到数据”</li>
+<li>因此，给前端 一个QL，让真正对数据有需求的前端 表达”我要什么数据”，让数据拥有者只解决怎么得到数据的问题</li>
+<li>GraphQL诞生</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个人工智能的诞生</title>
+    <url>/2021/01/02/%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E8%AF%9E%E7%94%9F/</url>
+    <content><![CDATA[<h1 id="一个人工智能的诞生"><a href="#一个人工智能的诞生" class="headerlink" title="一个人工智能的诞生"></a>一个人工智能的诞生</h1><h2 id="智能即分类"><a href="#智能即分类" class="headerlink" title="智能即分类"></a>智能即分类</h2><a id="more"></a>
+<h3 id="让数据可被分类"><a href="#让数据可被分类" class="headerlink" title="让数据可被分类"></a>让数据可被分类</h3><ol>
+<li>增加层数<ol>
+<li>目的：改变坐标系</li>
+<li>那改变坐标系的目的是什么呢？是因为一些在原坐标系下交叉的数据用线性结构（直线、平面、超平面）无法分开；要想分开，要结合改变坐标系和数据重分布两个手段</li>
+</ol>
+</li>
+<li>增加激活函数<ol>
+<li>目的：引入非线性变换，让数据重新分布。被激活函数作用后的数据会有机会重新分开</li>
+</ol>
+</li>
+<li>增加维度<ol>
+<li>目的：让低维中的数据在高维空间中变得稀疏，从而可分开</li>
+</ol>
+</li>
+</ol>
+<h3 id="通过不断的迭代，让数据真的被分开"><a href="#通过不断的迭代，让数据真的被分开" class="headerlink" title="通过不断的迭代，让数据真的被分开"></a>通过不断的迭代，让数据真的被分开</h3><ol>
+<li>增加loss函数<ol>
+<li>目的：给逼近“真相”一个依据，让loss函数的值最小即是模型的最终形态</li>
+</ol>
+</li>
+<li>增加学习率<ol>
+<li>目的：让梯度下降找loss函数最小值的过程既不要太慢，也不要因为太快而找不到真正的最小值</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《家庭财务管理》笔记</title>
+    <url>/2022/03/08/%E3%80%8A%E5%AE%B6%E5%BA%AD%E8%B4%A2%E5%8A%A1%E7%AE%A1%E7%90%86%E3%80%8B%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ol>
+<li><strong>财务管理</strong>本质是<strong>事务管理</strong>，而不是投资赚钱</li>
+<li>财务管理就是定目标、选策略、用工具（理财工具、负债工具）</li>
+<li><strong>目标事务</strong>：医疗&gt;买房&gt;养老（生存问题）&gt;教育（发展问题）<ol>
+<li>日常开支账户：随时保证3-6个月应急储备，不能动</li>
+</ol>
+</li>
+</ol>
+<a id="more"></a>
+<ol start="4">
+<li><strong>理财工具</strong><ol>
+<li>明确为什么事而理财更重要！旅行？教育？专款专用</li>
+<li>三步法确定理财方案：事务的时间点、可以承担的风险、可以参与的本金（本金=收入-日常-储蓄-负债）</li>
+<li>收入盈余（就是上一条的本金）20-50万的，防守:稳定:进攻=2:7:1</li>
+</ol>
+</li>
+<li><strong>负债工具</strong><ol>
+<li>负债是一种未来收入折现的现金流管理方案，可以提供流动性，是中性的产品</li>
+<li>刚性支出可负债，柔性支出酌情负债，投资支出不可负债</li>
+<li>健康负责标准：收入-日常消费-储蓄&gt;负债</li>
+</ol>
+</li>
+<li><strong>健康是第一要务</strong><ol>
+<li>小病：医保+普惠医疗（京惠保？）</li>
+<li>中病：医疗险-&gt;保医疗费用（保当下）</li>
+<li>重疾：重疾险-&gt;赔付（保未来）<ol>
+<li>保额=5年生活支出总额（重疾平均5年治疗期）</li>
+<li>消费型（保额大）要优先于储蓄型（有返还），因为这笔钱就是要解决重疾问题</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>买房</strong><ol>
+<li>自住？投资？逻辑完全不同</li>
+<li>房贷占收入比40-60%</li>
+</ol>
+</li>
+<li><strong>孩子</strong>，只需要关注健康和教育<ol>
+<li>健康：“一老一小”</li>
+<li>教育：非义务教育阶段（高中、大学）的规划</li>
+<li>自己的优先级要高于孩子</li>
+</ol>
+</li>
+<li><strong>养老</strong>，未来百岁人生是常态，需要有三个账户处理养老问题<ol>
+<li>日常支出：社保养老、房租养老、商业养老</li>
+<li>应急支出：储蓄、重疾险</li>
+<li>休闲支出：剩余闲钱，可承担一定风险</li>
+<li>养老三阶段：自由养老、居家养老、介入式养老；花钱由少变多</li>
+</ol>
+</li>
+<li><strong>遗产传承</strong>，每个家庭的标准动作，不是富人的专利<ol>
+<li>传：钱给谁？给多少？怎么给？什么时间给？<ol>
+<li>立遗嘱：找律师，录视频，避免家庭纠纷</li>
+<li>现金杠杆：保险（年金保险）</li>
+</ol>
+</li>
+<li>承：要下一代用得好这笔钱：信托、慈善基金会</li>
+</ol>
+</li>
+</ol>
+<h3 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h3><ul>
+<li style="list-style: none"><input type="checkbox"> 应急账户</li>
+<li style="list-style: none"><input type="checkbox"> 医疗保险不足</li>
+<li style="list-style: none"><input type="checkbox"> 养老保险不足</li>
+<li style="list-style: none"><input type="checkbox"> 理财目标不明确，没有做到专款专用</li>
+<li style="list-style: none"><input type="checkbox"> 盈余理财结构不合理</li>
+<li style="list-style: none"><input type="checkbox"> 京惠保？</li>
+<li style="list-style: none"><input type="checkbox"> 教育规划不明确？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>理财</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些工作方式心得</title>
+    <url>/2020/03/04/%E4%B8%80%E4%BA%9B%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%BF%83%E5%BE%97/</url>
+    <content><![CDATA[<ol>
+<li><p>自身</p>
+<ol>
+<li>关于思考方式<ol>
+<li>空间域：结构化思考：点线面体</li>
+<li>时间域：终局思维</li>
+<li>问题域：<ol>
+<li>定义问题、关键字、解题</li>
+<li>问题是。。。方案有1。。2。。。因为xxxx的原因，我推荐方案xxx</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>关于行事方式<ol>
+<li>反复复盘总结、抽象</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>与合作方的桥梁</p>
+<ol>
+<li>关于沟通<ol>
+<li>保持高频又高效的沟通</li>
+<li>YES! AND!</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>合作方</p>
+<ol>
+<li>关于同事<ol>
+<li>每个人都有太多问题了，看到这个不难，还是加油看看别人的闪光点吧</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>心领神会</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中国史纲</title>
+    <url>/2023/01/05/%E4%B8%AD%E5%9B%BD%E5%8F%B2%E7%BA%B2/</url>
+    <content><![CDATA[<p>中国史纲<br><a id="more"></a></p>
+<p><img src="/images/中国史纲.JPG" alt></p>
+]]></content>
+      <tags>
+        <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为什么TDengine 这么秀</title>
+    <url>/2020/12/23/%E4%B8%BA%E4%BB%80%E4%B9%88TDengine%20%E8%BF%99%E4%B9%88%E7%A7%80/</url>
+    <content><![CDATA[<p>听了陶老师的分享，很有收获，摘录了一些细节，备用，同时也可以和<a href="https://lihongyu.me/2020/05/12/%E5%9C%A8%E7%BA%BF%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/">《在线服务设计方法论》</a>很好的契合起来。</p>
+<a id="more"></a>
+<p>以下</p>
+<ol>
+<li>快：利用了物联网大数据的十个特点</li>
+<li>小 2.7MB：不利用第三方开源软件</li>
+<li>技术创新<ol>
+<li>性能<ol>
+<li>一个采集点一张表（本质是动静数据分离，采集点的静态数据只存一次，表里只有动态数据，就可以做成只追加，不修改了。同时数据波动范围是稳定的）</li>
+<li>列存，给数据压缩提供土壤</li>
+<li>按块存储，块内连续存储，块索引</li>
+<li>两级索引：标签（本质是空间索引），时序数据（本质是时间索引）</li>
+<li>资源利用<ol>
+<li>按时间分区、按vnode（含一个或多个采集点）分片</li>
+<li>多级存储：内存-&gt;SSD-&gt;HD-&gt;S3</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>高可靠<ol>
+<li>write ahead log    WAL</li>
+</ol>
+</li>
+<li>高可用<ol>
+<li>Master-slave 多副本</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>其它亮点<ol>
+<li>滑动窗口+聚合时间段 分开表达</li>
+<li>数据订阅</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>设计原则</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什么才是好的金句！</title>
+    <url>/2023/01/05/%E4%BB%80%E4%B9%88%E6%89%8D%E6%98%AF%E5%A5%BD%E7%9A%84%E9%87%91%E5%8F%A5%EF%BC%81/</url>
+    <content><![CDATA[<blockquote>
+<p>金句选取标准：有新知的事实、有趣味的事实。</p>
+</blockquote>
+<a id="more"></a>
+<p>必须有事实。</p>
+<p>所谓新知：<br>1，能给出重要启发、经验或规律的。——从未知到已知<br>2，之前大家漠视、之后必须重视的——从次要到重要<br>3，颠覆大众直觉，让人恍然大悟，回归常识的——从谬误到真相<br>4，能提炼出特别简单实用的方法论的——化复杂为简单</p>
+<p>所谓趣味<br>能成为知识精英饭局上的趣味谈资</p>
+<p>关于金句的第一步修正思考</p>
+<p>1，金句写作要有“代入”的过程。<br>人接收信息的规律如下：<br>由简单到复杂<br>由熟悉到陌生<br>由提问到回答<br>由事实到理论<br>所以，好的金句是先从用户熟悉、简单、有趣、有悬疑的事实进入，落脚到有启发性的理论上。</p>
+<p>原金句——<br>商业最终都是为了交易，而交易是通过支付实现的，因此透过支付更容易看清商业的本质。当支付围绕各个不同行业时，把行业的各个环节串起来就更是如此。所以从支付公司出来的人往往更容易在商战中胜出。</p>
+<p>修改为——<br>为什么从支付公司出来的人往往更容易在商战中胜出？（意外的事实）因为商业最终都是为了交易，而交易是通过支付实现的，因此透过支付更容易看清商业的本质（抽象理论）。</p>
+<p>原金句——<br>嫉妒之所以复杂，在于它跟恨一样，与爱有极为密切的关系；唯有我们的爱，才会激起我们最强烈的恨。在谋杀案中，家庭犯罪占了极大比例绝不令人惊讶，因为谋害者与受害者之间的感情纠葛往往最深。（评价：1，应把最反直觉的事实前置、理论后置。2，嫉妒是与主题不想关的信息，应去掉。）</p>
+<p>修改为——<br>和一般人的直觉不同，在谋杀案中，家庭犯罪占了极大比例。因为谋害者与受害者之间的感情纠葛往往最深。唯有我们的爱，才会激起我们最强烈的恨。</p>
+<p>原金句——<br>要确保自己的人脉“真正的”广泛，就不要把自己的信息源固定在和自己一个级别、甚至以上的人们。招聘情报员的时候，来自富裕家庭的高官，远不如一个在收发室的邮务员更合适——他们都能接触敏感的文字资料。同样的，商业间谍活动也常从基层开始打探。</p>
+<p>修改为——<br>招聘情报员的时候，来自富裕家庭的高官，远不如一个在收发室的邮务员更合适——虽然他们都能接触敏感的文字资料（意外的事实、悬疑），但要确保人脉“真正的”广泛，就不要把自己的信息源固定在和自己一个级别的人们（抽象理论）。这就是为什么，商业间谍活动常从基层开始打探（应用）。</p>
+<p>2，以下内容不是我们选取的，比如：<br>纯鸡汤<br>你的时间有限，所以不要为别人而活。不要被教条所限，不要活在别人的观念里。不要让别人的意见左右自己内心的声音。最重要的是，勇敢地去追随自己的心灵和直觉，只有自己的心灵和直觉才知道你自己的真实想法，其它一切都是次要。——乔布斯</p>
+<p>纯理论<br>人性的弱点在于习惯于学习精确的东西而不善于总体把握。我们不学习规律而学习事实，进而蔑视抽象的东西。因此，我们常常缺乏基本的思考能力，以至于当突发事件出现后，我们只看到它的不可预测性而忽略了它的可预测性。</p>
+<p>只有事实，没有和用户相关的理论落点<br>宋代实行的是均税制，已非均田政策。王安石为使民间不必当差，推行免疫法，可由大众缴钱分担经费。此举遭到了保守派的反对。实际上王安石的新政更适合南方那种小地主的生产方式，对北方大户往往不适合。所以王安石推行的方田制和免疫法，在实际操作中没有成功。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>关于围棋这个RTS的一些想法</title>
+    <url>/2020/03/09/%E5%85%B3%E4%BA%8E%E5%9B%B4%E6%A3%8B%E8%BF%99%E4%B8%AARTS%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="关于围棋这个RTS"><a href="#关于围棋这个RTS" class="headerlink" title="关于围棋这个RTS"></a>关于围棋这个RTS</h2><p>我比较喜欢即时战略类游戏，最近开始研究围棋。</p>
+<p>昨天感觉自己对围棋的理解成功从“数气”阶段，晋升到“走棋形”的阶段，在野狐上喜提12连胜，连升3级（12级。。。还是弱鸡）。</p>
+<p>以我对围棋粗浅的理解，和扑克、war3做了一个比较，如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>围棋</th>
+<th>扑克</th>
+<th>war3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>信息对称性</td>
+<td><font color="red">对称</font></td>
+<td><font color="gree">不对称</font></td>
+<td><font color="gree">不对称</font></td>
+</tr>
+<tr>
+<td>局面复杂性（玩家数）</td>
+<td><font color="red">少</font></td>
+<td><font color="yellow">中</font></td>
+<td><font color="gree">多</font></td>
+</tr>
+<tr>
+<td>[运气成分]出生是否均衡</td>
+<td><font color="yellow">弱均衡（需要贴目）</font></td>
+<td><font color="red">不均衡</font></td>
+<td><font color="gree">均衡</font></td>
+</tr>
+<tr>
+<td>战略意图</td>
+<td><font color="gree">强</font></td>
+<td><font color="red">弱</font></td>
+<td><font color="yellow">中</font></td>
+</tr>
+</tbody>
+</table>
+<p>这么看来，war3游戏性更强是有道理了。</p>
+<a id="more"></a>
+<h2 id="游戏性"><a href="#游戏性" class="headerlink" title="游戏性"></a>游戏性</h2><p>实际上，游戏性是分了几个维度来衡量的：养成性、预判、代入感、新鲜感。</p>
+<p>详情见<a href="https://www.gameres.com/850887.html" target="_blank" rel="noopener">https://www.gameres.com/850887.html</a></p>
+<p>后面有了深入的体会再讨论。</p>
+]]></content>
+      <tags>
+        <tag>心领神会</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于大数据的几个结论</title>
+    <url>/2021/07/07/%E5%85%B3%E4%BA%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E8%AE%BA%E6%96%AD/</url>
+    <content><![CDATA[<h1 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h1><h2 id="数据中台三阶段"><a href="#数据中台三阶段" class="headerlink" title="数据中台三阶段"></a>数据中台三阶段</h2><p>What（描述事实） -&gt; why（诊断归因：自动归因） -&gt; how（指导业务）</p>
+<blockquote>
+<p>arch问题本质都是耦合问题，都是balance问题</p>
+<ol>
+<li>业务数据化</li>
+<li>数据资产化</li>
+<li>资产服务化</li>
+<li>服务可视化</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<h2 id="数据治理"><a href="#数据治理" class="headerlink" title="数据治理"></a>数据治理</h2><p>数据质量、数据元数据管理、数据生命周期、数据安全</p>
+<h2 id="数据索引就是数据特征"><a href="#数据索引就是数据特征" class="headerlink" title="数据索引就是数据特征"></a>数据索引就是数据特征</h2><h2 id="九大思维模型"><a href="#九大思维模型" class="headerlink" title="九大思维模型"></a>九大思维模型</h2><ol>
+<li>OLAP业务需求抽象分析至简思维模型</li>
+<li>大数据架构设计本质思维模型：CAP、BASE</li>
+<li>动态灵活组合大数据组件思维模型</li>
+<li>根据场景平衡折中balance：适度超前：0.5-2年未来预期</li>
+<li>个人影响力思维模型</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于开源商业模式的思考</title>
     <url>/2021/07/12/%E5%85%B3%E4%BA%8E%E5%BC%80%E6%BA%90%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%80%9D%E8%80%83/</url>
     <content><![CDATA[<h2 id="核心竞争力"><a href="#核心竞争力" class="headerlink" title="核心竞争力"></a>核心竞争力</h2><blockquote>
@@ -769,6 +784,18 @@
       </tags>
   </entry>
   <entry>
+    <title>关于时空数据的初步了解</title>
+    <url>/2020/03/16/%E5%85%B3%E4%BA%8E%E6%97%B6%E7%A9%BA%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="工具平台：GeoMesa-Hbase-spark"><a href="#工具平台：GeoMesa-Hbase-spark" class="headerlink" title="工具平台：GeoMesa+Hbase+spark"></a>工具平台：GeoMesa+Hbase+spark</h2><a id="more"></a>
+<h2 id="时空数据的独特性"><a href="#时空数据的独特性" class="headerlink" title="时空数据的独特性"></a>时空数据的独特性</h2><h3 id="空间结构在现实生活中是分层的，且不同分层结构有不同目标和特点。"><a href="#空间结构在现实生活中是分层的，且不同分层结构有不同目标和特点。" class="headerlink" title="空间结构在现实生活中是分层的，且不同分层结构有不同目标和特点。"></a>空间结构在现实生活中是分层的，且不同分层结构有不同目标和特点。</h3><p>在时间和空间方面，它们都拥有专属的距离与空间层次。从距离上说，比如两个点之间的距离、两边之和大于第三边三角不等式以及地理学第一定律；从空间上说，包括一个城市、不同区域、不同街道、不同小区。处在不同的层次，它所代表的含义是不一样的，那么你在不同层次上的表达，对于运算的体现与帮助也是有差别的。</p>
+<h3 id="时间属性：包括临近性、周期性以及趋势性三大块。"><a href="#时间属性：包括临近性、周期性以及趋势性三大块。" class="headerlink" title="时间属性：包括临近性、周期性以及趋势性三大块。"></a>时间属性：包括临近性、周期性以及趋势性三大块。</h3><h2 id="要关注的三个问题"><a href="#要关注的三个问题" class="headerlink" title="要关注的三个问题"></a>要关注的三个问题</h2><p>效率问题：开源<br>版权保护问题：数字水印<br>安全问题：联邦学习</p>
+<h2 id="时空数据库设计时的独特性"><a href="#时空数据库设计时的独特性" class="headerlink" title="时空数据库设计时的独特性"></a>时空数据库设计时的独特性</h2><p>怎么将时空属性给 encode 进去？要利于保护时空数据的专有属性，否则 只把它当成一个数据来做的话，周期性、趋势性就会反映不出来，你的结果就不会十分准确。</p>
+]]></content>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于画各种流程图、架构图的核心观点</title>
     <url>/2020/12/23/%E5%85%B3%E4%BA%8E%E7%94%BB%E5%90%84%E7%A7%8D%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A7%82%E7%82%B9/</url>
     <content><![CDATA[<h3 id="一张图只有一个重点，和重点无关的部分都做淡化处理。"><a href="#一张图只有一个重点，和重点无关的部分都做淡化处理。" class="headerlink" title="一张图只有一个重点，和重点无关的部分都做淡化处理。"></a>一张图只有一个重点，和重点无关的部分都做淡化处理。</h3><blockquote>
@@ -787,29 +814,6 @@
       </tags>
   </entry>
   <entry>
-    <title>什么才是好的金句！</title>
-    <url>/2023/01/05/%E4%BB%80%E4%B9%88%E6%89%8D%E6%98%AF%E5%A5%BD%E7%9A%84%E9%87%91%E5%8F%A5%EF%BC%81/</url>
-    <content><![CDATA[<blockquote>
-<p>金句选取标准：有新知的事实、有趣味的事实。</p>
-</blockquote>
-<a id="more"></a>
-<p>必须有事实。</p>
-<p>所谓新知：<br>1，能给出重要启发、经验或规律的。——从未知到已知<br>2，之前大家漠视、之后必须重视的——从次要到重要<br>3，颠覆大众直觉，让人恍然大悟，回归常识的——从谬误到真相<br>4，能提炼出特别简单实用的方法论的——化复杂为简单</p>
-<p>所谓趣味<br>能成为知识精英饭局上的趣味谈资</p>
-<p>关于金句的第一步修正思考</p>
-<p>1，金句写作要有“代入”的过程。<br>人接收信息的规律如下：<br>由简单到复杂<br>由熟悉到陌生<br>由提问到回答<br>由事实到理论<br>所以，好的金句是先从用户熟悉、简单、有趣、有悬疑的事实进入，落脚到有启发性的理论上。</p>
-<p>原金句——<br>商业最终都是为了交易，而交易是通过支付实现的，因此透过支付更容易看清商业的本质。当支付围绕各个不同行业时，把行业的各个环节串起来就更是如此。所以从支付公司出来的人往往更容易在商战中胜出。</p>
-<p>修改为——<br>为什么从支付公司出来的人往往更容易在商战中胜出？（意外的事实）因为商业最终都是为了交易，而交易是通过支付实现的，因此透过支付更容易看清商业的本质（抽象理论）。</p>
-<p>原金句——<br>嫉妒之所以复杂，在于它跟恨一样，与爱有极为密切的关系；唯有我们的爱，才会激起我们最强烈的恨。在谋杀案中，家庭犯罪占了极大比例绝不令人惊讶，因为谋害者与受害者之间的感情纠葛往往最深。（评价：1，应把最反直觉的事实前置、理论后置。2，嫉妒是与主题不想关的信息，应去掉。）</p>
-<p>修改为——<br>和一般人的直觉不同，在谋杀案中，家庭犯罪占了极大比例。因为谋害者与受害者之间的感情纠葛往往最深。唯有我们的爱，才会激起我们最强烈的恨。</p>
-<p>原金句——<br>要确保自己的人脉“真正的”广泛，就不要把自己的信息源固定在和自己一个级别、甚至以上的人们。招聘情报员的时候，来自富裕家庭的高官，远不如一个在收发室的邮务员更合适——他们都能接触敏感的文字资料。同样的，商业间谍活动也常从基层开始打探。</p>
-<p>修改为——<br>招聘情报员的时候，来自富裕家庭的高官，远不如一个在收发室的邮务员更合适——虽然他们都能接触敏感的文字资料（意外的事实、悬疑），但要确保人脉“真正的”广泛，就不要把自己的信息源固定在和自己一个级别的人们（抽象理论）。这就是为什么，商业间谍活动常从基层开始打探（应用）。</p>
-<p>2，以下内容不是我们选取的，比如：<br>纯鸡汤<br>你的时间有限，所以不要为别人而活。不要被教条所限，不要活在别人的观念里。不要让别人的意见左右自己内心的声音。最重要的是，勇敢地去追随自己的心灵和直觉，只有自己的心灵和直觉才知道你自己的真实想法，其它一切都是次要。——乔布斯</p>
-<p>纯理论<br>人性的弱点在于习惯于学习精确的东西而不善于总体把握。我们不学习规律而学习事实，进而蔑视抽象的东西。因此，我们常常缺乏基本的思考能力，以至于当突发事件出现后，我们只看到它的不可预测性而忽略了它的可预测性。</p>
-<p>只有事实，没有和用户相关的理论落点<br>宋代实行的是均税制，已非均田政策。王安石为使民间不必当差，推行免疫法，可由大众缴钱分担经费。此举遭到了保守派的反对。实际上王安石的新政更适合南方那种小地主的生产方式，对北方大户往往不适合。所以王安石推行的方田制和免疫法，在实际操作中没有成功。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>关于股票和股市</title>
     <url>/2020/10/26/%E5%85%B3%E4%BA%8E%E8%82%A1%E7%A5%A8%E5%92%8C%E8%82%A1%E5%B8%82/</url>
     <content><![CDATA[<p>待展开</p>
@@ -821,6 +825,19 @@
 ]]></content>
       <tags>
         <tag>经济金融</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>五维思考</title>
+    <url>/2022/04/26/%E5%8D%87%E7%BB%B4%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<p><strong>你左右为难的时候，就是你需要升维思考的时候</strong></p>
+<p><img src="/images/升维思考.jpg" alt></p>
+<blockquote>
+<p>本质上维度没有高低之分，这5个维度是全正交的等价维度，是“通向成功”的5个要素（注意不是“成功”，是“通向成功”）</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -919,19 +936,6 @@
       </tags>
   </entry>
   <entry>
-    <title>五维思考</title>
-    <url>/2022/04/26/%E5%8D%87%E7%BB%B4%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<p><strong>你左右为难的时候，就是你需要升维思考的时候</strong></p>
-<p><img src="/images/升维思考.jpg" alt></p>
-<blockquote>
-<p>本质上维度没有高低之分，这5个维度是全正交的等价维度，是“通向成功”的5个要素（注意不是“成功”，是“通向成功”）</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>思考</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于Flink的思考</title>
     <url>/2022/05/28/%E5%9F%BA%E4%BA%8EFlink%E7%9A%84%E6%80%9D%E8%80%83/</url>
     <content><![CDATA[<h3 id="Flink的一些核心特性"><a href="#Flink的一些核心特性" class="headerlink" title="Flink的一些核心特性"></a>Flink的一些核心特性</h3><ol>
@@ -944,48 +948,6 @@
 ]]></content>
       <tags>
         <tag>开源</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何减缓软件复杂度的增长</title>
-    <url>/2022/06/28/%E5%A6%82%E4%BD%95%E5%87%8F%E7%BC%93%E8%BD%AF%E4%BB%B6%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%A2%9E%E9%95%BF/</url>
-    <content><![CDATA[<p>读<a href="https://mp.weixin.qq.com/s/Dil5Ual1aI_7dsGKV0f6Ig" target="_blank" rel="noopener">《对抗软件复杂度的战争》</a> 有感而发</p>
-<h2 id="为什么软件必然会变得越来越复杂"><a href="#为什么软件必然会变得越来越复杂" class="headerlink" title="为什么软件必然会变得越来越复杂"></a>为什么软件必然会变得越来越复杂</h2><blockquote>
-<p>熵增定律：孤立系统总是趋向于熵增，最终达到熵的最大状态。但是，对开放系统而言，由于它可以将内部能量交换产生的熵增通过向环境释放热量的方式转移，所以开放系统有可能趋向熵减而达到有序状态。</p>
-</blockquote>
-<p>一个软件系统也可以看作是一个孤立系统，它的复杂度的不断提升实质上就对应了系统的熵增过程，而这是不可逆且必然的。因此，我们能做的是尽力的减慢这种变复杂的趋势。在对抗这种趋势之前，对问题进行本质上的拆解是很有意义的：</p>
-<blockquote>
-<p>全局复杂度 = 本质复杂度 + 偶然复杂度</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="如何尽量减缓这种变复杂的趋势"><a href="#如何尽量减缓这种变复杂的趋势" class="headerlink" title="如何尽量减缓这种变复杂的趋势"></a>如何尽量减缓这种变复杂的趋势</h2><h3 id="引入复杂的来源"><a href="#引入复杂的来源" class="headerlink" title="引入复杂的来源"></a>引入复杂的来源</h3><p>原文中的阐述，引入复杂性的来源有4个：</p>
-<ol>
-<li>本质复杂度<ol>
-<li>业务复杂度的增长</li>
-</ol>
-</li>
-<li>偶然复杂度<ol>
-<li>系统问题：分布式系统规模的增长</li>
-<li>人的问题：团队规模的增长</li>
-<li>人的问题：关键干系人目标的因素</li>
-</ol>
-</li>
-</ol>
-<h3 id="哪些可以抗争？哪些只能躺平？"><a href="#哪些可以抗争？哪些只能躺平？" class="headerlink" title="哪些可以抗争？哪些只能躺平？"></a>哪些可以抗争？哪些只能躺平？</h3><p>其中本质复杂度来自问题空间，是无法简化的。这部分可以躺平。<br>而偶然复杂度来自方案空间，是可以通过人为的努力去简化，甚至消除的。最理想的情况是偶然复杂度为0。</p>
-<h3 id="对于能抗争的来源，怎么抗争？"><a href="#对于能抗争的来源，怎么抗争？" class="headerlink" title="对于能抗争的来源，怎么抗争？"></a>对于能抗争的来源，怎么抗争？</h3><h4 id="针对系统问题，分三个层次的解决方案。"><a href="#针对系统问题，分三个层次的解决方案。" class="headerlink" title="针对系统问题，分三个层次的解决方案。"></a>针对系统问题，分三个层次的解决方案。</h4><ol>
-<li>微观：控制逻辑正交+有效的高质量的单元测试</li>
-<li>中观：系统架构梳理和维护。<ol>
-<li>康威定律说：“任何系统设计的系统，其系统结构会复制组织的沟通结构。”</li>
-<li>所以系统架构和组织，也就是人的问题有关。</li>
-</ol>
-</li>
-<li>宏观：正确的技术战略，把分布式系统的复杂度外包（阿里、AWS、Azure、谷歌）</li>
-</ol>
-<h4 id="针对人的问题"><a href="#针对人的问题" class="headerlink" title="针对人的问题"></a>针对人的问题</h4><p>任何一个组织、部门作为一个“生命体”都有扩大自身的欲望和趋势。 一旦扩大到一定规模，就不受任何一个个人完全控制了。这是内禀的。<br>因此，我认为解决人的问题的方案只有<strong>控制人数，提高质量</strong>这一条路径。（没错，真正的解决方案就是这么简单直接）</p>
-<h4 id="扩展思考"><a href="#扩展思考" class="headerlink" title="扩展思考"></a>扩展思考</h4><p>既然孤立系统必然熵增，那是否可以考虑把软件系统变成一个开放系统呢？通过热交换，维持自身的有序？这意味着持续的“能量”输入（Code Review？架构宣导？新人加入？）</p>
-]]></content>
-      <tags>
-        <tag>软件复杂度</tag>
       </tags>
   </entry>
   <entry>
@@ -1046,6 +1008,58 @@
       </tags>
   </entry>
   <entry>
+    <title>如何减缓软件复杂度的增长</title>
+    <url>/2022/06/28/%E5%A6%82%E4%BD%95%E5%87%8F%E7%BC%93%E8%BD%AF%E4%BB%B6%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%A2%9E%E9%95%BF/</url>
+    <content><![CDATA[<p>读<a href="https://mp.weixin.qq.com/s/Dil5Ual1aI_7dsGKV0f6Ig" target="_blank" rel="noopener">《对抗软件复杂度的战争》</a> 有感而发</p>
+<h2 id="为什么软件必然会变得越来越复杂"><a href="#为什么软件必然会变得越来越复杂" class="headerlink" title="为什么软件必然会变得越来越复杂"></a>为什么软件必然会变得越来越复杂</h2><blockquote>
+<p>熵增定律：孤立系统总是趋向于熵增，最终达到熵的最大状态。但是，对开放系统而言，由于它可以将内部能量交换产生的熵增通过向环境释放热量的方式转移，所以开放系统有可能趋向熵减而达到有序状态。</p>
+</blockquote>
+<p>一个软件系统也可以看作是一个孤立系统，它的复杂度的不断提升实质上就对应了系统的熵增过程，而这是不可逆且必然的。因此，我们能做的是尽力的减慢这种变复杂的趋势。在对抗这种趋势之前，对问题进行本质上的拆解是很有意义的：</p>
+<blockquote>
+<p>全局复杂度 = 本质复杂度 + 偶然复杂度</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="如何尽量减缓这种变复杂的趋势"><a href="#如何尽量减缓这种变复杂的趋势" class="headerlink" title="如何尽量减缓这种变复杂的趋势"></a>如何尽量减缓这种变复杂的趋势</h2><h3 id="引入复杂的来源"><a href="#引入复杂的来源" class="headerlink" title="引入复杂的来源"></a>引入复杂的来源</h3><p>原文中的阐述，引入复杂性的来源有4个：</p>
+<ol>
+<li>本质复杂度<ol>
+<li>业务复杂度的增长</li>
+</ol>
+</li>
+<li>偶然复杂度<ol>
+<li>系统问题：分布式系统规模的增长</li>
+<li>人的问题：团队规模的增长</li>
+<li>人的问题：关键干系人目标的因素</li>
+</ol>
+</li>
+</ol>
+<h3 id="哪些可以抗争？哪些只能躺平？"><a href="#哪些可以抗争？哪些只能躺平？" class="headerlink" title="哪些可以抗争？哪些只能躺平？"></a>哪些可以抗争？哪些只能躺平？</h3><p>其中本质复杂度来自问题空间，是无法简化的。这部分可以躺平。<br>而偶然复杂度来自方案空间，是可以通过人为的努力去简化，甚至消除的。最理想的情况是偶然复杂度为0。</p>
+<h3 id="对于能抗争的来源，怎么抗争？"><a href="#对于能抗争的来源，怎么抗争？" class="headerlink" title="对于能抗争的来源，怎么抗争？"></a>对于能抗争的来源，怎么抗争？</h3><h4 id="针对系统问题，分三个层次的解决方案。"><a href="#针对系统问题，分三个层次的解决方案。" class="headerlink" title="针对系统问题，分三个层次的解决方案。"></a>针对系统问题，分三个层次的解决方案。</h4><ol>
+<li>微观：控制逻辑正交+有效的高质量的单元测试</li>
+<li>中观：系统架构梳理和维护。<ol>
+<li>康威定律说：“任何系统设计的系统，其系统结构会复制组织的沟通结构。”</li>
+<li>所以系统架构和组织，也就是人的问题有关。</li>
+</ol>
+</li>
+<li>宏观：正确的技术战略，把分布式系统的复杂度外包（阿里、AWS、Azure、谷歌）</li>
+</ol>
+<h4 id="针对人的问题"><a href="#针对人的问题" class="headerlink" title="针对人的问题"></a>针对人的问题</h4><p>任何一个组织、部门作为一个“生命体”都有扩大自身的欲望和趋势。 一旦扩大到一定规模，就不受任何一个个人完全控制了。这是内禀的。<br>因此，我认为解决人的问题的方案只有<strong>控制人数，提高质量</strong>这一条路径。（没错，真正的解决方案就是这么简单直接）</p>
+<h4 id="扩展思考"><a href="#扩展思考" class="headerlink" title="扩展思考"></a>扩展思考</h4><p>既然孤立系统必然熵增，那是否可以考虑把软件系统变成一个开放系统呢？通过热交换，维持自身的有序？这意味着持续的“能量”输入（Code Review？架构宣导？新人加入？）</p>
+]]></content>
+      <tags>
+        <tag>软件复杂度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何设计一个吸引人的演讲</title>
+    <url>/2021/06/03/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%90%B8%E5%BC%95%E4%BA%BA%E7%9A%84%E6%BC%94%E8%AE%B2/</url>
+    <content><![CDATA[<p>关于“破冰”和“注意力管理”</p>
+<a id="more"></a>
+<h2 id="破冰"><a href="#破冰" class="headerlink" title="破冰"></a>破冰</h2><h3 id="在听众认知上戳一个洞"><a href="#在听众认知上戳一个洞" class="headerlink" title="在听众认知上戳一个洞"></a>在听众认知上戳一个洞</h3><h4 id="把听众带入一个场景"><a href="#把听众带入一个场景" class="headerlink" title="把听众带入一个场景"></a>把听众带入一个场景</h4><h4 id="“冒犯”听众：你对“创新”的理解真的对吗？"><a href="#“冒犯”听众：你对“创新”的理解真的对吗？" class="headerlink" title="“冒犯”听众：你对“创新”的理解真的对吗？"></a>“冒犯”听众：你对“创新”的理解真的对吗？</h4><h3 id="收集笑点，而不是设计笑点"><a href="#收集笑点，而不是设计笑点" class="headerlink" title="收集笑点，而不是设计笑点"></a>收集笑点，而不是设计笑点</h3><h2 id="注意力管理"><a href="#注意力管理" class="headerlink" title="注意力管理"></a>注意力管理</h2><h3 id="让听众说几句，互动"><a href="#让听众说几句，互动" class="headerlink" title="让听众说几句，互动"></a>让听众说几句，互动</h3><h3 id="调动听众脑中的画面"><a href="#调动听众脑中的画面" class="headerlink" title="调动听众脑中的画面"></a>调动听众脑中的画面</h3><h3 id="预期之外的获得感"><a href="#预期之外的获得感" class="headerlink" title="预期之外的获得感"></a>预期之外的获得感</h3>]]></content>
+      <tags>
+        <tag>演讲</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>小学数学应该学什么</title>
     <url>/2022/04/06/%E5%B0%8F%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%BA%94%E8%AF%A5%E5%AD%A6%E4%BB%80%E4%B9%88/</url>
     <content><![CDATA[<p>摘自 民间数学家的<a href="https://mp.weixin.qq.com/s/vhMQkAF64kB8fEwAlouFpQ?r=0.809623703227145#wechat_redirect" target="_blank" rel="noopener">《小学数学究竟该教什么，究竟该学什么？培优的大方向究竟在哪里？》</a><br><a id="more"></a></p>
@@ -1078,6 +1092,95 @@
       </tags>
   </entry>
   <entry>
+    <title>开源技术和商业化的思考</title>
+    <url>/2022/04/08/%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%92%8C%E5%95%86%E4%B8%9A%E5%8C%96%E7%9A%84%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<h3 id="开源技术主要在做两件事"><a href="#开源技术主要在做两件事" class="headerlink" title="开源技术主要在做两件事"></a>开源技术主要在做两件事</h3><ol>
+<li>构建能力（控制）：有技术深度。e.g. flink/spark</li>
+<li>将能力DSL化（逻辑）：有商业价值。e.g. seatunnel</li>
+</ol>
+<h3 id="重要性排序："><a href="#重要性排序：" class="headerlink" title="重要性排序："></a>重要性排序：</h3><ol>
+<li>定位：定位决定0-1</li>
+<li>产品：产品调性决定1-N</li>
+<li>团队：团队决定加速度</li>
+<li>技术：技术门槛决定使用用户规模</li>
+</ol>
+<a id="more"></a>
+<blockquote>
+<p>开源不是天才的甜点，是勤奋者的盛宴</p>
+</blockquote>
+<blockquote>
+<p>不痴迷于性能，专注于创新和社区</p>
+</blockquote>
+<blockquote>
+<p>运营 就是把产品的定位和调性发挥到极致</p>
+</blockquote>
+<h3 id="基金会能帮助到什么："><a href="#基金会能帮助到什么：" class="headerlink" title="基金会能帮助到什么："></a>基金会能帮助到什么：</h3><ol>
+<li>第三方的保护中立：产权中立、贡献中立，品牌中立，协议确认</li>
+<li>生态：Apache-&gt;大数据、AI；CNCF-&gt;云原生</li>
+</ol>
+<h3 id="可持续的闭环——商业"><a href="#可持续的闭环——商业" class="headerlink" title="可持续的闭环——商业"></a>可持续的闭环——商业</h3><ul>
+<li>Open-Core 开放核心：核心开源，应用不开源<ul>
+<li>易用模式：SaaS、UX、协作工具</li>
+<li>企业模式：可伸缩性、安全性、管理和集成</li>
+<li>解决方案模式：特定行业case</li>
+</ul>
+</li>
+<li>Professional Service 专业服务：咨询服务<ul>
+<li>redhat</li>
+</ul>
+</li>
+<li>Hosting 托管服务：云</li>
+<li>Marketplaces 市场<ul>
+<li>google play store/webstore</li>
+</ul>
+</li>
+<li>Web3.0？</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>开源</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>怎么变得越来越差？</title>
+    <url>/2021/07/13/%E6%80%8E%E4%B9%88%E5%8F%98%E5%BE%97%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%B7%AE/</url>
+    <content><![CDATA[<ol>
+<li>应激反应<ol>
+<li>急功近利：短视地看问题</li>
+<li>线性规划：静态地看问题</li>
+<li>自我视角：自我地看问题</li>
+<li>追求免费：贪便宜</li>
+</ol>
+</li>
+<li>无目标<ol>
+<li>不懂放弃：因为无目标，所以不知道要争什么，进而放弃什么，所以全部都不放弃</li>
+</ol>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>搞定睡眠这件大事</title>
+    <url>/2022/02/21/%E6%90%9E%E5%AE%9A%E7%9D%A1%E7%9C%A0%E8%BF%99%E4%BB%B6%E5%A4%A7%E4%BA%8B/</url>
+    <content><![CDATA[<h2 id="增加睡眠动力"><a href="#增加睡眠动力" class="headerlink" title="增加睡眠动力"></a>增加睡眠动力</h2><ol>
+<li>确定睡眠周期</li>
+<li>有氧运动</li>
+<li>晒太阳</li>
+<li>避免白天睡觉</li>
+</ol>
+<a id="more"></a>
+<h2 id="减少睡眠阻力"><a href="#减少睡眠阻力" class="headerlink" title="减少睡眠阻力"></a>减少睡眠阻力</h2><ol>
+<li>睡眠仪式感：隔离日常生活和睡眠：散步，泡脚，听得到</li>
+<li>放松反射：重复一个词10分钟</li>
+<li>缓解心理焦虑：不要怕失眠。死不了人<h2 id="构建好的睡眠环境"><a href="#构建好的睡眠环境" class="headerlink" title="构建好的睡眠环境"></a>构建好的睡眠环境</h2><img src="/images/好的睡眠环境.jpeg" alt></li>
+</ol>
+<h2 id="怎么执行起来"><a href="#怎么执行起来" class="headerlink" title="怎么执行起来"></a>怎么执行起来</h2><p>可以落地执行的方法，叫做睡眠改善微习惯，“每天一二三，睡眠就改善”。一二三，意思是 “早上一个点起床，白天晒两分钟太阳，睡前做三件事”。哪三件事？</p>
+<blockquote>
+<p>一是把窗帘拉好，房间调暗，避免蓝光。<br>二是把房间的温度调到22到25摄氏度，让环境能够凉下来。<br>三是给自己一些有意识的放松，比如看一看书，听一听得到，做一做冥想或者放松反射练习。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>摄影考虑因素的优先级</title>
     <url>/2023/01/05/%E6%91%84%E5%BD%B1%E8%80%83%E8%99%91%E5%9B%A0%E7%B4%A0%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
     <content><![CDATA[<ol>
@@ -1102,33 +1205,6 @@
       <tags>
         <tag>摄影</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>到底有没有前途</title>
-    <url>/2023/01/05/%E5%88%B0%E5%BA%95%E6%9C%89%E6%B2%A1%E6%9C%89%E5%89%8D%E9%80%94/</url>
-    <content><![CDATA[<p>八年前看罗胖的视频<a href="https://www.youtube.com/watch?v=00xxWbbk9CI" target="_blank" rel="noopener">《中国为什么有前途》</a>，当时总结中国有前途的几个依据如下：</p>
-<ol>
-<li>资源陷阱：摆脱资源的诅咒</li>
-<li>人口陷阱：<ol>
-<li>人口被控制住了</li>
-<li>年轻人，人人都奋斗，都拼搏，人人都不甘于现状</li>
-<li>受教育人口多，可以有更细密的分工与合作（西班牙百万人–&gt;英国千万人–&gt;美国亿人–&gt;中国十亿人）</li>
-</ol>
-</li>
-<li>赶超陷阱：不挑不拣，不封闭</li>
-<li>政治陷阱：我们有强人政治，可以避免错误的民族主义抬头<br>视频的意思是，能同时绕开这四个陷阱的国家历史上只有新加坡做到过，而我们，将是第二个！</li>
-</ol>
-<a id="more"></a>
-<p>然而，<br>八后之后，<br>我们再回看，<br>你觉得我们绕过了几个呢？</p>
-<ol>
-<li>人口被控制住了还是好事吗？</li>
-<li>年轻人还想着奋斗吗？</li>
-<li>还是不封闭吗？</li>
-<li>民族主义抬头了吗？</li>
-</ol>
-<p>现在：</p>
-<p>我们到底是法治还是人治？<br>人口老龄化势不可挡？<br>创新能成为国家增长支柱了吗？<br>科学规律、市场规律我们尊重了吗？</p>
-]]></content>
   </entry>
   <entry>
     <title>乐观锁维护原则及常见错误</title>
@@ -1163,24 +1239,72 @@
       </tags>
   </entry>
   <entry>
-    <title>最近一些零星的认知汇总</title>
-    <url>/2022/02/21/%E6%9C%80%E8%BF%91%E4%B8%80%E4%BA%9B%E9%9B%B6%E6%98%9F%E7%9A%84%E8%AE%A4%E7%9F%A5%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<ol>
-<li>由人组成的社会是一个混沌的、紧耦合的、动态平衡的整体系统，且这个系统正在变得越来越紧耦合，这意味着信息流转效率变高的同时，作为一个整体的脆弱性也在增加</li>
-<li>对其中任何对一个单点的作用都会逐渐的影响到系统里的其它节点。</li>
-<li>如果想给整体系统一个向上的力，那只有科技进步这一种方式，而不是对一个节点用猛力</li>
-<li>成事：<ol>
-<li>微观能力：精益求精（比如优秀的代码设计、优秀的文档能力）</li>
-<li>中观能力：做事条理性；避免做事陷入细节、陷入争论、没有打法；流畅地表达也依赖条理性（目前缺乏这部分）</li>
-<li>宏观能力：自我认知+自驱力+价值感，参考 <a href="认知分层标准以及我们应该争论什么.md">《认知分层标准以及我们应该争论什么》</a></li>
+    <title>到底有没有前途</title>
+    <url>/2023/01/05/%E5%88%B0%E5%BA%95%E6%9C%89%E6%B2%A1%E6%9C%89%E5%89%8D%E9%80%94/</url>
+    <content><![CDATA[<p>八年前看罗胖的视频<a href="https://www.youtube.com/watch?v=00xxWbbk9CI" target="_blank" rel="noopener">《中国为什么有前途》</a>，当时总结中国有前途的几个依据如下：</p>
+<ol>
+<li>资源陷阱：摆脱资源的诅咒</li>
+<li>人口陷阱：<ol>
+<li>人口被控制住了</li>
+<li>年轻人，人人都奋斗，都拼搏，人人都不甘于现状</li>
+<li>受教育人口多，可以有更细密的分工与合作（西班牙百万人–&gt;英国千万人–&gt;美国亿人–&gt;中国十亿人）</li>
 </ol>
 </li>
-<li>目前做事一直是凭基础能力，本能，缺少刻意练习，刻意纠正</li>
-<li>学得东西不需要很多，但是学一个，要真正的实践一个，解决一个现实中的问题。比如睡眠、降脂，要真的去做。</li>
+<li>赶超陷阱：不挑不拣，不封闭</li>
+<li>政治陷阱：我们有强人政治，可以避免错误的民族主义抬头<br>视频的意思是，能同时绕开这四个陷阱的国家历史上只有新加坡做到过，而我们，将是第二个！</li>
 </ol>
+<a id="more"></a>
+<p>然而，<br>八后之后，<br>我们再回看，<br>你觉得我们绕过了几个呢？</p>
+<ol>
+<li>人口被控制住了还是好事吗？</li>
+<li>年轻人还想着奋斗吗？</li>
+<li>还是不封闭吗？</li>
+<li>民族主义抬头了吗？</li>
+</ol>
+<p>现在：</p>
+<p>我们到底是法治还是人治？<br>人口老龄化势不可挡？<br>创新能成为国家增长支柱了吗？<br>科学规律、市场规律我们尊重了吗？</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>数据开发领域的点线面体</title>
+    <url>/2019/05/12/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E9%A2%86%E5%9F%9F%E7%9A%84%E7%82%B9%E7%BA%BF%E9%9D%A2%E4%BD%93/</url>
+    <content><![CDATA[<p>在数据开发领域做了两年左右的时间，因为工作原因，视野只是集中在离线数仓搭建这一小块内容上。两年时间并没有看到更多广阔的发展空间，导致数据开发的工作面越来越窄。为了扭转这个局面，特写此文从宏观上去重新审视这个领域的机会点在哪里。</p>
+<blockquote>
+<p>分析框架：从得到APP上舶来的“点线面体”分析视角。个人理解，每提升一个维度，都应该有给上一维度“赋能”的能力。</p>
+</blockquote>
+<h2 id="一张图概括"><a href="#一张图概括" class="headerlink" title="一张图概括"></a>一张图概括</h2><pre class="mermaid" style="text-align: center;">
+            graph TD
+            A[数据集成]-->C;
+B[数据开发]-->C;
+K[数据质量]-->C;
+L[数据安全]-->C;
+M[数据服务]-->C;
+C[离线数据生产线]-->E;
+O[实时PV]-->D
+I[实时UV]-->D
+D[实时数据生产线]-->E;
+E[存储和查询: 数仓理论体系]-->Z
+F[挖掘关系:知识图谱]-->Z
+J[挖掘能力:机器学习]-->Z
+Z[数据价值]
+          </pre>
+<a id="more"></a>
+<h2 id="点"><a href="#点" class="headerlink" title="点"></a>点</h2><p><strong>点是最具体的，可以直接交付的产品。</strong> 对应到数据仓库开发，就是一个一个具体的指标，离线的 or 实时的。其它领域了解不深入，需要找专家补充。</p>
+<h2 id="线"><a href="#线" class="headerlink" title="线"></a>线</h2><p><strong>线应该是点的串联而不是点的和。</strong> 在数据开发领域，对应的就是离线生产线上的一层层的表以及任务调度系统，它们串联了所有的数据指标需求，又抽象了业务实体表，为不同的指标提供统一的数据源。</p>
+<h2 id="面"><a href="#面" class="headerlink" title="面"></a>面</h2><p><strong>面既要向上赋能，又是体的组成部分。</strong> 这一层是理论沉淀最多的一层，每一个“面”都应该能独立地为其上的“点”组成的生态赋能。数据仓库建设的一些规范和原则算是这一层的，它保障了无论业务多么复杂，数据都能被合理地（最小认知负担，最小沟通成功，最小存储成本）存储和组织。</p>
+<h2 id="体"><a href="#体" class="headerlink" title="体"></a>体</h2><p><strong>体是整个问题域。</strong> “体”定义了问题的边界，一个“体”的沉浮决定了以上几个维度是否还有讨论的必要。在数据开发领域体现为：数据到底有没有价值？体现在哪？是否被不懂数据的人认可？</p>
+<h2 id="数据的价值和数据技术的价值"><a href="#数据的价值和数据技术的价值" class="headerlink" title="数据的价值和数据技术的价值"></a>数据的价值和数据技术的价值</h2><p>提到“数据价值”，心里还是有点慌的，因为大多数人心里的数据并没什么具体的价值，在他们眼里，只不过是年终的一份数据报告，或者一个可以查更多数据的“MySQL”而已。</p>
+<p>数据技术更是被认为搭一下Hadoop，然后写各种长SQL出报表就是全部能力了。</p>
+<p>大部分时候，这可能是现状，但这不应该是全部。</p>
+<p>数据的价值在于可以从非业务的视角去看业务，给出“原来还可以这么做！（e.g. AlphaGo / Zero）”“原来A和B之间有一层这样的关系！（e.g. 协同过滤推荐）”这样的答案。只有做到这些，才算是“数据”提供了独有的价值，否则为什么要再去存储这么多的历史数据？</p>
+<p>数据技术也是一样，应该先具备数据的视角和数据处理能力，然后用数据的能力去解决业务同学靠勤奋都不能解决的问题。而不是本末倒置，没技术没视角，天天钻业务细节，最后只能给对应的业务线一些众所周知、隔靴搔痒的建议。业务团队不需要多一个特别懂业务的人，团队需要的是能站在新的视角，发现和解决那些业务团队再勤奋也会忽视的问题的人。这才是数据技术的价值所在。</p>
+]]></content>
+      <categories>
+        <category>数据开发</category>
+      </categories>
       <tags>
-        <tag>认知升级</tag>
+        <tag>数据价值</tag>
+        <tag>点线面体</tag>
       </tags>
   </entry>
   <entry>
@@ -1225,25 +1349,25 @@
       </tags>
   </entry>
   <entry>
-    <title>搞定睡眠这件大事</title>
-    <url>/2022/02/21/%E6%90%9E%E5%AE%9A%E7%9D%A1%E7%9C%A0%E8%BF%99%E4%BB%B6%E5%A4%A7%E4%BA%8B/</url>
-    <content><![CDATA[<h2 id="增加睡眠动力"><a href="#增加睡眠动力" class="headerlink" title="增加睡眠动力"></a>增加睡眠动力</h2><ol>
-<li>确定睡眠周期</li>
-<li>有氧运动</li>
-<li>晒太阳</li>
-<li>避免白天睡觉</li>
+    <title>最近一些零星的认知汇总</title>
+    <url>/2022/02/21/%E6%9C%80%E8%BF%91%E4%B8%80%E4%BA%9B%E9%9B%B6%E6%98%9F%E7%9A%84%E8%AE%A4%E7%9F%A5%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<ol>
+<li>由人组成的社会是一个混沌的、紧耦合的、动态平衡的整体系统，且这个系统正在变得越来越紧耦合，这意味着信息流转效率变高的同时，作为一个整体的脆弱性也在增加</li>
+<li>对其中任何对一个单点的作用都会逐渐的影响到系统里的其它节点。</li>
+<li>如果想给整体系统一个向上的力，那只有科技进步这一种方式，而不是对一个节点用猛力</li>
+<li>成事：<ol>
+<li>微观能力：精益求精（比如优秀的代码设计、优秀的文档能力）</li>
+<li>中观能力：做事条理性；避免做事陷入细节、陷入争论、没有打法；流畅地表达也依赖条理性（目前缺乏这部分）</li>
+<li>宏观能力：自我认知+自驱力+价值感，参考 <a href="认知分层标准以及我们应该争论什么.md">《认知分层标准以及我们应该争论什么》</a></li>
 </ol>
-<a id="more"></a>
-<h2 id="减少睡眠阻力"><a href="#减少睡眠阻力" class="headerlink" title="减少睡眠阻力"></a>减少睡眠阻力</h2><ol>
-<li>睡眠仪式感：隔离日常生活和睡眠：散步，泡脚，听得到</li>
-<li>放松反射：重复一个词10分钟</li>
-<li>缓解心理焦虑：不要怕失眠。死不了人<h2 id="构建好的睡眠环境"><a href="#构建好的睡眠环境" class="headerlink" title="构建好的睡眠环境"></a>构建好的睡眠环境</h2><img src="/images/好的睡眠环境.jpeg" alt></li>
+</li>
+<li>目前做事一直是凭基础能力，本能，缺少刻意练习，刻意纠正</li>
+<li>学得东西不需要很多，但是学一个，要真正的实践一个，解决一个现实中的问题。比如睡眠、降脂，要真的去做。</li>
 </ol>
-<h2 id="怎么执行起来"><a href="#怎么执行起来" class="headerlink" title="怎么执行起来"></a>怎么执行起来</h2><p>可以落地执行的方法，叫做睡眠改善微习惯，“每天一二三，睡眠就改善”。一二三，意思是 “早上一个点起床，白天晒两分钟太阳，睡前做三件事”。哪三件事？</p>
-<blockquote>
-<p>一是把窗帘拉好，房间调暗，避免蓝光。<br>二是把房间的温度调到22到25摄氏度，让环境能够凉下来。<br>三是给自己一些有意识的放松，比如看一看书，听一听得到，做一做冥想或者放松反射练习。</p>
-</blockquote>
 ]]></content>
+      <tags>
+        <tag>认知升级</tag>
+      </tags>
   </entry>
   <entry>
     <title>系统构建英语语法</title>
@@ -1428,98 +1552,6 @@
       </tags>
   </entry>
   <entry>
-    <title>开源技术和商业化的思考</title>
-    <url>/2022/04/08/%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%92%8C%E5%95%86%E4%B8%9A%E5%8C%96%E7%9A%84%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<h3 id="开源技术主要在做两件事"><a href="#开源技术主要在做两件事" class="headerlink" title="开源技术主要在做两件事"></a>开源技术主要在做两件事</h3><ol>
-<li>构建能力（控制）：有技术深度。e.g. flink/spark</li>
-<li>将能力DSL化（逻辑）：有商业价值。e.g. seatunnel</li>
-</ol>
-<h3 id="重要性排序："><a href="#重要性排序：" class="headerlink" title="重要性排序："></a>重要性排序：</h3><ol>
-<li>定位：定位决定0-1</li>
-<li>产品：产品调性决定1-N</li>
-<li>团队：团队决定加速度</li>
-<li>技术：技术门槛决定使用用户规模</li>
-</ol>
-<a id="more"></a>
-<blockquote>
-<p>开源不是天才的甜点，是勤奋者的盛宴</p>
-</blockquote>
-<blockquote>
-<p>不痴迷于性能，专注于创新和社区</p>
-</blockquote>
-<blockquote>
-<p>运营 就是把产品的定位和调性发挥到极致</p>
-</blockquote>
-<h3 id="基金会能帮助到什么："><a href="#基金会能帮助到什么：" class="headerlink" title="基金会能帮助到什么："></a>基金会能帮助到什么：</h3><ol>
-<li>第三方的保护中立：产权中立、贡献中立，品牌中立，协议确认</li>
-<li>生态：Apache-&gt;大数据、AI；CNCF-&gt;云原生</li>
-</ol>
-<h3 id="可持续的闭环——商业"><a href="#可持续的闭环——商业" class="headerlink" title="可持续的闭环——商业"></a>可持续的闭环——商业</h3><ul>
-<li>Open-Core 开放核心：核心开源，应用不开源<ul>
-<li>易用模式：SaaS、UX、协作工具</li>
-<li>企业模式：可伸缩性、安全性、管理和集成</li>
-<li>解决方案模式：特定行业case</li>
-</ul>
-</li>
-<li>Professional Service 专业服务：咨询服务<ul>
-<li>redhat</li>
-</ul>
-</li>
-<li>Hosting 托管服务：云</li>
-<li>Marketplaces 市场<ul>
-<li>google play store/webstore</li>
-</ul>
-</li>
-<li>Web3.0？</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>开源</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据开发领域的点线面体</title>
-    <url>/2019/05/12/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E9%A2%86%E5%9F%9F%E7%9A%84%E7%82%B9%E7%BA%BF%E9%9D%A2%E4%BD%93/</url>
-    <content><![CDATA[<p>在数据开发领域做了两年左右的时间，因为工作原因，视野只是集中在离线数仓搭建这一小块内容上。两年时间并没有看到更多广阔的发展空间，导致数据开发的工作面越来越窄。为了扭转这个局面，特写此文从宏观上去重新审视这个领域的机会点在哪里。</p>
-<blockquote>
-<p>分析框架：从得到APP上舶来的“点线面体”分析视角。个人理解，每提升一个维度，都应该有给上一维度“赋能”的能力。</p>
-</blockquote>
-<h2 id="一张图概括"><a href="#一张图概括" class="headerlink" title="一张图概括"></a>一张图概括</h2><pre class="mermaid" style="text-align: center;">
-            graph TD
-            A[数据集成]-->C;
-B[数据开发]-->C;
-K[数据质量]-->C;
-L[数据安全]-->C;
-M[数据服务]-->C;
-C[离线数据生产线]-->E;
-O[实时PV]-->D
-I[实时UV]-->D
-D[实时数据生产线]-->E;
-E[存储和查询: 数仓理论体系]-->Z
-F[挖掘关系:知识图谱]-->Z
-J[挖掘能力:机器学习]-->Z
-Z[数据价值]
-          </pre>
-<a id="more"></a>
-<h2 id="点"><a href="#点" class="headerlink" title="点"></a>点</h2><p><strong>点是最具体的，可以直接交付的产品。</strong> 对应到数据仓库开发，就是一个一个具体的指标，离线的 or 实时的。其它领域了解不深入，需要找专家补充。</p>
-<h2 id="线"><a href="#线" class="headerlink" title="线"></a>线</h2><p><strong>线应该是点的串联而不是点的和。</strong> 在数据开发领域，对应的就是离线生产线上的一层层的表以及任务调度系统，它们串联了所有的数据指标需求，又抽象了业务实体表，为不同的指标提供统一的数据源。</p>
-<h2 id="面"><a href="#面" class="headerlink" title="面"></a>面</h2><p><strong>面既要向上赋能，又是体的组成部分。</strong> 这一层是理论沉淀最多的一层，每一个“面”都应该能独立地为其上的“点”组成的生态赋能。数据仓库建设的一些规范和原则算是这一层的，它保障了无论业务多么复杂，数据都能被合理地（最小认知负担，最小沟通成功，最小存储成本）存储和组织。</p>
-<h2 id="体"><a href="#体" class="headerlink" title="体"></a>体</h2><p><strong>体是整个问题域。</strong> “体”定义了问题的边界，一个“体”的沉浮决定了以上几个维度是否还有讨论的必要。在数据开发领域体现为：数据到底有没有价值？体现在哪？是否被不懂数据的人认可？</p>
-<h2 id="数据的价值和数据技术的价值"><a href="#数据的价值和数据技术的价值" class="headerlink" title="数据的价值和数据技术的价值"></a>数据的价值和数据技术的价值</h2><p>提到“数据价值”，心里还是有点慌的，因为大多数人心里的数据并没什么具体的价值，在他们眼里，只不过是年终的一份数据报告，或者一个可以查更多数据的“MySQL”而已。</p>
-<p>数据技术更是被认为搭一下Hadoop，然后写各种长SQL出报表就是全部能力了。</p>
-<p>大部分时候，这可能是现状，但这不应该是全部。</p>
-<p>数据的价值在于可以从非业务的视角去看业务，给出“原来还可以这么做！（e.g. AlphaGo / Zero）”“原来A和B之间有一层这样的关系！（e.g. 协同过滤推荐）”这样的答案。只有做到这些，才算是“数据”提供了独有的价值，否则为什么要再去存储这么多的历史数据？</p>
-<p>数据技术也是一样，应该先具备数据的视角和数据处理能力，然后用数据的能力去解决业务同学靠勤奋都不能解决的问题。而不是本末倒置，没技术没视角，天天钻业务细节，最后只能给对应的业务线一些众所周知、隔靴搔痒的建议。业务团队不需要多一个特别懂业务的人，团队需要的是能站在新的视角，发现和解决那些业务团队再勤奋也会忽视的问题的人。这才是数据技术的价值所在。</p>
-]]></content>
-      <categories>
-        <category>数据开发</category>
-      </categories>
-      <tags>
-        <tag>数据价值</tag>
-        <tag>点线面体</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>认知分层标准以及我们应该争论什么</title>
     <url>/2021/02/01/%E8%AE%A4%E7%9F%A5%E5%88%86%E5%B1%82%E6%A0%87%E5%87%86%E4%BB%A5%E5%8F%8A%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E4%BA%89%E8%AE%BA%E4%BB%80%E4%B9%88/</url>
     <content><![CDATA[<h3 id="认知分层"><a href="#认知分层" class="headerlink" title="认知分层"></a>认知分层</h3><p>人和猪的区别是基因的差别，是可以量化的；人和人的区别是认知的区别，是不可以被量化的。认知的不同使我们实际处在不同的平行世界之中。</p>
@@ -1587,6 +1619,154 @@ Z[数据价值]
 ]]></content>
   </entry>
   <entry>
+    <title>Why do we need Paxos and and How it works</title>
+    <url>/2022/06/30/Why-do-we-need-Paxos-and-and-How-it-works/</url>
+    <content><![CDATA[<blockquote>
+<p>参考<a href="https://blog.openacid.com/algo/paxos/" target="_blank" rel="noopener">《可靠分布式系统-paxos的直观解释》</a></p>
+</blockquote>
+<pre class="mermaid" style="text-align: center;">
+            journey
+            %%{init: {'theme':'default'}}%%
+	title Why do we need Paxos？How it works?
+	section 单机
+		单机: 1 : 可用性低
+	section 多副本
+		异步复制:  2: 一致性低
+		同步复制:  2: 可用性低
+		半同步复制:  3: 一致性低, 2个写并发导致2个状态
+		多数派读写+时间戳: 5: 一致性低, client宕机导致读到2个状态, 2并发写覆盖
+	section Paxos
+		写前读: 7
+          </pre>
+<a id="more"></a>
+<p>一些方便理解的重点</p>
+<ul>
+<li>每个Paxos实例只维护一个值的状态</li>
+<li>每个Paxos实例有多轮（Round）尝试写入，每个Round有2个Phase(Phase-1 写前读，Phase-2 写)，只有Phase-1和Phase-2之间没有任何其他终端进行过Phase-1和Phase-2时才能成功完成Phase-2</li>
+<li>客户端取到时间戳不一致的两个不同值时，有义务让更早的向更新的版本去对齐</li>
+<li>每个Round都必然有且仅有一个多数派读，但是不一定有多数派写（可能Phase-2之前有更新的Round的Phase-1出现）</li>
+</ul>
+<p><em>mermaid 的图有遮盖，看下面这个脑补看不到的汉字吧 :)</em></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">journey</span><br><span class="line">	title Why do we need Paxos？How it works?</span><br><span class="line">	section 单机</span><br><span class="line">		单机: 1 : 可用性低</span><br><span class="line">	section 多副本</span><br><span class="line">		异步复制:  2: 一致性低</span><br><span class="line">		同步复制:  2: 可用性低</span><br><span class="line">		半同步复制:  3: 一致性低, 2个写并发导致2个状态</span><br><span class="line">		多数派读写+时间戳: 5: 一致性低, client宕机导致读到2个状态, 2并发写覆盖</span><br><span class="line">	section Paxos</span><br><span class="line">		写前读: 7</span><br></pre></td></tr></table></figure>
+<h3 id="Raft-动画演示"><a href="#Raft-动画演示" class="headerlink" title="Raft 动画演示"></a>Raft 动画演示</h3><p><a href="http://www.kailing.pub/raft/index.html" target="_blank" rel="noopener">http://www.kailing.pub/raft/index.html</a></p>
+]]></content>
+      <tags>
+        <tag>一致性共识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dynamic-PB-Parser：搞定Protobuf数据动态解析</title>
+    <url>/2019/04/17/dynamic-pb-parser-%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="核心痛点"><a href="#核心痛点" class="headerlink" title="核心痛点"></a>核心痛点</h3><p>使用ODPS(hive) SQL解析JSON数据的时候你可能用过get_json_object这个内置UDF，其灵活性给JSON数据解析带来了很多的便利。</p>
+<p>但是对于Protobuf描述的数据，解析工作就麻烦太多了，即使解析一个字段，也要写一个完整的UDF(或UDTF)，并且上传各种protobuf的jar，然而这还没有完，如果新需求来了，即使仅改了一个字段的解析需求，也需要再重新开发一个新的UDF来完成。时间久了，项目里会有很多地方散落着各种Protobuf数据解析的逻辑，如果再有些公共逻辑改变，还要涉及到重构。维护工作繁重。<br><a id="more"></a></p>
+<h3 id="本质原因"><a href="#本质原因" class="headerlink" title="本质原因"></a>本质原因</h3><p>出现以上问题的本质原因实际上是我们把“我们想要A字段”和“我们如何得到A字段”两件事给耦合在一起了。按照函数式的编程思想，“控制”和“逻辑”要分开，并且互不干扰，这个问题里，“我们如何得到A字段”就是控制，而“我们想要A字段”就是逻辑。</p>
+<h3 id="破局"><a href="#破局" class="headerlink" title="破局"></a>破局</h3><p>既然找到了耦合点，想办法解耦就是出路了。<br>首先，定义一套描述字段路径的语法规则，让它去表达“我们想要A字段”这件事；然后，开发一个可以解析这套语法的程序（类似编译器），去完成“我们如何得到A字段”这件事。这样就可以让两件事互相独立演进了。至此， <code>Dynamic-PB-Parser</code>也就呼之欲出了。</p>
+<h2 id="Dynamic-PB-Parser-能做什么"><a href="#Dynamic-PB-Parser-能做什么" class="headerlink" title="Dynamic-PB-Parser 能做什么"></a><code>Dynamic-PB-Parser</code> 能做什么</h2><p>一句话概括<code>Dynamic-PB-Parser</code>的功能：</p>
+<blockquote>
+<p>按一种简单的语法规则描述字段路径，并动态解析Protobuf数据中对应的字段值。</p>
+</blockquote>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DynamicPBParser parser = DynamicPBParser.newBuilder()  </span><br><span class="line">.descFilePath(<span class="string">"xxx/xxx.desc"</span>)  </span><br><span class="line">.syntax(<span class="string">"StandardSyntax"</span>)  </span><br><span class="line">.build(); </span><br><span class="line">String name = parser.parse(content, <span class="string">'me.lihongyu.bean.Person$name'</span>);  </span><br><span class="line">BrandType brandType = parser.parse(content, <span class="string">'me.lihongyu.bean.Person$cloth.brand.type'</span>);  </span><br><span class="line">String email = parser.parse(parser.parse(content, <span class="string">'me.lihongyu.bean.Person$proto_data'</span>), <span class="string">'me.lihongyu.bean.AddressBook$email'</span>);</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<h2 id="Dynamic-PB-Parser-怎么做的"><a href="#Dynamic-PB-Parser-怎么做的" class="headerlink" title="Dynamic-PB-Parser 怎么做的"></a><code>Dynamic-PB-Parser</code> 怎么做的</h2><p>总体的思路：动态拿到schema(也就是message的定义)，用schema解析pb的数据得到一个完整对象，沿着字段路径，不断循环得到下一级对象直到最后一级。一图胜千言：<br><img src="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/acda938c9e08972c18fb2217c0fab686.png" alt="图片.png"></p>
+<h3 id="实现过程中的一些细节"><a href="#实现过程中的一些细节" class="headerlink" title="实现过程中的一些细节"></a>实现过程中的一些细节</h3><h4 id="可扩展的语法接口"><a href="#可扩展的语法接口" class="headerlink" title="可扩展的语法接口"></a>可扩展的语法接口</h4><p>在<code>Dynamic-PB-Parser</code>里定义了<code>Syntax</code>接口，其中定义了语法相关的解析逻辑，实现此接口，可以自定义一套自己的字段路径语法规则。默认提供的标准语法类似这样：<code>pkg1.XXX $ field1.field2[*].(pkg1.extension_field)[1]</code>，既支持数据，也支持用<code>()</code>表达的扩展字段。详细介绍见参考中的ATA文章。</p>
+<h4 id="获取FieldValue"><a href="#获取FieldValue" class="headerlink" title="获取FieldValue"></a>获取FieldValue</h4><p>按FieldDescriptor获取FieldValue时，如果是扩展字段，需要在<code>UnknownFields</code>里找到字段值，并按不同字段类型选择不同的取值逻辑。</p>
+<table>
+<thead>
+<tr>
+<th>字段值存储位置(in Field)</th>
+<th>字段类型</th>
+<th>取值逻辑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VarintList</td>
+<td>ENUM</td>
+<td>按ENUM定义的序号获取</td>
+</tr>
+<tr>
+<td>VarintList</td>
+<td>BOOLEAN</td>
+<td>0代表FALSE、1代表TRUE</td>
+</tr>
+<tr>
+<td>VarintList</td>
+<td>INT</td>
+<td>直接取VarintList[0]</td>
+</tr>
+<tr>
+<td>VarintList</td>
+<td>LONG</td>
+<td>直接取VarintList[0]</td>
+</tr>
+<tr>
+<td>Fixed32List</td>
+<td>FLOAT</td>
+<td>将用int表达的字节转为float：Float.intBitsToFloat</td>
+</tr>
+<tr>
+<td>Fixed64List</td>
+<td>DOUBLE</td>
+<td>将用long表达的字节转为double：Double.longBitsToDouble</td>
+</tr>
+<tr>
+<td>LengthDelimitedList</td>
+<td>MESSAGE</td>
+<td>DynamicMessage.parseFrom(LengthDelimitedList[0])</td>
+</tr>
+<tr>
+<td>LengthDelimitedList</td>
+<td>STRING</td>
+<td>LengthDelimitedList[0].toStringUtf8()</td>
+</tr>
+<tr>
+<td>LengthDelimitedList</td>
+<td>BYTE_STRING</td>
+<td>直接输出LengthDelimitedList[0]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Dynamic-PB-Parser-的性能优化"><a href="#Dynamic-PB-Parser-的性能优化" class="headerlink" title="Dynamic-PB-Parser 的性能优化"></a><code>Dynamic-PB-Parser</code> 的性能优化</h2><h3 id="解析逻辑的两个阶段"><a href="#解析逻辑的两个阶段" class="headerlink" title="解析逻辑的两个阶段"></a>解析逻辑的两个阶段</h3><p><code>Dynamic-PB-Parser</code>将解析逻辑分为<code>load</code>和<code>parse</code>两个阶段：</p>
+<ol>
+<li><code>load</code>阶段完成schema的加载过程，其中包括了对扩展字段的schema处理</li>
+<li><code>parse</code>阶段完成字段路径的解析，和按路径逐步找到字段值的功能</li>
+</ol>
+<h3 id="通过缓存减少重复的parse逻辑"><a href="#通过缓存减少重复的parse逻辑" class="headerlink" title="通过缓存减少重复的parse逻辑"></a>通过缓存减少重复的parse逻辑</h3><ol>
+<li><code>descriptorCache</code>在<code>load</code>阶段初始化，缓存了descriptorName和descriptor的对应关系，在同一个JVM里只需要初始化一次即可</li>
+<li><code>extensionFieldCache</code>在<code>load</code>阶段初始化，缓存了desc文件里全部扩展字段名和扩展字段实例的对应关系。用于后续解析扩展字段时提取FieldDescriptor</li>
+<li><code>fieldPathCache</code>在<code>parse</code>阶段初始化，缓存了完整字段路径和字段拆分后结果的对应关系。避免每次都需要做split和对<code>()</code>表达的扩展字段路径的解析</li>
+<li><code>fieldNameCache</code>和<code>fieldIndexCache</code>在<code>parse</code>阶段初始化，分别缓存了field和fieldName（<code>abc[*]-&gt;abc</code>），以及field和fieldIndex（<code>abc[*]-&gt;*</code>）的对应关系，避免每次解析都要执行正则匹配。</li>
+</ol>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p><code>Dynamic-PB-Parser</code>具体的实现细节还有很多，感兴趣的同学可以checkout Github repo。虽然不是什么高深的技术，但是背后也是对“控制和逻辑正交”的函数式编程思维的一次成功实践。<br>由于所在项目组的特殊性，这种用Protobuf描述的数据又非常多且普遍，用传统的protobuf的解析方式给开发人员的维护工作带来了很大痛苦，因此开发了<code>Dynamic-PB-Parser</code>这个工具，希望能帮助到更多和我有类似问题的开发同学。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>hive UDFJson:<a href="https://github.com/apache/hive/blob/master/ql/src/java/org/apache/hadoop/hive/ql/udf/UDFJson.java" target="_blank" rel="noopener">https://github.com/apache/hive/blob/master/ql/src/java/org/apache/hadoop/hive/ql/udf/UDFJson.java</a><br>github：<a href="https://github.com/lhyundeadsoul/pb-parser" target="_blank" rel="noopener">https://github.com/lhyundeadsoul/pb-parser</a><br>欢迎提issue和MR</p>
+]]></content>
+      <categories>
+        <category>开源产品</category>
+      </categories>
+      <tags>
+        <tag>pb-parser</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2020 Flink forward 大会</title>
+    <url>/2020/12/24/2020%20Flink%20forward%E5%A4%A7%E4%BC%9A/</url>
+    <content><![CDATA[<h3 id="标准benchmark"><a href="#标准benchmark" class="headerlink" title="标准benchmark"></a>标准benchmark</h3><p>Steaming benchmark</p>
+<h3 id="单节点重启"><a href="#单节点重启" class="headerlink" title="单节点重启"></a>单节点重启</h3><h3 id="非全局checkpoint"><a href="#非全局checkpoint" class="headerlink" title="非全局checkpoint"></a>非全局checkpoint</h3><a id="more"></a>
+<h3 id="全链路数据实时化-to-实时离线一体化"><a href="#全链路数据实时化-to-实时离线一体化" class="headerlink" title="全链路数据实时化 to 实时离线一体化"></a>全链路数据实时化 to 实时离线一体化</h3><p>2021是元年</p>
+<p>数据批量集成和增量集成一体化</p>
+<p>技术栈分离</p>
+<p>逻辑分离</p>
+<p>团队分离</p>
+<h3 id="数据湖-flink-iceberg-比较成熟"><a href="#数据湖-flink-iceberg-比较成熟" class="headerlink" title="数据湖 flink+iceberg 比较成熟"></a>数据湖 flink+iceberg 比较成熟</h3><p>支持数据更新</p>
+<h3 id="PyFlink-AI-支持Python"><a href="#PyFlink-AI-支持Python" class="headerlink" title="PyFlink   AI 支持Python"></a>PyFlink   AI 支持Python</h3><h3 id="大数据和AI一体化"><a href="#大数据和AI一体化" class="headerlink" title="大数据和AI一体化"></a>大数据和AI一体化</h3><h4 id="Alink-开源算法"><a href="#Alink-开源算法" class="headerlink" title="Alink 开源算法"></a>Alink 开源算法</h4><h4 id="flink-AI-extended-alibaba"><a href="#flink-AI-extended-alibaba" class="headerlink" title="flink AI extended(alibaba)"></a>flink AI extended(alibaba)</h4><h5 id="DL-on-Flink"><a href="#DL-on-Flink" class="headerlink" title="DL on Flink"></a>DL on Flink</h5><h5 id="Flink-AI-Flow"><a href="#Flink-AI-Flow" class="headerlink" title="Flink AI Flow"></a>Flink AI Flow</h5><h3 id="Flink-Native-on-K8s"><a href="#Flink-Native-on-K8s" class="headerlink" title="Flink Native on K8s"></a>Flink Native on K8s</h3><h3 id="京东Flink"><a href="#京东Flink" class="headerlink" title="京东Flink"></a>京东Flink</h3><h4 id="容器化k8s部署，用物理机网络解决虚拟网络性能问题"><a href="#容器化k8s部署，用物理机网络解决虚拟网络性能问题" class="headerlink" title="容器化k8s部署，用物理机网络解决虚拟网络性能问题"></a>容器化k8s部署，用物理机网络解决虚拟网络性能问题</h4><h4 id="framework和业务日志隔离和级别动态配置"><a href="#framework和业务日志隔离和级别动态配置" class="headerlink" title="framework和业务日志隔离和级别动态配置"></a>framework和业务日志隔离和级别动态配置</h4><h4 id="窗口支持增量运算"><a href="#窗口支持增量运算" class="headerlink" title="窗口支持增量运算"></a>窗口支持增量运算</h4>]]></content>
+      <categories>
+        <category>技术趋势</category>
+      </categories>
+      <tags>
+        <tag>Flink</tag>
+        <tag>批流一体</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>走吧，去火星！</title>
     <url>/2019/05/22/%E8%B5%B0%E5%90%A7%EF%BC%8C%E5%8E%BB%E7%81%AB%E6%98%9F%EF%BC%81/</url>
     <content><![CDATA[<p>没有时间解释了！<a href="https://go.nasa.gov/Mars2020Pass" target="_blank" rel="noopener">快上船！</a></p>
@@ -1600,15 +1780,6 @@ Z[数据价值]
       </tags>
   </entry>
   <entry>
-    <title>跨学科工具箱1——热力学第二定律</title>
-    <url>/2021/06/04/%E8%B7%A8%E5%AD%A6%E7%A7%91%E5%B7%A5%E5%85%B7%E7%AE%B11%E2%80%94%E2%80%94%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B/</url>
-    <content><![CDATA[<p><img src="/images/热力学第二定律.jpg" alt></p>
-]]></content>
-      <tags>
-        <tag>知识模型</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>跨学科工具箱2——系统论</title>
     <url>/2021/06/04/%E8%B7%A8%E5%AD%A6%E7%A7%91%E5%B7%A5%E5%85%B7%E7%AE%B12%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E8%AE%BA/</url>
     <content><![CDATA[<p><img src="/images/系统论.jpg" alt></p>
@@ -1618,49 +1789,12 @@ Z[数据价值]
       </tags>
   </entry>
   <entry>
-    <title>zk-snark 零知识证明原理</title>
-    <url>/2020/10/27/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>问题有两个参与人：prover 和 verifier。<br>其中verifier知道多项式，然而不知道结果，但是给出结果时，verifier有验证方法。<br>prover知道结果，但是要在不告知结果的情况下，证明自己的确知道结果。<br><a id="more"></a></p>
-<h2 id="基于的性质"><a href="#基于的性质" class="headerlink" title="基于的性质"></a>基于的性质</h2><p>对于两个d阶的不同的多项式，至多只有d个交叉点。==&gt; verifier随机给定x，如果prover总能给出正确的y，说明prover的确知道多项式的所有参数。</p>
-<h2 id="将多项式转换成R1CS-一阶约束系统"><a href="#将多项式转换成R1CS-一阶约束系统" class="headerlink" title="将多项式转换成R1CS 一阶约束系统"></a>将多项式转换成R1CS 一阶约束系统</h2><p>效果：给定解向量s后，只要s能通过每一组a、b、c的验证（符合s.a * s.b - s.c = 0），即说明校验通过</p>
-<h2 id="将R1CS转换为QAP（向量点积运算转换为多项式运算）"><a href="#将R1CS转换为QAP（向量点积运算转换为多项式运算）" class="headerlink" title="将R1CS转换为QAP（向量点积运算转换为多项式运算）"></a>将R1CS转换为QAP（向量点积运算转换为多项式运算）</h2><p>目的：简化s的验证过程，从多次向量点积运算改为1次多项式运算，即可完成校验</p>
-<h2 id="提供证明而不泄漏知识"><a href="#提供证明而不泄漏知识" class="headerlink" title="提供证明而不泄漏知识"></a>提供证明而不泄漏知识</h2><p>椭圆曲线（待学习）<br>双线性映射（待学习）<br>指数知识假设（待学习）</p>
-<p>数学基础太薄弱了，看这篇文章我承认草率了啊……<br><a href="https://www.jianshu.com/p/7b772e5cdaef" target="_blank" rel="noopener">零知识证明 简书</a><br><a href="https://www.atatech.org/articles/176109?flag_data_from=mail_daily_recommend&amp;uid=336024#1" target="_blank" rel="noopener">零知识证明 ATA</a></p>
+    <title>跨学科工具箱1——热力学第二定律</title>
+    <url>/2021/06/04/%E8%B7%A8%E5%AD%A6%E7%A7%91%E5%B7%A5%E5%85%B7%E7%AE%B11%E2%80%94%E2%80%94%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B/</url>
+    <content><![CDATA[<p><img src="/images/热力学第二定律.jpg" alt></p>
 ]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
       <tags>
-        <tag>零知识证明</tag>
-        <tag>计算机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>怎么变得越来越差？</title>
-    <url>/2021/07/13/%E6%80%8E%E4%B9%88%E5%8F%98%E5%BE%97%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%B7%AE/</url>
-    <content><![CDATA[<ol>
-<li>应激反应<ol>
-<li>急功近利：短视地看问题</li>
-<li>线性规划：静态地看问题</li>
-<li>自我视角：自我地看问题</li>
-<li>追求免费：贪便宜</li>
-</ol>
-</li>
-<li>无目标<ol>
-<li>不懂放弃：因为无目标，所以不知道要争什么，进而放弃什么，所以全部都不放弃</li>
-</ol>
-</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>如何设计一个吸引人的演讲</title>
-    <url>/2021/06/03/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%90%B8%E5%BC%95%E4%BA%BA%E7%9A%84%E6%BC%94%E8%AE%B2/</url>
-    <content><![CDATA[<p>关于“破冰”和“注意力管理”</p>
-<a id="more"></a>
-<h2 id="破冰"><a href="#破冰" class="headerlink" title="破冰"></a>破冰</h2><h3 id="在听众认知上戳一个洞"><a href="#在听众认知上戳一个洞" class="headerlink" title="在听众认知上戳一个洞"></a>在听众认知上戳一个洞</h3><h4 id="把听众带入一个场景"><a href="#把听众带入一个场景" class="headerlink" title="把听众带入一个场景"></a>把听众带入一个场景</h4><h4 id="“冒犯”听众：你对“创新”的理解真的对吗？"><a href="#“冒犯”听众：你对“创新”的理解真的对吗？" class="headerlink" title="“冒犯”听众：你对“创新”的理解真的对吗？"></a>“冒犯”听众：你对“创新”的理解真的对吗？</h4><h3 id="收集笑点，而不是设计笑点"><a href="#收集笑点，而不是设计笑点" class="headerlink" title="收集笑点，而不是设计笑点"></a>收集笑点，而不是设计笑点</h3><h2 id="注意力管理"><a href="#注意力管理" class="headerlink" title="注意力管理"></a>注意力管理</h2><h3 id="让听众说几句，互动"><a href="#让听众说几句，互动" class="headerlink" title="让听众说几句，互动"></a>让听众说几句，互动</h3><h3 id="调动听众脑中的画面"><a href="#调动听众脑中的画面" class="headerlink" title="调动听众脑中的画面"></a>调动听众脑中的画面</h3><h3 id="预期之外的获得感"><a href="#预期之外的获得感" class="headerlink" title="预期之外的获得感"></a>预期之外的获得感</h3>]]></content>
-      <tags>
-        <tag>演讲</tag>
+        <tag>知识模型</tag>
       </tags>
   </entry>
   <entry>
@@ -1737,6 +1871,24 @@ Z[数据价值]
 ]]></content>
       <tags>
         <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zk-snark 零知识证明原理</title>
+    <url>/2020/10/27/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>问题有两个参与人：prover 和 verifier。<br>其中verifier知道多项式，然而不知道结果，但是给出结果时，verifier有验证方法。<br>prover知道结果，但是要在不告知结果的情况下，证明自己的确知道结果。<br><a id="more"></a></p>
+<h2 id="基于的性质"><a href="#基于的性质" class="headerlink" title="基于的性质"></a>基于的性质</h2><p>对于两个d阶的不同的多项式，至多只有d个交叉点。==&gt; verifier随机给定x，如果prover总能给出正确的y，说明prover的确知道多项式的所有参数。</p>
+<h2 id="将多项式转换成R1CS-一阶约束系统"><a href="#将多项式转换成R1CS-一阶约束系统" class="headerlink" title="将多项式转换成R1CS 一阶约束系统"></a>将多项式转换成R1CS 一阶约束系统</h2><p>效果：给定解向量s后，只要s能通过每一组a、b、c的验证（符合s.a * s.b - s.c = 0），即说明校验通过</p>
+<h2 id="将R1CS转换为QAP（向量点积运算转换为多项式运算）"><a href="#将R1CS转换为QAP（向量点积运算转换为多项式运算）" class="headerlink" title="将R1CS转换为QAP（向量点积运算转换为多项式运算）"></a>将R1CS转换为QAP（向量点积运算转换为多项式运算）</h2><p>目的：简化s的验证过程，从多次向量点积运算改为1次多项式运算，即可完成校验</p>
+<h2 id="提供证明而不泄漏知识"><a href="#提供证明而不泄漏知识" class="headerlink" title="提供证明而不泄漏知识"></a>提供证明而不泄漏知识</h2><p>椭圆曲线（待学习）<br>双线性映射（待学习）<br>指数知识假设（待学习）</p>
+<p>数学基础太薄弱了，看这篇文章我承认草率了啊……<br><a href="https://www.jianshu.com/p/7b772e5cdaef" target="_blank" rel="noopener">零知识证明 简书</a><br><a href="https://www.atatech.org/articles/176109?flag_data_from=mail_daily_recommend&amp;uid=336024#1" target="_blank" rel="noopener">零知识证明 ATA</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>零知识证明</tag>
+        <tag>计算机</tag>
       </tags>
   </entry>
 </search>

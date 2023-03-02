@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lihongyu.me/"/>
-  <updated>2023-01-05T13:29:49.057Z</updated>
+  <updated>2023-03-02T13:19:45.846Z</updated>
   <id>http://lihongyu.me/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to handle this small matter of learning English</title>
+    <link href="http://lihongyu.me/2023/03/02/How-to-handle-this-small-matter-of-learning-English/"/>
+    <id>http://lihongyu.me/2023/03/02/How-to-handle-this-small-matter-of-learning-English/</id>
+    <published>2023-03-02T13:13:41.000Z</published>
+    <updated>2023-03-02T13:19:45.846Z</updated>
+    
+    <content type="html"><![CDATA[<p>If your goal is to speak English in practical conversation, then all you need to know is:<br><a id="more"></a><br><code>An English sentence is basically a complete &quot;subject-verb-object&quot; structure, with all other elements serving as modifiers or qualifiers.</code><br><br><br>and<br><br><br>` </p><ul><li><p>表达思想、观点</p><ul><li><p>What I think is that…</p></li><li><p>All I want to do is …</p></li><li><p>…, which I think is (adj.) 我觉得这个…</p></li><li><p>…, which means that … 这意味着…</p></li></ul></li><li><p>表达原因</p><ul><li><p>the reason why … is that …</p></li><li><p>the reason … is because …</p></li><li><p>… and this is why …</p></li><li><p>Given the fact that… 鉴于…</p></li></ul></li><li><p>表达一般假设</p><ul><li><p>if/ provided that/as long as …</p><ul><li>Provided that I am free at the weekend, I go back to my parent’s place.</li></ul></li></ul></li><li><p>表达虚拟假设</p><ul><li><p>It would be… if … were/could/had…</p></li><li><p>I wish… were/could/had …</p></li></ul></li><li><p>表达可能性</p><ul><li><p>It’s highly likely that …</p></li><li><p>there will definitely/probably be (adj.)</p><ul><li>There will definitely be fewer and fewer people regarding newspapers as their main source of information.</li></ul></li><li><p>It’s unlikely that</p></li></ul></li><li><p>表达转折</p><ul><li><p>despite the fact that …, …</p></li><li><p>…unless…</p></li><li><p>… whereas…</p></li></ul></li><li><p>表达对比</p><ul><li><p>unlike…</p></li><li><p>much/ a lot/ far more … than …</p></li><li><p>it’s not as … as …</p><ul><li>Living in a city is not as much comfortable as living in the countryside</li></ul></li></ul></li><li><p>表达肯定的态度</p><ul><li><p>there is no doubt that…</p></li><li><p>it goes without saying that …</p></li><li><p>no one can deny the fact that…</p></li></ul></li><li><p>表达无论何时（何地）…</p><ul><li><p>wherever/whenever</p></li><li><p>no matter where/ no matter when</p></li></ul></li><li><p>表达每当…</p><ul><li>Every time I …</li></ul></li><li><p>表达强调</p><ul><li><p>It is … that/who …</p></li><li><p>It is important/essential/crucial/vital that …</p></li><li><p>It is important/necessary/convenient/not uncommon for sb. to do …</p></li></ul></li><li><p>表达趋势（变得越来越…）</p><ul><li><p>is becoming/ has become + increasingly/ more and more …</p><ul><li>My hometown is becoming increasingly congested.</li></ul></li></ul></li><li><p>表达能够</p><ul><li>will be able to do</li></ul></li><li><p>表达目的</p><ul><li><p>so that…</p></li><li><p>in order to…</p></li></ul></li><li><p>表达是否</p><ul><li><p>whether or not…</p><ul><li>It’s not a question of whether or not we should relax, it should be how we relax.<br>`</li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If your goal is to speak English in practical conversation, then all you need to know is:&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="english" scheme="http://lihongyu.me/tags/english/"/>
+    
+  </entry>
   
   <entry>
     <title>什么才是好的金句！</title>
@@ -515,35 +535,6 @@
       <category term="开源" scheme="http://lihongyu.me/tags/%E5%BC%80%E6%BA%90/"/>
     
       <category term="商业模式" scheme="http://lihongyu.me/tags/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于大数据的几个结论</title>
-    <link href="http://lihongyu.me/2021/07/07/%E5%85%B3%E4%BA%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E8%AE%BA%E6%96%AD/"/>
-    <id>http://lihongyu.me/2021/07/07/关于大数据的几个论断/</id>
-    <published>2021-07-07T14:13:02.000Z</published>
-    <updated>2022-12-03T04:25:50.632Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h1><h2 id="数据中台三阶段"><a href="#数据中台三阶段" class="headerlink" title="数据中台三阶段"></a>数据中台三阶段</h2><p>What（描述事实） -&gt; why（诊断归因：自动归因） -&gt; how（指导业务）</p><blockquote><p>arch问题本质都是耦合问题，都是balance问题</p><ol><li>业务数据化</li><li>数据资产化</li><li>资产服务化</li><li>服务可视化</li></ol></blockquote><a id="more"></a><h2 id="数据治理"><a href="#数据治理" class="headerlink" title="数据治理"></a>数据治理</h2><p>数据质量、数据元数据管理、数据生命周期、数据安全</p><h2 id="数据索引就是数据特征"><a href="#数据索引就是数据特征" class="headerlink" title="数据索引就是数据特征"></a>数据索引就是数据特征</h2><h2 id="九大思维模型"><a href="#九大思维模型" class="headerlink" title="九大思维模型"></a>九大思维模型</h2><ol><li>OLAP业务需求抽象分析至简思维模型</li><li>大数据架构设计本质思维模型：CAP、BASE</li><li>动态灵活组合大数据组件思维模型</li><li>根据场景平衡折中balance：适度超前：0.5-2年未来预期</li><li>个人影响力思维模型</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;大数据&quot;&gt;&lt;a href=&quot;#大数据&quot; class=&quot;headerlink&quot; title=&quot;大数据&quot;&gt;&lt;/a&gt;大数据&lt;/h1&gt;&lt;h2 id=&quot;数据中台三阶段&quot;&gt;&lt;a href=&quot;#数据中台三阶段&quot; class=&quot;headerlink&quot; title=&quot;数据中台三阶段&quot;&gt;&lt;/a&gt;数据中台三阶段&lt;/h2&gt;&lt;p&gt;What（描述事实） -&amp;gt; why（诊断归因：自动归因） -&amp;gt; how（指导业务）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;arch问题本质都是耦合问题，都是balance问题&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;业务数据化&lt;/li&gt;
-&lt;li&gt;数据资产化&lt;/li&gt;
-&lt;li&gt;资产服务化&lt;/li&gt;
-&lt;li&gt;服务可视化&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据" scheme="http://lihongyu.me/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
   </entry>
   
