@@ -9,7 +9,7 @@ If your goal is to speak English in practical conversation, then all you need to
 <br/>
 and
 <br />
-` 
+`
 -   表达思想、观点
     
     -   What I think is that...
@@ -30,28 +30,20 @@ and
         
     -   Given the fact that... 鉴于...
         
--   表达一般假设
+-   表达假设
     
-    -   if/ provided that/as long as ...
+    -   一般假设
         
-        -   Provided that I am free at the weekend, I go back to my parent's place.
+        -   if/ provided that/as long as ...
             
--   表达虚拟假设
-    
-    -   It would be... if ... were/could/had...
+            -   Provided that I am free at the weekend, I go back to my parent's place.
+                
+    -   虚拟假设
         
-    -   I wish... were/could/had ...
-        
--   表达可能性
-    
-    -   It's highly likely that ...
-        
-    -   there will definitely/probably be (adj.)
-        
-        -   There will definitely be fewer and fewer people regarding newspapers as their main source of information.
+        -   It would be... if ... were/could/had...
             
-    -   It's unlikely that
-        
+        -   I wish... were/could/had ...
+            
 -   表达转折
     
     -   despite the fact that ..., ...
@@ -70,14 +62,32 @@ and
         
         -   Living in a city is not as much comfortable as living in the countryside
             
--   表达肯定的态度
+-   表达肯定的程度
     
-    -   there is no doubt that...
+    -   非常肯定
         
-    -   it goes without saying that ...
+        -   there is no doubt that...
+            
+        -   it goes without saying that ...
+            
+        -   no one can deny the fact that...
+            
+        -   It's highly likely that ...
+            
+        -   It's unlikely that
+            
+        -   there will definitely/probably be (adj.)
+            
+            -   There will definitely be fewer and fewer people regarding newspapers as their main source of information.
+                
+    -   不肯定（好像，似乎）
         
-    -   no one can deny the fact that...
-        
+        -   ... seem like + noun
+            
+        -   ... seems to be
+            
+        -   ... appears to do
+            
 -   表达无论何时（何地）...
     
     -   wherever/whenever
