@@ -82,11 +82,15 @@ and
                 
     -   不肯定（好像，似乎）
         
-        -   ... seem like + noun
+        -   be less/more likely to do
+            
+        -   ... seems like + noun
             
         -   ... seems to be
             
         -   ... appears to do
+            
+        -   it could be ...
             
 -   表达无论何时（何地）...
     
