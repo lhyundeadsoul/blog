@@ -1,6 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2018 AI&amp;ML（自然语言识别、计算机视觉、强化学习）技术概览及2019技术趋势</title>
+    <url>/2019/04/02/2018-AI-ML%EF%BC%88%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E8%AF%86%E5%88%AB%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%81%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%89%E6%8A%80%E6%9C%AF%E6%A6%82%E8%A7%88%E5%8F%8A2019%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/</url>
+    <content><![CDATA[<blockquote>
+<p>一篇国外AI&amp;ML领域大咖的总结文章，翻译的时候我是奔着“信达雅”去的，结果脸着地还没接住，翻译的水平有限，有兴趣的也可以看<a href="https://www.analyticsvidhya.com/blog/2018/12/key-breakthroughs-ai-ml-2018-trends-2019/" target="_blank" rel="noopener">原文</a></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近几年，人工智能的热度和机器学习技术的成熟度有了一个梦幻般的增长。这些技术已经从边缘领域发展成为了技术主流，并且已经现如今已经影响了数以百万计的人。各个国家也增加了在AI领域的投入以使自己保持竞争优势。</p>
+<p>对于数据科学专家来说情况也是一样的， 在过去几年，即使只懂一点相关工具和技术你就可以高枕无忧了。但是现在已经完全不行了。在这个领域发生了太多事情，且有太多东西需要学习以保持和业界同步，这有时令人难以置信。</p>
+<p>这就是我为什么想以一个数据科学从业者的视角，回顾一下在几个关键领域里人工智能领域里都取得了哪些发展？哪些突破？2018发生了些什么？2019又有哪些期待？</p>
+<h2 id="我们将会在文中提到的领域"><a href="#我们将会在文中提到的领域" class="headerlink" title="我们将会在文中提到的领域"></a>我们将会在文中提到的领域</h2><ul>
+<li>自然语言处理</li>
+<li>计算机视觉</li>
+<li>工具和库</li>
+<li>强化学习</li>
+<li>AI伦理</li>
+</ul>
+<a id="more"></a>
+<h2 id="自然语言处理NLP"><a href="#自然语言处理NLP" class="headerlink" title="自然语言处理NLP"></a>自然语言处理NLP</h2><p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/11/asset-v1AnalyticsVidhyaNLP1012018_T1type%40assetblock%40nlp2.jpg" alt></p>
+<p>让机器理解单词和句子在之前一直是一个梦，即使是人类自己在面对语言巨量的细节时，有时也会显得手足无措。但是2018年绝对是NLP的转折年。</p>
+<p>我们已经看到一个接一个的技术突破—— ULMFiT, ELMO, OpenAI的 Transformer 以及 Google的BERT 等等。迁移学习在NLP任务上的成功应用打开了一扇通往无限可能的大门。Sebastian Ruder 的播客让我们相信在他的这个领域里有了多么长足的发展。</p>
+<p>现在我们来更细致地看一下这些关键的进展吧。如果你希望在NLP领域里找学习的切入点，或者正在找相关的库，请先确保你已经学习过<a href="https://trainings.analyticsvidhya.com/courses/course-v1:AnalyticsVidhya+NLP101+2018_T1/about" target="_blank" rel="noopener">NLP using Python</a>的课程了。这是一个开始NLP学习的好地方。</p>
+<h3 id="ULMFiT"><a href="#ULMFiT" class="headerlink" title="ULMFiT"></a>ULMFiT</h3><p>由Sebastian Ruder 和 fast.ai的 Jeremy Howard共同设计的ULMFiT是让迁移学习成为热点的首个框架。对于没有多少经验的人来说，它代表了“通用语言模型”，Jeremy和Sebastian在这个框架中真正实现了通用二字的含义，它几乎可以应用于所有NLP任务。</p>
+<p>不需要更多的ULMFiT或其它的框架介绍了，因为你根本不需要从头开始训练模型！这些研究人员已经做好了最困难的部分。你只需要在你的项目中，学会并应用他们的研究成果即可。ULMFiT在六个文本分类任务里表现优于其他最先进的方法。</p>
+<p>关于如何使用此框架解决文本分类问题，你可以阅读由Prateek写的这个很棒的<a href="https://www.analyticsvidhya.com/blog/2018/11/tutorial-text-classification-ulmfit-fastai-library/" target="_blank" rel="noopener">教程</a>。</p>
+<h3 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h3><p>ELMo是Embeddings from Language Models的简写，即使不提它奇怪的名字，ELMo在发布后依然能迅速获得机器学习社区的关注。</p>
+<p>ELMo在考虑了单词在句子和段落中的上下文之后，使用了各种模型去获知单词的内在含义(embeddings)。语境是一个很重要，同时又大部分人都没有掌握的NLP的组成部分。ELMo使用了双向的LSTMs去理解单词内含(embeddings)。你可以阅读<a href="https://www.analyticsvidhya.com/blog/2017/12/fundamentals-of-deep-learning-introduction-to-lstm/" target="_blank" rel="noopener">这篇文章</a>去快速了解LSTMs的工作原理。</p>
+<p>就像ULMFiT一样，ELMo显著地提高了各种类型NLP任务的计算性能，比如情绪分析和问答分析。可以阅读<a href="https://allennlp.org/elmo" target="_blank" rel="noopener">这篇文章</a>了解更多。</p>
+<h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>不少专家认为BERT的发布开启了NLP的新纪元。继ULMFiT 和 ELMo之后，BERT在性能表现上碾压了对手。正如<a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">原始论文</a>里说的“BERT是概念极简且经验强大的(BERT is conceptually simple and empirically powerful)”。</p>
+<p>BERT在11项NLP任务中获得了最优的结果，可以看一下他们在SQuAD基准测试中的表现：</p>
+<table>
+<thead>
+<tr>
+<th>SQuAD v1.1 Leaderboard (Oct 8th 2018)</th>
+<th>Test EM</th>
+<th>Test F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1st Place Ensemble – BERT</td>
+<td>87.4</td>
+<td>93.2</td>
+</tr>
+<tr>
+<td>2nd Place Ensemble – nlnet</td>
+<td>86.0</td>
+<td>91.7</td>
+</tr>
+<tr>
+<td>1st Place Single Model – BERT</td>
+<td>85.1</td>
+<td>91.8</td>
+</tr>
+<tr>
+<td>2nd Place Single Model – nlnet</td>
+<td>83.5</td>
+<td>90.1</td>
+</tr>
+</tbody>
+</table>
+<p>你可以在自己的机器上使用<a href="https://github.com/huggingface/pytorch-pretrained-BERT" target="_blank" rel="noopener">PyTorch的实现</a>或者Google的<a href="https://github.com/google-research/bert" target="_blank" rel="noopener">Tensorflow实现</a>去验证这个结果。</p>
+<p>我非常肯定你会好奇BERT在这一点上代表了什么。它是翻译机的双向编码表示(Bidirectional Encoder Representations from Transformers)。如果第一次能做对，就会是满分。</p>
+<h3 id="Facebook-PyText"><a href="#Facebook-PyText" class="headerlink" title="Facebook PyText"></a>Facebook PyText</h3><p>Facebook怎么会离开赛道呢？他们已经开源了自己的深度学习NLP框架，叫PyText。它在本周初早些时候刚刚发布，所以我还在实验当中，但是从早期的评论来看，是非常有潜力的。根据Facebook发表的研究，PyText使对话模型的准确率提升了10%的同时降低了训练时间。</p>
+<p>PyText实际上还是弱于Facebook其它产品的，比如FB Messenger。因此，使用这个框架可以为你的工作(your own portfolio)添加现实世界的价值(除了您将获得的宝贵知识以外)。</p>
+<p>你可以在他们的<a href="https://github.com/facebookresearch/pytext" target="_blank" rel="noopener">GitHub repo</a>里下载源码。</p>
+<h3 id="Google-Duplex"><a href="#Google-Duplex" class="headerlink" title="Google Duplex"></a>Google Duplex</h3><p>如果你还没有听说过Google Duplex，那你可能out了。Sundar Pichai 用这个demo震撼了当时在场的观众，并且从那以为它就一直是新闻的头条了。</p>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/NO0-5MuJvew" frameborder="0" allowfullscreen></iframe>
+
+
+<p>因为这是一个Google的产品，所以他们很可能会在未来将其开源。这的确是一个非常棒的音频处理应用。当然它也带来了道德和隐私问题，但那是本文后面才要说的了。现在，还是让我们感慨一下这些年我们已经和机器学习走了多远吧。</p>
+<h3 id="2019年NLP值得期待的事"><a href="#2019年NLP值得期待的事" class="headerlink" title="2019年NLP值得期待的事"></a>2019年NLP值得期待的事</h3><p>还有谁比 Sebastian Ruder 他自己更能预测NLP在2019年的发展呢，他的想法如下：</p>
+<blockquote>
+<p>预训练语言模型内含(embeddings)将会变得普遍。不使用此类方法，将很难得到最优的模型。<br>我们将看到预训练的表示( pretrained representations)可以给语言模型内含提供补充的专业信息。我们将可以根据任务的需求组合不同类型的预训练的表示.<br>我们将可以看到会在多语言应用和跨语言模型上会有更多的进展。尤其在跨语言单词内含的基础上，我们将会看到深入的预训练跨语言表示。</p>
+</blockquote>
+<h2 id="计算机视觉"><a href="#计算机视觉" class="headerlink" title="计算机视觉"></a>计算机视觉</h2><p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/12/CV.jpg" alt></p>
+<p>这是现在深度学习领域中最受欢迎的领域了。我认为现在已经渡过了计算机视觉的初期，进入了精炼化的阶段。无论是图像还是视频，我们都已经看到了太多可以轻而易举完成计算机视觉任务的框架。</p>
+<p>在 Analytics Vidhya，我们已经用了很多时间去普及这些概念。你可以从<a href="https://www.analyticsvidhya.com/blog/category/deep-learning/" target="_blank" rel="noopener">这里</a>看到我们关于计算机视觉的文章，主题涵盖了从“在图像和视频中完成物体识别”到“预训练模型列表”，这些资料可以帮助你开始你的深度学习旅程。</p>
+<p>以下是我精心挑选的计算机视觉的优秀项目。</p>
+<p>如果你对这个领域很好奇（实际上这可能是未来工业界最火的工作之一），那么可以通过学习我们的<a href="https://trainings.analyticsvidhya.com/courses/course-v1:AnalyticsVidhya+CVDL101+CVDL101_T1/about" target="_blank" rel="noopener">深度学习和计算机视觉</a>课程。</p>
+<h3 id="BigGANs"><a href="#BigGANs" class="headerlink" title="BigGANs"></a>BigGANs</h3><p>Ian Goodfellow在2014年设计了GANs（生成对抗网络）概念，并在随后的时间里这一概念衍生出了很多多样化的应用。每年我们都可以看到这个原始的概念通过调整适应了很多实际的案例。但是有一件事从今年开始发生——机器生成的图像非常好辨认出来。框架里总是会有一些不一致性会导致区别非常明显。</p>
+<p>但是最近几个月，这一边界已经开始变得模糊。随着<a href="https://arxiv.org/pdf/1809.11096.pdf" target="_blank" rel="noopener">BigGANs</a>的建立，这一边界有可能被彻底消除。看看下面机器生成的图片，你几乎无法看出这些图片有什么问题。<br><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/12/Screenshot-from-2018-12-18-18-06-19.png" alt><br>无论是忧虑还是兴奋，我们不得不承认GANs正在重塑我们对数字图像（视频）的认知。</p>
+<p>对于一些数据科学家来说，这些模型首先在ImageNet上训练，然后是JFT-300M，以展示它们可以很好的从一个数据集迁移到另一个数据集。我同样会引导你到一个可视化理解的GAN的<a href="https://gandissect.csail.mit.edu/" target="_blank" rel="noopener">学习页</a>。</p>
+<h3 id="Fast-ai可以在18分钟内完成在-ImageNet上的训练"><a href="#Fast-ai可以在18分钟内完成在-ImageNet上的训练" class="headerlink" title="Fast.ai可以在18分钟内完成在 ImageNet上的训练"></a>Fast.ai可以在18分钟内完成在 ImageNet上的训练</h3><p>这是一个非常大的进展。 我们通常认为要想获得一个合适的深度学习任务，往往需要大量的数据以及繁重的计算任务。这里包括了在ImageNet上从头开始的训练。我可以肯定我们所有人都是这么认为的，而Fast.ai的人找到了这么快的办法证明我们其实想错了。</p>
+<p>他们用18分钟训练出的模型可以达到93%的准确率。而他们在<a href="http://www.fast.ai/2018/08/10/fastai-diu-imagenet/" target="_blank" rel="noopener">blog</a>中提到他们用的硬件，仅是16台包涵了8个 NVIDIA V100 GPU的AWS公开实例。他们是使用Fastai和PyTorch库构建的此算法。</p>
+<p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/08/v2-718f95df083b2d715ee29b018d9eb5c2_r.jpg" alt></p>
+<p>所有这些加在一起的成本仅有40美元！<a href="http://www.fast.ai/2018/08/10/fastai-diu-imagenet/" target="_blank" rel="noopener">这里</a>有Jeremy关于这项技术更详细的说明。这是所有人的胜利！</p>
+<h3 id="NVIDIA的-vid2vid-技术"><a href="#NVIDIA的-vid2vid-技术" class="headerlink" title="NVIDIA的 vid2vid 技术"></a>NVIDIA的 vid2vid 技术</h3><p>图像处理在最近4、5年有了巨大的飞跃，但是视频呢？事实证明，从单帧到多帧的方法迁移比大多数人想像的还要难一些。你能拿着一个视频的时间序列数据去预测下一帧是什么内容吗？之前有过一些探索，但是最好的结论也都并不明确。</p>
+<p>NVIDIA在今年早些时候开源了他们的方案，并获得了广泛的赞誉。他们的vid2vid技术的目标是学习一个从输入视频到输出视频的映射函数，而输出视频可以以令人难以置信的准确度延续了输入视频的内容。</p>
+<p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/08/v2V1.png" alt></p>
+<p>你可以从<a href="https://github.com/NVIDIA/vid2vid" target="_blank" rel="noopener">他们的Github</a>上看到他们的PyTorch的实现。</p>
+<h3 id="2019年计算机视觉领域展望"><a href="#2019年计算机视觉领域展望" class="headerlink" title="2019年计算机视觉领域展望"></a>2019年计算机视觉领域展望</h3><p>正如我之前提到的，我们在2019年应该只会看到一些改进，但不会是大的发明。自动驾驶、人脸识别和虚拟现实貌似都没有什么太多的变化。你可以随便质疑我此处的观点，并加上你的观点，我非常想知道还有什么是我们现在还没看到，但是还值得期待的。</p>
+<p>即使有政治因素的干预和政府的许可限制，无人机最终会在美国获得批准（印度还远远不能）。个人角度上说，我希望有更多的研究成果可以在真实场景里实施出来。像CVPR和ICML这些会议已经代表了最新进展，但是他们的成果离现实应用又有多远的距离啊？</p>
+<p>视觉问题解答和视觉对话系统最终可能很快完成他们让人期待以久的首次亮相。这些系统缺少泛化能力，但是值得期待的是，我们将会很快看到一些多模型整合的方案。</p>
+<p>有监督学习是今年的主角。我可以打赌在明年它将被用在更多的研究之中。有一个非常棒的学习思路——让我们的输入数据直接决定标签，而不是浪费很多时间手工标注。让我们祈祷吧。</p>
+<h2 id="工具和类库"><a href="#工具和类库" class="headerlink" title="工具和类库"></a>工具和类库</h2><p>本节将会吸引很多数据科学家的注意，因为工具和类库是数据科学家的工作基础。我参与了大量关于哪个工具最好，哪个框架取代了哪个框架，哪个类库是金融计算的代表之类的争论。我相信这些问题有很多也与你的工作相关。</p>
+<p>但是有一点我们得承认：我们需要保持对这个领域里最新工具的跟进，否则就会埋下更多的风险。Python极速取代一切并成为行业领导者的故事就是一个充分的例子。虽然很多问题的答案可能是一些主观的选择（比如你们公司用什么工具，你们从现有框架迁移到新框架的可行性决策等），但是如果你现在还没有在考虑最优解决方案，我劝你现在就开始吧。</p>
+<p>所以到底明年谁会是头条呢？让我们拭目以待吧。</p>
+<h3 id="PyTorch-1-0"><a href="#PyTorch-1-0" class="headerlink" title="PyTorch 1.0"></a>PyTorch 1.0</h3><p>PyTorch炒作得太厉害了，我在本文已经提到了很多次，我会让我的同事 Faizan Shaikh去<a href="https://www.analyticsvidhya.com/blog/2018/02/pytorch-tutorial/" target="_blank" rel="noopener">介绍这个框架的细节</a>。</p>
+<p>这是我非常欣赏的必读文章之一，因为有时候TensorFlow运行会很慢，所以给PyTorch了一个迅速抢占市场的机会，PyTorch流行起来的速度比TensorFlow快了一倍。我看到的大部分开源代码都是对PyTorch概念的实现。这绝非巧合，PyTorch非常灵活，并且它的最新版本已经大规模的增强了Facebook的产品和服务，其中包括每天60亿次的文本翻译工作。</p>
+<p>PyTorch的2019年的采用率正在增长，所以对于任何人来说，现在就是上车的好时候。</p>
+<h3 id="AutoML"><a href="#AutoML" class="headerlink" title="AutoML"></a>AutoML</h3><p>自动化机器学习技术在过去几年中取得了很大的进展。一些像RapidMiner, KNIME, DataRobot and H2O.ai这样的公司，凭借着他们出色的产品展示了这项服务巨大的潜力。</p>
+<p>你能想像只需要拖拽，而不需要编码就能完成机器学习和深度学习的任务吗？这个场景在未来已经不难实现了。除了这些公司的产品外，机器学习领域还有一个重大的产品发布——Auto Keras！</p>
+<p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/08/auto-keras.png" alt></p>
+<p>它是一个可以执行AutoML任务的开源库，这个项目的初衷是让不懂机器学习的领域专家们也可以使用深度学习技术。你可以在<a href="https://autokeras.com/" target="_blank" rel="noopener">这里</a>看到这个项目，未来几年它将蓄势待发。</p>
+<h3 id="TensorFlow-js——浏览器里的深度学习"><a href="#TensorFlow-js——浏览器里的深度学习" class="headerlink" title="TensorFlow.js——浏览器里的深度学习"></a>TensorFlow.js——浏览器里的深度学习</h3><p>我们已经在IDE和Notebook里设计构建了很多机器学习的模型。为什么不向外走一步，去尝试一些新的技术呢？没错，我们可以在我们的浏览器里的去运行深度学习模型了！<br><img src="https://js.tensorflow.org/images/TF_JS_lockup.png" alt></p>
+<p>这要感谢<a href="https://js.tensorflow.org/" target="_blank" rel="noopener">TensorFlow.js项目</a>，它有一些demo，充分展示了这个想法有多酷。以下是TensorFlow.js的三个主要特点：</p>
+<p>用JavaScript开发和部署机器学习模型<br>在浏览器里运行已经存在的TensorFlow模型<br>重训练已经存在的TensorFlow模型</p>
+<h3 id="2019年AutoML展望"><a href="#2019年AutoML展望" class="headerlink" title="2019年AutoML展望"></a>2019年AutoML展望</h3><p>我想在本章中只强调AutoML技术。因为我认为这项技术才是未来数据科学领域里的游戏规则改变者。不要只是听我说，让我们来看看H2O.ai的 <a href="https://soundcloud.com/datahack-radio/episode-3-marios-michailidis" target="_blank" rel="noopener">Marios Michailidis</a>和 Kaggle Grandmaste是怎么看待2019AutoML的：</p>
+<blockquote>
+<p>机器学习在成为未来重要趋势的道路上一路高歌猛进。这一扩展增加了对这一领域熟练应用的需求。鉴于它的成长，自动化是把数据科学资源最优化利用的关键。这一技术的应用范围无限宽广：信用，保险，欺诈，计算机视觉，声学，传感器，推荐器，预测，NLP，你来定义它。在这个领域里工作是一种荣幸。这个重要的趋势可以这么理解：</p>
+</blockquote>
+<ol>
+<li>为辅助描述和理解数据，提供智能化的可视化操作界面</li>
+<li>在给定的数据集上寻找、构建、抽象更好的特征</li>
+<li>快速建立强大的有预见能力的模型</li>
+<li>通过机器学习，给黑盒模型和生产模型提供可解释性</li>
+<li>促进这些模型的产生</li>
+</ol>
+<h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/11/RL.png" alt></p>
+<p>如果让我选一个希望看到更多进展的领域，我想会是强化学习。除了偶尔能看到不定期的头条新闻之外，还没有发现有什么颠覆性的突破。社区里，大家普遍认为它太重数学，没有可以使用的真正可工业化的应用。</p>
+<p>虽然这在某种程度上可能是正确的，但是我仍然希望在明年看到更多关于强化学习的使用案例。在我每个月发布的GitHub和Reddit系列里，我倾向于至少保留有一个git仓库或相关讨论。在所有研究方向里，这里可能会诞生下一个重大突破。</p>
+<p>OpenAI已经发布了一个非常有用的工具包，可以帮助初学者了解这个领域，你也可以看看这篇<a href="https://www.analyticsvidhya.com/blog/2017/01/introduction-to-reinforcement-learning-implementation/" target="_blank" rel="noopener">对初学者非常友好的文章</a>（对我真的非常有帮助）。</p>
+<h3 id="OpenAI在深度强化学习的应用"><a href="#OpenAI在深度强化学习的应用" class="headerlink" title="OpenAI在深度强化学习的应用"></a>OpenAI在深度强化学习的应用</h3><p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/12/spinning-up-in-rl-768x461.png" alt></p>
+<p>如果说强化学习的研究进展缓慢，那么相关的教育材料就可以说是非常少了。但是就像OpenAI说的那样，他们已经开源了关于这个主题的一些非常棒的材料。他们管这个项目叫“Spinning Up in Deep RL”，你可以从<a href="https://spinningup.openai.com/en/latest/" target="_blank" rel="noopener">这里</a>了解到它们。</p>
+<p>它是一个非常全面的关于强化学习的资源列表，他们让代码和名词解释保持尽可能简单。它里面包含很多有用的材料，比如强化学习的术语，如何成长为强化学习研究员的建议，一个重要论文的列表，一个拥有非常好文档的代码仓库，甚至还有一些帮助你入门的练习。</p>
+<p>不要再拖延，如果你计划入门强化学习，现在就开始吧。</p>
+<h3 id="Google开源的Dopamine"><a href="#Google开源的Dopamine" class="headerlink" title="Google开源的Dopamine"></a>Google开源的Dopamine</h3><p>为了加速强化学习的研究进度，同时让社区更多的参与到这个方向中来，Google AI团队开源了Dopamine，它是一个Tensorflow的框架，旨在更灵活和可重复性的创建实验。</p>
+<p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/08/goog.png" alt><br></p>
+<p>在<a href="https://github.com/google/dopamine" target="_blank" rel="noopener">这里</a>，你可以找到一个完整的训练数据以及TensorFlow的代码。在受控且灵活的环境下进行简单的实验，它应该是一个完美的选择了。在数据科学家看来，这些听起来就像梦一样。</p>
+<h3 id="2019强化学习预期的发展趋势"><a href="#2019强化学习预期的发展趋势" class="headerlink" title="2019强化学习预期的发展趋势"></a>2019强化学习预期的发展趋势</h3><p>Xander Steenbrugge，作为2018 DataHack大会的演讲者和ArxivInsights频道的创建者，应该说已经是强化学习领域里的专家了。以下是他对强化学习在2019年的预期：</p>
+<p>我现在在这信领域能看到三个主要的问题：</p>
+<blockquote>
+</blockquote>
+<ul>
+<li>样本复杂：为了学习，代理需要大量的数据经验</li>
+<li>泛化和迁移学习：在任务A上训练，在相关的任务B上测试</li>
+<li>分层的强化学习：自动化子目标分解</li>
+</ul>
+<h2 id="AI-for-Good——通往AI伦理"><a href="#AI-for-Good——通往AI伦理" class="headerlink" title="AI for Good——通往AI伦理"></a>AI for Good——通往AI伦理</h2><p>想像一个由算法控制人类行为的世界吧，这并不仅仅是一个乐观的设想对吧？AI的道德伦理一直是Analytics Vidhya非常热衷讨论问题。在所有的技术讨论中，它会让其它讨论陷入困境。</p>
+<p>一小部分公司今年因为身陷Facebook和Google内部充斥着的设计武器的丑闻而颜面扫地。但是这一切促使大公司开始制定规章和指导方针。</p>
+<p>关于AI的伦理问题，并不存在一个一劳永逸或者开箱即用的解决方案。它的解决，需要结合细致入微的方案和由领导层给出的结构化的路径共同作用。让我们看一些今年早些时候对这一问题取得突破的举措。</p>
+<h3 id="Google和Microsoft之间的战争"><a href="#Google和Microsoft之间的战争" class="headerlink" title="Google和Microsoft之间的战争"></a>Google和Microsoft之间的战争</h3><p>看到大公司把重点放在AI的这个方面是令人振奋的。可以看看这两家公司发布的AI原则：</p>
+<ul>
+<li><a href="https://www.blog.google/technology/ai/ai-principles/" target="_blank" rel="noopener">Google的AI原则</a></li>
+<li><a href="https://www.microsoft.com/en-us/ai/our-approach-to-ai" target="_blank" rel="noopener">Microsoft的AI原则</a></li>
+</ul>
+<p>这些都基本上谈到了AI的公平性以及什么时候在什么地方划清界线。在你开始一个AI工程之前，参考这些原则会是一个好的建议。</p>
+<h3 id="GDPR对局面有什么影响"><a href="#GDPR对局面有什么影响" class="headerlink" title="GDPR对局面有什么影响"></a>GDPR对局面有什么影响</h3><p>GDPR法律法规对那些收集用户信息去构建AI应用的公司有很大的影响。GDPR给了用户更多的权利去控制自己的数据。</p>
+<p>所以这个政策对AI有什么影响呢？如果没有数据，构建任何模型就都没有了基础。这无疑给社交平台和其它网站提供了工具。GDPR正在进行一个非常引人注目的相关研究，但是现在来看，它限制了AI在很多平台的实用性。</p>
+<h3 id="2019AI伦理展望"><a href="#2019AI伦理展望" class="headerlink" title="2019AI伦理展望"></a>2019AI伦理展望</h3><p>这其实是一个灰色地带。目前没有一个可行的方案去解决它。我们需要一起协作，努力把伦理注入到AI的项目中去。我们该怎么实现这一点呢？就像Analytics Vidhya的CEO Kunal Jain说的那样，我们会制定一个讨论框架，大家可以基于它去讨论这个问题。</p>
+<p>我期望看到在组织中加入更多的规则去处理AI伦理的问题。随着AI成为公司的愿景，公司的最佳实践需要重构，组织方式也需要重建。我还希望政府发挥更加积极的作用，制定新的或修改原有的政策。2019将是非常有趣的一年。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>强而有力——这是我对2018年那些令人惊叹的发展的最简洁的表达。今年我是ULMFiT的热心用户，同时我将尽快去探索一下BERT，这将是令人兴奋的时光。</p>
+<p>我也非常想听到你的声音，有哪些发展你认为是最重要的？你正在使用文章中提到的工具去工作吗？你对接下来的一年有什么预期？我很期望在留言区看到你的回复。</p>
+]]></content>
+      <categories>
+        <category>技术趋势</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2020 Flink forward 大会</title>
     <url>/2020/12/24/2020%20Flink%20forward%E5%A4%A7%E4%BC%9A/</url>
     <content><![CDATA[<h3 id="标准benchmark"><a href="#标准benchmark" class="headerlink" title="标准benchmark"></a>标准benchmark</h3><p>Steaming benchmark</p>
@@ -191,34 +352,6 @@
       </tags>
   </entry>
   <entry>
-    <title>《一课经济学》</title>
-    <url>/2022/05/01/%E3%80%8A%E4%B8%80%E8%AF%BE%E7%BB%8F%E6%B5%8E%E5%AD%A6%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/</url>
-    <content><![CDATA[<h3 id="核心要义"><a href="#核心要义" class="headerlink" title="核心要义"></a>核心要义</h3><p> 当考虑一个行为的影响时，要在时间和空间两个维度上扩大思考范围。不仅要观察其对若干特殊利益集团的短期影响，也要考察其对整个社会利益的长期影响。</p>
-<blockquote>
-<p>时间上，看长期<br>空间上，看全局<br>社会是一个混沌、耦合的整体</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="重点细节"><a href="#重点细节" class="headerlink" title="重点细节"></a>重点细节</h3><ol>
-<li><strong>拯救X产业（农产品等；手段：关税、限产限价等）</strong> 只看局部影响，保护了个别生产者，让其他行业的人来买单，降低了整个社会的生产效率。竞争力弱的产业应该自然消亡，释放资本和人力去效率更高的行业</li>
-<li><strong>充分就业</strong>生产最大化是目的，充分就业只是手段，不能本末倒置</li>
-<li><strong>国际贸易</strong>和国内人与人之间的贸易没有本质区别。出口（销售）是为了进口（采购）给自己更好的生活品质。一个国家需要出口的真正理由是赚钱来支付进口，无它</li>
-<li><strong>最低工资法</strong> 工资本质上来自于生产，而不是政府的法令。最低工资的设定，实际上剥夺了最低收入群体这部分人获得工作的权利。和农产品最低保障价格本质上是一样的。</li>
-<li><strong>工会</strong>等一切阻碍<code>资本流动，科技创新</code>的行为都会在本质上降低工资</li>
-<li><strong>货币</strong>也是一种特殊的商品，也有升值和贬值的时候。</li>
-<li><strong>储蓄</strong> 也是投资的一种，储蓄钱会被别人拿去投资，钱本身永远在流动。主动投资：自己拿钱主动参与再分配；储蓄：把钱给银行拿去投资，被动参与再分配。</li>
-<li><code>财富 = 现金+商品或服务</code> 以及 <code>社会总财富 = 可流动资金 * 流动速度</code></li>
-<li>社会视角：<code>总财富=不可流动资金（银行准备金）+可流动资金</code></li>
-<li>个人视角：<code>可流动资金=投资+消费=（储蓄+个人投资）+消费</code></li>
-</ol>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>经济学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Materials for IELTS speaking test</title>
     <url>/2023/03/02/Materials-for-IELTS-speaking-test/</url>
     <content><![CDATA[<h3 id="EVENT"><a href="#EVENT" class="headerlink" title="EVENT"></a>EVENT</h3><a id="more"></a>
@@ -329,6 +462,162 @@
       </tags>
   </entry>
   <entry>
+    <title>Why do we need Paxos and and How it works</title>
+    <url>/2022/06/30/Why-do-we-need-Paxos-and-and-How-it-works/</url>
+    <content><![CDATA[<blockquote>
+<p>参考<a href="https://blog.openacid.com/algo/paxos/" target="_blank" rel="noopener">《可靠分布式系统-paxos的直观解释》</a></p>
+</blockquote>
+<pre class="mermaid" style="text-align: center;">
+            journey
+            %%{init: {'theme':'default'}}%%
+	title Why do we need Paxos？How it works?
+	section 单机
+		单机: 1 : 可用性低
+	section 多副本
+		异步复制:  2: 一致性低
+		同步复制:  2: 可用性低
+		半同步复制:  3: 一致性低, 2个写并发导致2个状态
+		多数派读写+时间戳: 5: 一致性低, client宕机导致读到2个状态, 2并发写覆盖
+	section Paxos
+		写前读: 7
+          </pre>
+<a id="more"></a>
+<p>一些方便理解的重点</p>
+<ul>
+<li>每个Paxos实例只维护一个值的状态</li>
+<li>每个Paxos实例有多轮（Round）尝试写入，每个Round有2个Phase(Phase-1 写前读，Phase-2 写)，只有Phase-1和Phase-2之间没有任何其他终端进行过Phase-1和Phase-2时才能成功完成Phase-2</li>
+<li>客户端取到时间戳不一致的两个不同值时，有义务让更早的向更新的版本去对齐</li>
+<li>每个Round都必然有且仅有一个多数派读，但是不一定有多数派写（可能Phase-2之前有更新的Round的Phase-1出现）</li>
+</ul>
+<p><em>mermaid 的图有遮盖，看下面这个脑补看不到的汉字吧 :)</em></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">journey</span><br><span class="line">	title Why do we need Paxos？How it works?</span><br><span class="line">	section 单机</span><br><span class="line">		单机: 1 : 可用性低</span><br><span class="line">	section 多副本</span><br><span class="line">		异步复制:  2: 一致性低</span><br><span class="line">		同步复制:  2: 可用性低</span><br><span class="line">		半同步复制:  3: 一致性低, 2个写并发导致2个状态</span><br><span class="line">		多数派读写+时间戳: 5: 一致性低, client宕机导致读到2个状态, 2并发写覆盖</span><br><span class="line">	section Paxos</span><br><span class="line">		写前读: 7</span><br></pre></td></tr></table></figure>
+<h3 id="Raft-动画演示"><a href="#Raft-动画演示" class="headerlink" title="Raft 动画演示"></a>Raft 动画演示</h3><p><a href="http://www.kailing.pub/raft/index.html" target="_blank" rel="noopener">http://www.kailing.pub/raft/index.html</a></p>
+]]></content>
+      <tags>
+        <tag>一致性共识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《一课经济学》</title>
+    <url>/2022/05/01/%E3%80%8A%E4%B8%80%E8%AF%BE%E7%BB%8F%E6%B5%8E%E5%AD%A6%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/</url>
+    <content><![CDATA[<h3 id="核心要义"><a href="#核心要义" class="headerlink" title="核心要义"></a>核心要义</h3><p> 当考虑一个行为的影响时，要在时间和空间两个维度上扩大思考范围。不仅要观察其对若干特殊利益集团的短期影响，也要考察其对整个社会利益的长期影响。</p>
+<blockquote>
+<p>时间上，看长期<br>空间上，看全局<br>社会是一个混沌、耦合的整体</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="重点细节"><a href="#重点细节" class="headerlink" title="重点细节"></a>重点细节</h3><ol>
+<li><strong>拯救X产业（农产品等；手段：关税、限产限价等）</strong> 只看局部影响，保护了个别生产者，让其他行业的人来买单，降低了整个社会的生产效率。竞争力弱的产业应该自然消亡，释放资本和人力去效率更高的行业</li>
+<li><strong>充分就业</strong>生产最大化是目的，充分就业只是手段，不能本末倒置</li>
+<li><strong>国际贸易</strong>和国内人与人之间的贸易没有本质区别。出口（销售）是为了进口（采购）给自己更好的生活品质。一个国家需要出口的真正理由是赚钱来支付进口，无它</li>
+<li><strong>最低工资法</strong> 工资本质上来自于生产，而不是政府的法令。最低工资的设定，实际上剥夺了最低收入群体这部分人获得工作的权利。和农产品最低保障价格本质上是一样的。</li>
+<li><strong>工会</strong>等一切阻碍<code>资本流动，科技创新</code>的行为都会在本质上降低工资</li>
+<li><strong>货币</strong>也是一种特殊的商品，也有升值和贬值的时候。</li>
+<li><strong>储蓄</strong> 也是投资的一种，储蓄钱会被别人拿去投资，钱本身永远在流动。主动投资：自己拿钱主动参与再分配；储蓄：把钱给银行拿去投资，被动参与再分配。</li>
+<li><code>财富 = 现金+商品或服务</code> 以及 <code>社会总财富 = 可流动资金 * 流动速度</code></li>
+<li>社会视角：<code>总财富=不可流动资金（银行准备金）+可流动资金</code></li>
+<li>个人视角：<code>可流动资金=投资+消费=（储蓄+个人投资）+消费</code></li>
+</ol>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>经济学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dynamic-PB-Parser：搞定Protobuf数据动态解析</title>
+    <url>/2019/04/17/dynamic-pb-parser-%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="核心痛点"><a href="#核心痛点" class="headerlink" title="核心痛点"></a>核心痛点</h3><p>使用ODPS(hive) SQL解析JSON数据的时候你可能用过get_json_object这个内置UDF，其灵活性给JSON数据解析带来了很多的便利。</p>
+<p>但是对于Protobuf描述的数据，解析工作就麻烦太多了，即使解析一个字段，也要写一个完整的UDF(或UDTF)，并且上传各种protobuf的jar，然而这还没有完，如果新需求来了，即使仅改了一个字段的解析需求，也需要再重新开发一个新的UDF来完成。时间久了，项目里会有很多地方散落着各种Protobuf数据解析的逻辑，如果再有些公共逻辑改变，还要涉及到重构。维护工作繁重。<br><a id="more"></a></p>
+<h3 id="本质原因"><a href="#本质原因" class="headerlink" title="本质原因"></a>本质原因</h3><p>出现以上问题的本质原因实际上是我们把“我们想要A字段”和“我们如何得到A字段”两件事给耦合在一起了。按照函数式的编程思想，“控制”和“逻辑”要分开，并且互不干扰，这个问题里，“我们如何得到A字段”就是控制，而“我们想要A字段”就是逻辑。</p>
+<h3 id="破局"><a href="#破局" class="headerlink" title="破局"></a>破局</h3><p>既然找到了耦合点，想办法解耦就是出路了。<br>首先，定义一套描述字段路径的语法规则，让它去表达“我们想要A字段”这件事；然后，开发一个可以解析这套语法的程序（类似编译器），去完成“我们如何得到A字段”这件事。这样就可以让两件事互相独立演进了。至此， <code>Dynamic-PB-Parser</code>也就呼之欲出了。</p>
+<h2 id="Dynamic-PB-Parser-能做什么"><a href="#Dynamic-PB-Parser-能做什么" class="headerlink" title="Dynamic-PB-Parser 能做什么"></a><code>Dynamic-PB-Parser</code> 能做什么</h2><p>一句话概括<code>Dynamic-PB-Parser</code>的功能：</p>
+<blockquote>
+<p>按一种简单的语法规则描述字段路径，并动态解析Protobuf数据中对应的字段值。</p>
+</blockquote>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DynamicPBParser parser = DynamicPBParser.newBuilder()  </span><br><span class="line">.descFilePath(<span class="string">"xxx/xxx.desc"</span>)  </span><br><span class="line">.syntax(<span class="string">"StandardSyntax"</span>)  </span><br><span class="line">.build(); </span><br><span class="line">String name = parser.parse(content, <span class="string">'me.lihongyu.bean.Person$name'</span>);  </span><br><span class="line">BrandType brandType = parser.parse(content, <span class="string">'me.lihongyu.bean.Person$cloth.brand.type'</span>);  </span><br><span class="line">String email = parser.parse(parser.parse(content, <span class="string">'me.lihongyu.bean.Person$proto_data'</span>), <span class="string">'me.lihongyu.bean.AddressBook$email'</span>);</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<h2 id="Dynamic-PB-Parser-怎么做的"><a href="#Dynamic-PB-Parser-怎么做的" class="headerlink" title="Dynamic-PB-Parser 怎么做的"></a><code>Dynamic-PB-Parser</code> 怎么做的</h2><p>总体的思路：动态拿到schema(也就是message的定义)，用schema解析pb的数据得到一个完整对象，沿着字段路径，不断循环得到下一级对象直到最后一级。一图胜千言：<br><img src="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/acda938c9e08972c18fb2217c0fab686.png" alt="图片.png"></p>
+<h3 id="实现过程中的一些细节"><a href="#实现过程中的一些细节" class="headerlink" title="实现过程中的一些细节"></a>实现过程中的一些细节</h3><h4 id="可扩展的语法接口"><a href="#可扩展的语法接口" class="headerlink" title="可扩展的语法接口"></a>可扩展的语法接口</h4><p>在<code>Dynamic-PB-Parser</code>里定义了<code>Syntax</code>接口，其中定义了语法相关的解析逻辑，实现此接口，可以自定义一套自己的字段路径语法规则。默认提供的标准语法类似这样：<code>pkg1.XXX $ field1.field2[*].(pkg1.extension_field)[1]</code>，既支持数据，也支持用<code>()</code>表达的扩展字段。详细介绍见参考中的ATA文章。</p>
+<h4 id="获取FieldValue"><a href="#获取FieldValue" class="headerlink" title="获取FieldValue"></a>获取FieldValue</h4><p>按FieldDescriptor获取FieldValue时，如果是扩展字段，需要在<code>UnknownFields</code>里找到字段值，并按不同字段类型选择不同的取值逻辑。</p>
+<table>
+<thead>
+<tr>
+<th>字段值存储位置(in Field)</th>
+<th>字段类型</th>
+<th>取值逻辑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VarintList</td>
+<td>ENUM</td>
+<td>按ENUM定义的序号获取</td>
+</tr>
+<tr>
+<td>VarintList</td>
+<td>BOOLEAN</td>
+<td>0代表FALSE、1代表TRUE</td>
+</tr>
+<tr>
+<td>VarintList</td>
+<td>INT</td>
+<td>直接取VarintList[0]</td>
+</tr>
+<tr>
+<td>VarintList</td>
+<td>LONG</td>
+<td>直接取VarintList[0]</td>
+</tr>
+<tr>
+<td>Fixed32List</td>
+<td>FLOAT</td>
+<td>将用int表达的字节转为float：Float.intBitsToFloat</td>
+</tr>
+<tr>
+<td>Fixed64List</td>
+<td>DOUBLE</td>
+<td>将用long表达的字节转为double：Double.longBitsToDouble</td>
+</tr>
+<tr>
+<td>LengthDelimitedList</td>
+<td>MESSAGE</td>
+<td>DynamicMessage.parseFrom(LengthDelimitedList[0])</td>
+</tr>
+<tr>
+<td>LengthDelimitedList</td>
+<td>STRING</td>
+<td>LengthDelimitedList[0].toStringUtf8()</td>
+</tr>
+<tr>
+<td>LengthDelimitedList</td>
+<td>BYTE_STRING</td>
+<td>直接输出LengthDelimitedList[0]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Dynamic-PB-Parser-的性能优化"><a href="#Dynamic-PB-Parser-的性能优化" class="headerlink" title="Dynamic-PB-Parser 的性能优化"></a><code>Dynamic-PB-Parser</code> 的性能优化</h2><h3 id="解析逻辑的两个阶段"><a href="#解析逻辑的两个阶段" class="headerlink" title="解析逻辑的两个阶段"></a>解析逻辑的两个阶段</h3><p><code>Dynamic-PB-Parser</code>将解析逻辑分为<code>load</code>和<code>parse</code>两个阶段：</p>
+<ol>
+<li><code>load</code>阶段完成schema的加载过程，其中包括了对扩展字段的schema处理</li>
+<li><code>parse</code>阶段完成字段路径的解析，和按路径逐步找到字段值的功能</li>
+</ol>
+<h3 id="通过缓存减少重复的parse逻辑"><a href="#通过缓存减少重复的parse逻辑" class="headerlink" title="通过缓存减少重复的parse逻辑"></a>通过缓存减少重复的parse逻辑</h3><ol>
+<li><code>descriptorCache</code>在<code>load</code>阶段初始化，缓存了descriptorName和descriptor的对应关系，在同一个JVM里只需要初始化一次即可</li>
+<li><code>extensionFieldCache</code>在<code>load</code>阶段初始化，缓存了desc文件里全部扩展字段名和扩展字段实例的对应关系。用于后续解析扩展字段时提取FieldDescriptor</li>
+<li><code>fieldPathCache</code>在<code>parse</code>阶段初始化，缓存了完整字段路径和字段拆分后结果的对应关系。避免每次都需要做split和对<code>()</code>表达的扩展字段路径的解析</li>
+<li><code>fieldNameCache</code>和<code>fieldIndexCache</code>在<code>parse</code>阶段初始化，分别缓存了field和fieldName（<code>abc[*]-&gt;abc</code>），以及field和fieldIndex（<code>abc[*]-&gt;*</code>）的对应关系，避免每次解析都要执行正则匹配。</li>
+</ol>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p><code>Dynamic-PB-Parser</code>具体的实现细节还有很多，感兴趣的同学可以checkout Github repo。虽然不是什么高深的技术，但是背后也是对“控制和逻辑正交”的函数式编程思维的一次成功实践。<br>由于所在项目组的特殊性，这种用Protobuf描述的数据又非常多且普遍，用传统的protobuf的解析方式给开发人员的维护工作带来了很大痛苦，因此开发了<code>Dynamic-PB-Parser</code>这个工具，希望能帮助到更多和我有类似问题的开发同学。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>hive UDFJson:<a href="https://github.com/apache/hive/blob/master/ql/src/java/org/apache/hadoop/hive/ql/udf/UDFJson.java" target="_blank" rel="noopener">https://github.com/apache/hive/blob/master/ql/src/java/org/apache/hadoop/hive/ql/udf/UDFJson.java</a><br>github：<a href="https://github.com/lhyundeadsoul/pb-parser" target="_blank" rel="noopener">https://github.com/lhyundeadsoul/pb-parser</a><br>欢迎提issue和MR</p>
+]]></content>
+      <categories>
+        <category>开源产品</category>
+      </categories>
+      <tags>
+        <tag>pb-parser</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《文明、现代化、价值投资与中国》</title>
     <url>/2020/10/27/%E3%80%8A%E6%96%87%E6%98%8E%E3%80%81%E7%8E%B0%E4%BB%A3%E5%8C%96%E3%80%81%E4%BB%B7%E5%80%BC%E6%8A%95%E8%B5%84%E4%B8%8E%E4%B8%AD%E5%9B%BD%E3%80%8B/</url>
     <content><![CDATA[<h2 id="文明划分的维度"><a href="#文明划分的维度" class="headerlink" title="文明划分的维度"></a>文明划分的维度</h2><ol>
@@ -356,50 +645,6 @@
         <tag>文明</tag>
         <tag>经济</tag>
         <tag>投资</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《还原真实的美联储》</title>
-    <url>/2022/12/02/%E3%80%8A%E8%BF%98%E5%8E%9F%E7%9C%9F%E5%AE%9E%E7%9A%84%E7%BE%8E%E8%81%94%E5%82%A8%E3%80%8B/</url>
-    <content><![CDATA[<ol>
-<li>美联储是一个分权制衡的组织结构，独立运营且不受个别机构控制</li>
-<li>通过调节短期利率影响长期利率<ol>
-<li>金融危机时直接影响长期利率</li>
-</ol>
-</li>
-<li>美联储的货币政策瞄准的是“<strong>通胀率2%</strong>”，而不是货币供应量等其它指标</li>
-<li><strong> 社会运转效率（资金运转效率，资源优化配置效率，人才流动效率等）是一切金融现象背后的本质。</strong><a id="more"></a>
-<ol>
-<li>以日本为例<ol>
-<li>当下的局面：滞胀<ol>
-<li>高通胀</li>
-<li>低增长</li>
-<li>高失业</li>
-</ol>
-</li>
-<li>原因<ol>
-<li>劳动力市场不灵活（人才流动效率低）</li>
-<li>银行给低效企业输血（优化配置效率低）</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>以中国开放国际资本市场为例 <ol>
-<li>先提高国内市场经济效率（利率市场化等）【先把自己的效率提上来，和国际拉齐，再开放才能平稳】</li>
-<li>再放弃固定汇率</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>经济</tag>
-        <tag>美联储</tag>
-        <tag>金融</tag>
       </tags>
   </entry>
   <entry>
@@ -457,6 +702,50 @@
       </tags>
   </entry>
   <entry>
+    <title>《还原真实的美联储》</title>
+    <url>/2022/12/02/%E3%80%8A%E8%BF%98%E5%8E%9F%E7%9C%9F%E5%AE%9E%E7%9A%84%E7%BE%8E%E8%81%94%E5%82%A8%E3%80%8B/</url>
+    <content><![CDATA[<ol>
+<li>美联储是一个分权制衡的组织结构，独立运营且不受个别机构控制</li>
+<li>通过调节短期利率影响长期利率<ol>
+<li>金融危机时直接影响长期利率</li>
+</ol>
+</li>
+<li>美联储的货币政策瞄准的是“<strong>通胀率2%</strong>”，而不是货币供应量等其它指标</li>
+<li><strong> 社会运转效率（资金运转效率，资源优化配置效率，人才流动效率等）是一切金融现象背后的本质。</strong><a id="more"></a>
+<ol>
+<li>以日本为例<ol>
+<li>当下的局面：滞胀<ol>
+<li>高通胀</li>
+<li>低增长</li>
+<li>高失业</li>
+</ol>
+</li>
+<li>原因<ol>
+<li>劳动力市场不灵活（人才流动效率低）</li>
+<li>银行给低效企业输血（优化配置效率低）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>以中国开放国际资本市场为例 <ol>
+<li>先提高国内市场经济效率（利率市场化等）【先把自己的效率提上来，和国际拉齐，再开放才能平稳】</li>
+<li>再放弃固定汇率</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>经济</tag>
+        <tag>美联储</tag>
+        <tag>金融</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一些工作方式心得</title>
     <url>/2020/03/04/%E4%B8%80%E4%BA%9B%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%BF%83%E5%BE%97/</url>
     <content><![CDATA[<ol>
@@ -499,16 +788,6 @@
 ]]></content>
       <tags>
         <tag>心领神会</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>中国史纲</title>
-    <url>/2023/01/05/%E4%B8%AD%E5%9B%BD%E5%8F%B2%E7%BA%B2/</url>
-    <content><![CDATA[<p>中国史纲<br><a id="more"></a></p>
-<p><img src="/images/中国史纲.JPG" alt></p>
-]]></content>
-      <tags>
-        <tag>历史</tag>
       </tags>
   </entry>
   <entry>
@@ -558,27 +837,41 @@
       </tags>
   </entry>
   <entry>
-    <title>什么才是好的金句！</title>
-    <url>/2023/01/05/%E4%BB%80%E4%B9%88%E6%89%8D%E6%98%AF%E5%A5%BD%E7%9A%84%E9%87%91%E5%8F%A5%EF%BC%81/</url>
-    <content><![CDATA[<blockquote>
-<p>金句选取标准：有新知的事实、有趣味的事实。</p>
+    <title>中国史纲</title>
+    <url>/2023/01/05/%E4%B8%AD%E5%9B%BD%E5%8F%B2%E7%BA%B2/</url>
+    <content><![CDATA[<p>中国史纲<br><a id="more"></a></p>
+<p><img src="/images/中国史纲.JPG" alt></p>
+]]></content>
+      <tags>
+        <tag>历史</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于大数据的几个结论</title>
+    <url>/2021/07/07/%E5%85%B3%E4%BA%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E8%AE%BA%E6%96%AD/</url>
+    <content><![CDATA[<h1 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h1><h2 id="数据中台三阶段"><a href="#数据中台三阶段" class="headerlink" title="数据中台三阶段"></a>数据中台三阶段</h2><p>What（描述事实） -&gt; why（诊断归因：自动归因） -&gt; how（指导业务）</p>
+<blockquote>
+<p>arch问题本质都是耦合问题，都是balance问题</p>
+<ol>
+<li>业务数据化</li>
+<li>数据资产化</li>
+<li>资产服务化</li>
+<li>服务可视化</li>
+</ol>
 </blockquote>
 <a id="more"></a>
-<p>必须有事实。</p>
-<p>所谓新知：<br>1，能给出重要启发、经验或规律的。——从未知到已知<br>2，之前大家漠视、之后必须重视的——从次要到重要<br>3，颠覆大众直觉，让人恍然大悟，回归常识的——从谬误到真相<br>4，能提炼出特别简单实用的方法论的——化复杂为简单</p>
-<p>所谓趣味<br>能成为知识精英饭局上的趣味谈资</p>
-<p>关于金句的第一步修正思考</p>
-<p>1，金句写作要有“代入”的过程。<br>人接收信息的规律如下：<br>由简单到复杂<br>由熟悉到陌生<br>由提问到回答<br>由事实到理论<br>所以，好的金句是先从用户熟悉、简单、有趣、有悬疑的事实进入，落脚到有启发性的理论上。</p>
-<p>原金句——<br>商业最终都是为了交易，而交易是通过支付实现的，因此透过支付更容易看清商业的本质。当支付围绕各个不同行业时，把行业的各个环节串起来就更是如此。所以从支付公司出来的人往往更容易在商战中胜出。</p>
-<p>修改为——<br>为什么从支付公司出来的人往往更容易在商战中胜出？（意外的事实）因为商业最终都是为了交易，而交易是通过支付实现的，因此透过支付更容易看清商业的本质（抽象理论）。</p>
-<p>原金句——<br>嫉妒之所以复杂，在于它跟恨一样，与爱有极为密切的关系；唯有我们的爱，才会激起我们最强烈的恨。在谋杀案中，家庭犯罪占了极大比例绝不令人惊讶，因为谋害者与受害者之间的感情纠葛往往最深。（评价：1，应把最反直觉的事实前置、理论后置。2，嫉妒是与主题不想关的信息，应去掉。）</p>
-<p>修改为——<br>和一般人的直觉不同，在谋杀案中，家庭犯罪占了极大比例。因为谋害者与受害者之间的感情纠葛往往最深。唯有我们的爱，才会激起我们最强烈的恨。</p>
-<p>原金句——<br>要确保自己的人脉“真正的”广泛，就不要把自己的信息源固定在和自己一个级别、甚至以上的人们。招聘情报员的时候，来自富裕家庭的高官，远不如一个在收发室的邮务员更合适——他们都能接触敏感的文字资料。同样的，商业间谍活动也常从基层开始打探。</p>
-<p>修改为——<br>招聘情报员的时候，来自富裕家庭的高官，远不如一个在收发室的邮务员更合适——虽然他们都能接触敏感的文字资料（意外的事实、悬疑），但要确保人脉“真正的”广泛，就不要把自己的信息源固定在和自己一个级别的人们（抽象理论）。这就是为什么，商业间谍活动常从基层开始打探（应用）。</p>
-<p>2，以下内容不是我们选取的，比如：<br>纯鸡汤<br>你的时间有限，所以不要为别人而活。不要被教条所限，不要活在别人的观念里。不要让别人的意见左右自己内心的声音。最重要的是，勇敢地去追随自己的心灵和直觉，只有自己的心灵和直觉才知道你自己的真实想法，其它一切都是次要。——乔布斯</p>
-<p>纯理论<br>人性的弱点在于习惯于学习精确的东西而不善于总体把握。我们不学习规律而学习事实，进而蔑视抽象的东西。因此，我们常常缺乏基本的思考能力，以至于当突发事件出现后，我们只看到它的不可预测性而忽略了它的可预测性。</p>
-<p>只有事实，没有和用户相关的理论落点<br>宋代实行的是均税制，已非均田政策。王安石为使民间不必当差，推行免疫法，可由大众缴钱分担经费。此举遭到了保守派的反对。实际上王安石的新政更适合南方那种小地主的生产方式，对北方大户往往不适合。所以王安石推行的方田制和免疫法，在实际操作中没有成功。</p>
+<h2 id="数据治理"><a href="#数据治理" class="headerlink" title="数据治理"></a>数据治理</h2><p>数据质量、数据元数据管理、数据生命周期、数据安全</p>
+<h2 id="数据索引就是数据特征"><a href="#数据索引就是数据特征" class="headerlink" title="数据索引就是数据特征"></a>数据索引就是数据特征</h2><h2 id="九大思维模型"><a href="#九大思维模型" class="headerlink" title="九大思维模型"></a>九大思维模型</h2><ol>
+<li>OLAP业务需求抽象分析至简思维模型</li>
+<li>大数据架构设计本质思维模型：CAP、BASE</li>
+<li>动态灵活组合大数据组件思维模型</li>
+<li>根据场景平衡折中balance：适度超前：0.5-2年未来预期</li>
+<li>个人影响力思维模型</li>
+</ol>
 ]]></content>
+      <tags>
+        <tag>大数据</tag>
+      </tags>
   </entry>
   <entry>
     <title>关于围棋这个RTS的一些想法</title>
@@ -633,31 +926,27 @@
       </tags>
   </entry>
   <entry>
-    <title>关于大数据的几个结论</title>
-    <url>/2021/07/07/%E5%85%B3%E4%BA%8E%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E8%AE%BA%E6%96%AD/</url>
-    <content><![CDATA[<h1 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h1><h2 id="数据中台三阶段"><a href="#数据中台三阶段" class="headerlink" title="数据中台三阶段"></a>数据中台三阶段</h2><p>What（描述事实） -&gt; why（诊断归因：自动归因） -&gt; how（指导业务）</p>
-<blockquote>
-<p>arch问题本质都是耦合问题，都是balance问题</p>
-<ol>
-<li>业务数据化</li>
-<li>数据资产化</li>
-<li>资产服务化</li>
-<li>服务可视化</li>
-</ol>
+    <title>什么才是好的金句！</title>
+    <url>/2023/01/05/%E4%BB%80%E4%B9%88%E6%89%8D%E6%98%AF%E5%A5%BD%E7%9A%84%E9%87%91%E5%8F%A5%EF%BC%81/</url>
+    <content><![CDATA[<blockquote>
+<p>金句选取标准：有新知的事实、有趣味的事实。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="数据治理"><a href="#数据治理" class="headerlink" title="数据治理"></a>数据治理</h2><p>数据质量、数据元数据管理、数据生命周期、数据安全</p>
-<h2 id="数据索引就是数据特征"><a href="#数据索引就是数据特征" class="headerlink" title="数据索引就是数据特征"></a>数据索引就是数据特征</h2><h2 id="九大思维模型"><a href="#九大思维模型" class="headerlink" title="九大思维模型"></a>九大思维模型</h2><ol>
-<li>OLAP业务需求抽象分析至简思维模型</li>
-<li>大数据架构设计本质思维模型：CAP、BASE</li>
-<li>动态灵活组合大数据组件思维模型</li>
-<li>根据场景平衡折中balance：适度超前：0.5-2年未来预期</li>
-<li>个人影响力思维模型</li>
-</ol>
+<p>必须有事实。</p>
+<p>所谓新知：<br>1，能给出重要启发、经验或规律的。——从未知到已知<br>2，之前大家漠视、之后必须重视的——从次要到重要<br>3，颠覆大众直觉，让人恍然大悟，回归常识的——从谬误到真相<br>4，能提炼出特别简单实用的方法论的——化复杂为简单</p>
+<p>所谓趣味<br>能成为知识精英饭局上的趣味谈资</p>
+<p>关于金句的第一步修正思考</p>
+<p>1，金句写作要有“代入”的过程。<br>人接收信息的规律如下：<br>由简单到复杂<br>由熟悉到陌生<br>由提问到回答<br>由事实到理论<br>所以，好的金句是先从用户熟悉、简单、有趣、有悬疑的事实进入，落脚到有启发性的理论上。</p>
+<p>原金句——<br>商业最终都是为了交易，而交易是通过支付实现的，因此透过支付更容易看清商业的本质。当支付围绕各个不同行业时，把行业的各个环节串起来就更是如此。所以从支付公司出来的人往往更容易在商战中胜出。</p>
+<p>修改为——<br>为什么从支付公司出来的人往往更容易在商战中胜出？（意外的事实）因为商业最终都是为了交易，而交易是通过支付实现的，因此透过支付更容易看清商业的本质（抽象理论）。</p>
+<p>原金句——<br>嫉妒之所以复杂，在于它跟恨一样，与爱有极为密切的关系；唯有我们的爱，才会激起我们最强烈的恨。在谋杀案中，家庭犯罪占了极大比例绝不令人惊讶，因为谋害者与受害者之间的感情纠葛往往最深。（评价：1，应把最反直觉的事实前置、理论后置。2，嫉妒是与主题不想关的信息，应去掉。）</p>
+<p>修改为——<br>和一般人的直觉不同，在谋杀案中，家庭犯罪占了极大比例。因为谋害者与受害者之间的感情纠葛往往最深。唯有我们的爱，才会激起我们最强烈的恨。</p>
+<p>原金句——<br>要确保自己的人脉“真正的”广泛，就不要把自己的信息源固定在和自己一个级别、甚至以上的人们。招聘情报员的时候，来自富裕家庭的高官，远不如一个在收发室的邮务员更合适——他们都能接触敏感的文字资料。同样的，商业间谍活动也常从基层开始打探。</p>
+<p>修改为——<br>招聘情报员的时候，来自富裕家庭的高官，远不如一个在收发室的邮务员更合适——虽然他们都能接触敏感的文字资料（意外的事实、悬疑），但要确保人脉“真正的”广泛，就不要把自己的信息源固定在和自己一个级别的人们（抽象理论）。这就是为什么，商业间谍活动常从基层开始打探（应用）。</p>
+<p>2，以下内容不是我们选取的，比如：<br>纯鸡汤<br>你的时间有限，所以不要为别人而活。不要被教条所限，不要活在别人的观念里。不要让别人的意见左右自己内心的声音。最重要的是，勇敢地去追随自己的心灵和直觉，只有自己的心灵和直觉才知道你自己的真实想法，其它一切都是次要。——乔布斯</p>
+<p>纯理论<br>人性的弱点在于习惯于学习精确的东西而不善于总体把握。我们不学习规律而学习事实，进而蔑视抽象的东西。因此，我们常常缺乏基本的思考能力，以至于当突发事件出现后，我们只看到它的不可预测性而忽略了它的可预测性。</p>
+<p>只有事实，没有和用户相关的理论落点<br>宋代实行的是均税制，已非均田政策。王安石为使民间不必当差，推行免疫法，可由大众缴钱分担经费。此举遭到了保守派的反对。实际上王安石的新政更适合南方那种小地主的生产方式，对北方大户往往不适合。所以王安石推行的方田制和免疫法，在实际操作中没有成功。</p>
 ]]></content>
-      <tags>
-        <tag>大数据</tag>
-      </tags>
   </entry>
   <entry>
     <title>关于开源商业模式的思考</title>
@@ -703,6 +992,37 @@
       </tags>
   </entry>
   <entry>
+    <title>五维思考</title>
+    <url>/2022/04/26/%E5%8D%87%E7%BB%B4%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<p><strong>你左右为难的时候，就是你需要升维思考的时候</strong></p>
+<p><img src="/images/升维思考.jpg" alt></p>
+<blockquote>
+<p>本质上维度没有高低之分，这5个维度是全正交的等价维度，是“通向成功”的5个要素（注意不是“成功”，是“通向成功”）</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于画各种流程图、架构图的核心观点</title>
+    <url>/2020/12/23/%E5%85%B3%E4%BA%8E%E7%94%BB%E5%90%84%E7%A7%8D%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A7%82%E7%82%B9/</url>
+    <content><![CDATA[<h3 id="一张图只有一个重点，和重点无关的部分都做淡化处理。"><a href="#一张图只有一个重点，和重点无关的部分都做淡化处理。" class="headerlink" title="一张图只有一个重点，和重点无关的部分都做淡化处理。"></a>一张图只有一个重点，和重点无关的部分都做淡化处理。</h3><blockquote>
+<p>目的：把听众目光牵引到关键点上去，节省听众认知资源</p>
+</blockquote>
+<h3 id="一张图只阐释一个观点，不能是多个，职责要单一。"><a href="#一张图只阐释一个观点，不能是多个，职责要单一。" class="headerlink" title="一张图只阐释一个观点，不能是多个，职责要单一。"></a>一张图只阐释一个观点，不能是多个，职责要单一。</h3><blockquote>
+<p>目的：图是为了表达观点而生的，观点要一个一个说，图要一个一个展示，节省听众认知资源</p>
+</blockquote>
+<h3 id="不是为了画图而画图，而是因为图的颜色和结构能帮助表达观点所以才画。比如：用阶梯图协助表达递进关系，这样文字就不用表达递进关系了"><a href="#不是为了画图而画图，而是因为图的颜色和结构能帮助表达观点所以才画。比如：用阶梯图协助表达递进关系，这样文字就不用表达递进关系了" class="headerlink" title="不是为了画图而画图，而是因为图的颜色和结构能帮助表达观点所以才画。比如：用阶梯图协助表达递进关系，这样文字就不用表达递进关系了"></a>不是为了画图而画图，而是因为图的颜色和结构能帮助表达观点所以才画。比如：用阶梯图协助表达递进关系，这样文字就不用表达递进关系了</h3><blockquote>
+<p>目的：用颜色和结构等可视化元素刺激听众，而不是靠文字和讲述，节省听众认知资源</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>画图</tag>
+        <tag>方法论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于股票和股市</title>
     <url>/2020/10/26/%E5%85%B3%E4%BA%8E%E8%82%A1%E7%A5%A8%E5%92%8C%E8%82%A1%E5%B8%82/</url>
     <content><![CDATA[<p>待展开</p>
@@ -714,6 +1034,21 @@
 ]]></content>
       <tags>
         <tag>经济金融</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于Flink的思考</title>
+    <url>/2022/05/28/%E5%9F%BA%E4%BA%8EFlink%E7%9A%84%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<h3 id="Flink的一些核心特性"><a href="#Flink的一些核心特性" class="headerlink" title="Flink的一些核心特性"></a>Flink的一些核心特性</h3><ol>
+<li>基本能力：事件时间、窗口、有状态计算</li>
+<li>高可靠：容错机制（checkpoint）</li>
+<li>高可用：反压、base on k8s/yarn</li>
+<li>高性能：独立的内存管理、独立序列化</li>
+</ol>
+<p>因为包揽了有状态计算，所以一定需要一个容错机制保障状态的高可靠</p>
+]]></content>
+      <tags>
+        <tag>开源</tag>
       </tags>
   </entry>
   <entry>
@@ -742,37 +1077,6 @@
 <p>现在：</p>
 <p>我们到底是法治还是人治？<br>人口老龄化势不可挡？<br>创新能成为国家增长支柱了吗？<br>科学规律、市场规律我们尊重了吗？</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>关于画各种流程图、架构图的核心观点</title>
-    <url>/2020/12/23/%E5%85%B3%E4%BA%8E%E7%94%BB%E5%90%84%E7%A7%8D%E6%B5%81%E7%A8%8B%E5%9B%BE%E3%80%81%E6%9E%B6%E6%9E%84%E5%9B%BE%E7%9A%84%E6%A0%B8%E5%BF%83%E8%A7%82%E7%82%B9/</url>
-    <content><![CDATA[<h3 id="一张图只有一个重点，和重点无关的部分都做淡化处理。"><a href="#一张图只有一个重点，和重点无关的部分都做淡化处理。" class="headerlink" title="一张图只有一个重点，和重点无关的部分都做淡化处理。"></a>一张图只有一个重点，和重点无关的部分都做淡化处理。</h3><blockquote>
-<p>目的：把听众目光牵引到关键点上去，节省听众认知资源</p>
-</blockquote>
-<h3 id="一张图只阐释一个观点，不能是多个，职责要单一。"><a href="#一张图只阐释一个观点，不能是多个，职责要单一。" class="headerlink" title="一张图只阐释一个观点，不能是多个，职责要单一。"></a>一张图只阐释一个观点，不能是多个，职责要单一。</h3><blockquote>
-<p>目的：图是为了表达观点而生的，观点要一个一个说，图要一个一个展示，节省听众认知资源</p>
-</blockquote>
-<h3 id="不是为了画图而画图，而是因为图的颜色和结构能帮助表达观点所以才画。比如：用阶梯图协助表达递进关系，这样文字就不用表达递进关系了"><a href="#不是为了画图而画图，而是因为图的颜色和结构能帮助表达观点所以才画。比如：用阶梯图协助表达递进关系，这样文字就不用表达递进关系了" class="headerlink" title="不是为了画图而画图，而是因为图的颜色和结构能帮助表达观点所以才画。比如：用阶梯图协助表达递进关系，这样文字就不用表达递进关系了"></a>不是为了画图而画图，而是因为图的颜色和结构能帮助表达观点所以才画。比如：用阶梯图协助表达递进关系，这样文字就不用表达递进关系了</h3><blockquote>
-<p>目的：用颜色和结构等可视化元素刺激听众，而不是靠文字和讲述，节省听众认知资源</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>画图</tag>
-        <tag>方法论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>五维思考</title>
-    <url>/2022/04/26/%E5%8D%87%E7%BB%B4%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<p><strong>你左右为难的时候，就是你需要升维思考的时候</strong></p>
-<p><img src="/images/升维思考.jpg" alt></p>
-<blockquote>
-<p>本质上维度没有高低之分，这5个维度是全正交的等价维度，是“通向成功”的5个要素（注意不是“成功”，是“通向成功”）</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>思考</tag>
-      </tags>
   </entry>
   <entry>
     <title>在线服务设计方法论</title>
@@ -867,21 +1171,6 @@
         <tag>方法论</tag>
         <tag>java</tag>
         <tag>微服务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于Flink的思考</title>
-    <url>/2022/05/28/%E5%9F%BA%E4%BA%8EFlink%E7%9A%84%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<h3 id="Flink的一些核心特性"><a href="#Flink的一些核心特性" class="headerlink" title="Flink的一些核心特性"></a>Flink的一些核心特性</h3><ol>
-<li>基本能力：事件时间、窗口、有状态计算</li>
-<li>高可靠：容错机制（checkpoint）</li>
-<li>高可用：反压、base on k8s/yarn</li>
-<li>高性能：独立的内存管理、独立序列化</li>
-</ol>
-<p>因为包揽了有状态计算，所以一定需要一个容错机制保障状态的高可靠</p>
-]]></content>
-      <tags>
-        <tag>开源</tag>
       </tags>
   </entry>
   <entry>
@@ -984,6 +1273,16 @@
       </tags>
   </entry>
   <entry>
+    <title>如何设计一个吸引人的演讲</title>
+    <url>/2021/06/03/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%90%B8%E5%BC%95%E4%BA%BA%E7%9A%84%E6%BC%94%E8%AE%B2/</url>
+    <content><![CDATA[<p>关于“破冰”和“注意力管理”</p>
+<a id="more"></a>
+<h2 id="破冰"><a href="#破冰" class="headerlink" title="破冰"></a>破冰</h2><h3 id="在听众认知上戳一个洞"><a href="#在听众认知上戳一个洞" class="headerlink" title="在听众认知上戳一个洞"></a>在听众认知上戳一个洞</h3><h4 id="把听众带入一个场景"><a href="#把听众带入一个场景" class="headerlink" title="把听众带入一个场景"></a>把听众带入一个场景</h4><h4 id="“冒犯”听众：你对“创新”的理解真的对吗？"><a href="#“冒犯”听众：你对“创新”的理解真的对吗？" class="headerlink" title="“冒犯”听众：你对“创新”的理解真的对吗？"></a>“冒犯”听众：你对“创新”的理解真的对吗？</h4><h3 id="收集笑点，而不是设计笑点"><a href="#收集笑点，而不是设计笑点" class="headerlink" title="收集笑点，而不是设计笑点"></a>收集笑点，而不是设计笑点</h3><h2 id="注意力管理"><a href="#注意力管理" class="headerlink" title="注意力管理"></a>注意力管理</h2><h3 id="让听众说几句，互动"><a href="#让听众说几句，互动" class="headerlink" title="让听众说几句，互动"></a>让听众说几句，互动</h3><h3 id="调动听众脑中的画面"><a href="#调动听众脑中的画面" class="headerlink" title="调动听众脑中的画面"></a>调动听众脑中的画面</h3><h3 id="预期之外的获得感"><a href="#预期之外的获得感" class="headerlink" title="预期之外的获得感"></a>预期之外的获得感</h3>]]></content>
+      <tags>
+        <tag>演讲</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>小学数学应该学什么</title>
     <url>/2022/04/06/%E5%B0%8F%E5%AD%A6%E6%95%B0%E5%AD%A6%E5%BA%94%E8%AF%A5%E5%AD%A6%E4%BB%80%E4%B9%88/</url>
     <content><![CDATA[<p>摘自 民间数学家的<a href="https://mp.weixin.qq.com/s/vhMQkAF64kB8fEwAlouFpQ?r=0.809623703227145#wechat_redirect" target="_blank" rel="noopener">《小学数学究竟该教什么，究竟该学什么？培优的大方向究竟在哪里？》</a><br><a id="more"></a></p>
@@ -1013,16 +1312,6 @@
 ]]></content>
       <tags>
         <tag>教育</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何设计一个吸引人的演讲</title>
-    <url>/2021/06/03/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%90%B8%E5%BC%95%E4%BA%BA%E7%9A%84%E6%BC%94%E8%AE%B2/</url>
-    <content><![CDATA[<p>关于“破冰”和“注意力管理”</p>
-<a id="more"></a>
-<h2 id="破冰"><a href="#破冰" class="headerlink" title="破冰"></a>破冰</h2><h3 id="在听众认知上戳一个洞"><a href="#在听众认知上戳一个洞" class="headerlink" title="在听众认知上戳一个洞"></a>在听众认知上戳一个洞</h3><h4 id="把听众带入一个场景"><a href="#把听众带入一个场景" class="headerlink" title="把听众带入一个场景"></a>把听众带入一个场景</h4><h4 id="“冒犯”听众：你对“创新”的理解真的对吗？"><a href="#“冒犯”听众：你对“创新”的理解真的对吗？" class="headerlink" title="“冒犯”听众：你对“创新”的理解真的对吗？"></a>“冒犯”听众：你对“创新”的理解真的对吗？</h4><h3 id="收集笑点，而不是设计笑点"><a href="#收集笑点，而不是设计笑点" class="headerlink" title="收集笑点，而不是设计笑点"></a>收集笑点，而不是设计笑点</h3><h2 id="注意力管理"><a href="#注意力管理" class="headerlink" title="注意力管理"></a>注意力管理</h2><h3 id="让听众说几句，互动"><a href="#让听众说几句，互动" class="headerlink" title="让听众说几句，互动"></a>让听众说几句，互动</h3><h3 id="调动听众脑中的画面"><a href="#调动听众脑中的画面" class="headerlink" title="调动听众脑中的画面"></a>调动听众脑中的画面</h3><h3 id="预期之外的获得感"><a href="#预期之外的获得感" class="headerlink" title="预期之外的获得感"></a>预期之外的获得感</h3>]]></content>
-      <tags>
-        <tag>演讲</tag>
       </tags>
   </entry>
   <entry>
@@ -1097,30 +1386,30 @@
 ]]></content>
   </entry>
   <entry>
-    <title>摄影考虑因素的优先级</title>
-    <url>/2023/01/05/%E6%91%84%E5%BD%B1%E8%80%83%E8%99%91%E5%9B%A0%E7%B4%A0%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
+    <title>怎么变得越来越差？</title>
+    <url>/2021/07/13/%E6%80%8E%E4%B9%88%E5%8F%98%E5%BE%97%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%B7%AE/</url>
     <content><![CDATA[<ol>
-<li>到达</li>
-<li>视角    </li>
-<li>构图</li>
-<li>色彩，黑白</li>
-<li>感染力：<ol>
-<li>真实</li>
-<li>一张照片只有一个主题</li>
-<li>风景：别人看了也想去</li>
+<li>应激反应<ol>
+<li>急功近利：短视地看问题</li>
+<li>线性规划：静态地看问题</li>
+<li>自我视角：自我地看问题</li>
+<li>追求免费：贪便宜</li>
+</ol>
+</li>
+<li>无目标<ol>
+<li>不懂放弃：因为无目标，所以不知道要争什么，进而放弃什么，所以全部都不放弃</li>
 </ol>
 </li>
 </ol>
-<a id="more"></a>
-<p>视角<br><img src="/images/摄影考虑因素的优先级/IMG_1942.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1943.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1944.JPG" alt></p>
-<p>构图：主动使用几何结构：三角构图，圆形构图，螺旋线构图<br><img src="/images/摄影考虑因素的优先级/IMG_1950.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1949.JPG" alt></p>
-<p>色彩</p>
-<p>橙配蓝，红配绿，金配紫</p>
-<p><img src="/images/摄影考虑因素的优先级/IMG_1947.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1946.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1945.JPG" alt></p>
 ]]></content>
-      <tags>
-        <tag>摄影</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>数学学科分枝关系</title>
+    <url>/2023/03/21/%E6%95%B0%E5%AD%A6%E5%AD%A6%E7%A7%91%E5%88%86%E6%9E%9D%E5%85%B3%E7%B3%BB/</url>
+    <content><![CDATA[<p>from ChatGPT</p>
+<a id="more"></a>
+<p>数学<br>├─代数学<br>│  ├─线性代数<br>│  │  ├─向量空间<br>│  │  ├─矩阵论<br>│  │  └─行列式<br>│  ├─抽象代数<br>│  │  ├─群论<br>│  │  ├─环论<br>│  │  └─域论<br>│  └─代数几何<br>│     ├─仿射几何<br>│     ├─射影几何<br>│     ├─代数曲线<br>│     └─代数曲面<br>├─几何学<br>│  ├─欧几里得几何<br>│  │  ├─平面几何<br>│  │  ├─空间几何<br>│  │  └─解析几何<br>│  ├─拓扑学<br>│  │  ├─点集拓扑学<br>│  │  ├─代数拓扑学<br>│  │  └─微分拓扑学<br>│  └─非欧几何<br>│     ├─椭圆几何<br>│     ├─双曲几何<br>│     └─椭球几何<br>├─数论<br>│  ├─初等数论<br>│  ├─解析数论<br>│  ├─代数数论<br>│  └─算术几何<br>├─数学分析<br>│  ├─微积分学<br>│  │  ├─一元微积分学<br>│  │  ├─多元微积分学<br>│  │  └─变分法<br>│  ├─实分析<br>│  │  ├─实变函数<br>│  │  ├─泛函分析<br>│  │  └─微分方程<br>│  └─复分析<br>│     ├─复变函数<br>│     ├─解析函数<br>│     ├─调和函数<br>│     └─复流形<br>├─离散数学<br>│  ├─图论<br>│  │  ├─平面图论<br>│  │  ├─网络流<br>│  │  └─拓扑图论<br>│  ├─组合数学<br>│  │  ├─图论组合<br>│  │  ├─Ramsey理论<br>│  │  └─生成函数<br>│  └─离散优化<br>│     ├─整数规划<br>│     ├─组合优化<br>│     └─图像处理<br>└─统计学<br>   ├─数理统计学<br>   │  ├─参数估计<br>   │  ├─假设检验<br>   │  └─方差分析<br>   └─概率论<br>      ├─分布函数<br>      ├─随机过程<br>      └─极限理论</p>
+]]></content>
   </entry>
   <entry>
     <title>乐观锁维护原则及常见错误</title>
@@ -1155,22 +1444,30 @@
       </tags>
   </entry>
   <entry>
-    <title>怎么变得越来越差？</title>
-    <url>/2021/07/13/%E6%80%8E%E4%B9%88%E5%8F%98%E5%BE%97%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%B7%AE/</url>
+    <title>摄影考虑因素的优先级</title>
+    <url>/2023/01/05/%E6%91%84%E5%BD%B1%E8%80%83%E8%99%91%E5%9B%A0%E7%B4%A0%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</url>
     <content><![CDATA[<ol>
-<li>应激反应<ol>
-<li>急功近利：短视地看问题</li>
-<li>线性规划：静态地看问题</li>
-<li>自我视角：自我地看问题</li>
-<li>追求免费：贪便宜</li>
+<li>到达</li>
+<li>视角    </li>
+<li>构图</li>
+<li>色彩，黑白</li>
+<li>感染力：<ol>
+<li>真实</li>
+<li>一张照片只有一个主题</li>
+<li>风景：别人看了也想去</li>
 </ol>
 </li>
-<li>无目标<ol>
-<li>不懂放弃：因为无目标，所以不知道要争什么，进而放弃什么，所以全部都不放弃</li>
 </ol>
-</li>
-</ol>
+<a id="more"></a>
+<p>视角<br><img src="/images/摄影考虑因素的优先级/IMG_1942.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1943.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1944.JPG" alt></p>
+<p>构图：主动使用几何结构：三角构图，圆形构图，螺旋线构图<br><img src="/images/摄影考虑因素的优先级/IMG_1950.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1949.JPG" alt></p>
+<p>色彩</p>
+<p>橙配蓝，红配绿，金配紫</p>
+<p><img src="/images/摄影考虑因素的优先级/IMG_1947.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1946.JPG" alt><br><img src="/images/摄影考虑因素的优先级/IMG_1945.JPG" alt></p>
 ]]></content>
+      <tags>
+        <tag>摄影</tag>
+      </tags>
   </entry>
   <entry>
     <title>数据开发领域的点线面体</title>
@@ -1430,6 +1727,55 @@ Z[数据价值]
 ]]></content>
   </entry>
   <entry>
+    <title>蔚来之夏•贝尔生存训练营•神农架站的几个瞬间</title>
+    <url>/2022/09/06/%E8%94%9A%E6%9D%A5%E4%B9%8B%E5%A4%8F%E2%80%A2%E8%B4%9D%E5%B0%94%E7%94%9F%E5%AD%98%E8%AE%AD%E7%BB%83%E8%90%A5%E2%80%A2%E7%A5%9E%E5%86%9C%E6%9E%B6%E7%AB%99/</url>
+    <content><![CDATA[<p><img src="/images/神农架穿越/大镖客.png" alt></p>
+<p>这是一段现实版的神农架荒野大镖客经历，更是一段堪称神奇的经历：核酸阻碍导致延误开营，大家决定披星戴月急行军13km荒野山路，互帮互助凌晨4点到达目的地；第二天吃虫、生火、滤水、翻岩壁、冲顶神农架、翻越高山草甸、露营荒野；第三天凌晨拔营，穿山野小涧，深入原始森林，海拔直降800米。翻山越岭总行程28km，累计海拔升降2300。</p>
+<blockquote>
+<p>总的来说两点收获</p>
+<ol>
+<li>荒野穿越可以激发善意</li>
+<li>离贝爷最近的一次</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<p>具体的训练营过程我们一起战斗的小伙伴们已经写的很详细了，我偷个懒，直接上传送门：<br><a href="https://app.nio.com/app/web/v2/share_comment?id=2118029&amp;type=essay" target="_blank" rel="noopener">一场心无旁骛的神农架穿越之旅</a><br><a href="https://app.nio.com/app/web/v2/share_comment?id=2117919&amp;type=essay" target="_blank" rel="noopener">蔚来勇士凯旋归来！</a><br><a href="https://app.nio.com/app/web/v2/share_comment?id=2117927&amp;type=essay" target="_blank" rel="noopener">48小时 · 穿越神农架</a><br><a href="https://app.nio.com/app/web/v2/share_comment?id=2118675&amp;type=essay" target="_blank" rel="noopener">湘西极地 鄂渝相连|48小时极限穿越神农架</a></p>
+<p>我说几个印象深刻的瞬间，正是这些瞬间就像珍珠，让整个体验熠熠生辉，难以忘怀。</p>
+<h4 id="1-个人的坚持"><a href="#1-个人的坚持" class="headerlink" title="1. 个人的坚持"></a>1. 个人的坚持</h4><p>本次行程有11名队员，分成两个组，我是一队的队长，组里的郝哥是年龄最长的成员。行程开始几公里进入海拔爬升阶段后，因为身上有十多斤的负重，郝哥的体力下降比较多，听教练说嘴唇都发白了，心率估计也非常高。说实话，看大哥的步态已经很沉了，可以感受到他每一步都需要咬牙才行。教练让我们帮忙分担重量，但是郝哥担心耽误大家的行进速度，执意要自己坚持负重自己走，大家劝了很多次，大哥还是想坚持。郝哥多大的负担都争取自己抗，决不拖累团队的精神很让人钦佩！体力可以下降，精神永远在线！就这样大哥自己又坚持了好几公里，真心不易。</p>
+<p><img src="/images/神农架穿越/出发.jpeg" alt><br><img src="/images/神农架穿越/夜行.jpeg" alt><br><img src="/images/神农架穿越/夜行2.jpeg" alt></p>
+<h4 id="2-团队的协作"><a href="#2-团队的协作" class="headerlink" title="2. 团队的协作"></a>2. 团队的协作</h4><p>郝哥体力下降越来越快，团队的小伙伴就开始不断询问他的情况，逐步帮他分担负重。梁哥是第一个帮忙的，把郝哥的水都默默分担在自己包上了，走了很久。后来遇到大上坡，我几乎是从郝哥身上抢过来了冲锋包（因为他不愿意给），两个包负重30多斤，再加上很陡的上坡，我能力也有限，走了半个多小时腰就明显开始酸了，心率从130到160+，喘得不行。后面轩轩小伙接力，一直背着2个包走，坡比我走的还要陡，身体素质是真的强，解决了大问题。再后来二组的小伙伴也来帮忙，昊哥、鹏哥、balance和其他小伙伴都接力分担。大家大多初次相识，勇于出手相助，让我突然意识到，原来徒步穿越最大的作用其实不是锻炼身体和游玩，而是激发善意。而这些东西在城市生活久了，可能我们自己都已经忘了。靠着团队的力量，郝哥也顺利完成了第一天的11公里山地穿越。<br><img src="/images/神农架穿越/分担.jpeg" alt></p>
+<h4 id="3-挑战自我：吃虫、攀岩"><a href="#3-挑战自我：吃虫、攀岩" class="headerlink" title="3. 挑战自我：吃虫、攀岩"></a>3. 挑战自我：吃虫、攀岩</h4><p>第二天早上直接两个挑战吃虫和户外攀岩对大部分人还说都是第一次，但是从大家脸上看到的更多是兴奋，甚至是有点渴望。说实话，教官刚拿出来一条做演示的时候，我还是心态很平衡的，但是当一整盒“蛆”摆在面前的时候我还是大为震撼的。不过很快纠结的内心就被小哥哥小姐姐们垂涎的口水给抚慰了，当我还在自豪搞定2条的时候，听说mumu已经消化了5条！<br>攀岩大家多是小白，近乎垂直的崖壁让我们不敢相信这是前进的“必经之路”。我有一次攀冰的经验，但是事后证明和没有经验也没什么区别……岩点很多，但是每个都很小，踩上去信心不足，不过除了历哥脚趾有伤之外，最终大家都能顺利完成15米的崖壁攀升。<br>这两个挑战中，大家表现出的勇气和探索欲让人印象深刻～<br><img src="/images/神农架穿越/虫子.jpeg" alt><br><img src="/images/神农架穿越/吃虫.jpeg" alt><br><img src="/images/神农架穿越/崖壁.jpeg" alt><br><img src="/images/神农架穿越/崖壁2.jpeg" alt><br><img src="/images/神农架穿越/崖壁3.jpeg" alt></p>
+<h4 id="4-篝火夜话"><a href="#4-篝火夜话" class="headerlink" title="4. 篝火夜话"></a>4. 篝火夜话</h4><p>篝火夜话环节的达成要给balance一个赞，在我们吹了一身灰最后火势还是很小之后，balance力挽狂澜，让干柴相互穿插堆叠，很快就让我们拥有了一个可以在0度温暖所有人的篝火。<br>这里不得不插播一下雷人教练教得两个很重要的生存要点：1. 身子暖和的情况下再进睡袋！ 2. 用减压节搭一个结实的三脚架放锅。真是又实用又能狗头保命～  当然还有如何系一个不会松的鞋扣在户外你会发现也是太重要。<br>夜话过程每个人轮流发言，讲了各自的收获和感想，其中balance对自己和团队的思考，晓哥对家庭和自己的反思，都让我受益匪浅。<br><img src="/images/神农架穿越/夜话.jpeg" alt></p>
+<h4 id="5-最后时刻登机"><a href="#5-最后时刻登机" class="headerlink" title="5. 最后时刻登机"></a>5. 最后时刻登机</h4><p>因为疫情，我们是今年进入神农架的第一批散客；而这一路，我们又经历了核酸晚出导致连夜急行军（教练带队无数次依然是第一次遇到这种意外情况）；太多意外和让人兴奋的经历后，没想到临别到了机场再遇挑战。我们两天前的20：16分出核酸检测结果，大家都以为是进入机场或过安检在48小时以内即可，但是机场回复是以起飞时间为准的48小时内核酸。上午补做的核酸此时又迟迟出不来，每个人都归家心切，那叫心急如焚。正在大家找机场发动感情攻势的时候做最后的争取时，神奇的事情来了，最后登机时间前7分钟核酸结果居然出来了！立刻分散办理登机手续，手里的机票怎么看都像是中了奖之后的彩票！<br><img src="/images/神农架穿越/机票.jpeg" alt></p>
+<p>最后非常非常感谢蔚来NHS铁蓓、sam，不仅要和我们一样经受身心的考验，同时还要忙前忙后帮大家处理行程中的各种问题，还有户外星球的教练员们的努力和付出，让我们真正感受了一把神农架版的荒野大镖客！</p>
+<h4 id="其它花絮"><a href="#其它花絮" class="headerlink" title="其它花絮"></a>其它花絮</h4><p><img src="/images/神农架穿越/f11.jpeg" alt><br><img src="/images/神农架穿越/木屋.jpeg" alt><br><img src="/images/神农架穿越/木屋2.jpeg" alt><br><img src="/images/神农架穿越/山.jpeg" alt><br><img src="/images/神农架穿越/山顶.jpeg" alt><br><img src="/images/神农架穿越/登山.jpeg" alt><br><img src="/images/神农架穿越/登山2.jpeg" alt><br><img src="/images/神农架穿越/登山3.jpeg" alt><br><img src="/images/神农架穿越/原始森林.jpeg" alt><br><img src="/images/神农架穿越/原始森林2.jpeg" alt></p>
+<p><img src="/images/神农架穿越/终点.jpeg" alt><br><img src="/images/神农架穿越/毕业.jpeg" alt></p>
+]]></content>
+      <tags>
+        <tag>户外</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>说通ABTest的数学逻辑</title>
+    <url>/2020/10/27/%E8%AF%B4%E9%80%9AABTest%E7%9A%84%E6%95%B0%E5%AD%A6%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/X5cB3w6FrP6SUKsgm7qcghdicNt0bSU4O9Qib9CBica4Ofbhk2Rw5U5tQia1NscRe1aSxlCMuYKEk0p8GqPrpibH2IQ/0?wx_fmt=jpeg" alt="abtest"></p>
+<p><a href="https://solnotes.com/2016/10/08/simple-stats-in-abtesting/" target="_blank" rel="noopener">https://solnotes.com/2016/10/08/simple-stats-in-abtesting/</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzU1ODEzNjI2NA==&amp;mid=2247487223&amp;idx=1&amp;sn=306598fda6c931e7fbf023cf07959f20&amp;source=41#wechat_redirect" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzU1ODEzNjI2NA==&amp;mid=2247487223&amp;idx=1&amp;sn=306598fda6c931e7fbf023cf07959f20&amp;source=41#wechat_redirect</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzU1ODEzNjI2NA==&amp;mid=2247487225&amp;idx=1&amp;sn=3598f1caf4d3fd5c4a77962a9f86f692&amp;source=41#wechat_redirect" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzU1ODEzNjI2NA==&amp;mid=2247487225&amp;idx=1&amp;sn=3598f1caf4d3fd5c4a77962a9f86f692&amp;source=41#wechat_redirect</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>走吧，去火星！</title>
+    <url>/2019/05/22/%E8%B5%B0%E5%90%A7%EF%BC%8C%E5%8E%BB%E7%81%AB%E6%98%9F%EF%BC%81/</url>
+    <content><![CDATA[<p>没有时间解释了！<a href="https://go.nasa.gov/Mars2020Pass" target="_blank" rel="noopener">快上船！</a></p>
+<iframe width="980" height="410" src="https://mars.nasa.gov/layout/embed/send-your-name/mars2020/certificate/?cn=781873778280" frameborder="0"></iframe>
+]]></content>
+      <categories>
+        <category>黑科技</category>
+      </categories>
+      <tags>
+        <tag>火星船票</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>认知分层标准以及我们应该争论什么</title>
     <url>/2021/02/01/%E8%AE%A4%E7%9F%A5%E5%88%86%E5%B1%82%E6%A0%87%E5%87%86%E4%BB%A5%E5%8F%8A%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E4%BA%89%E8%AE%BA%E4%BB%80%E4%B9%88/</url>
     <content><![CDATA[<h3 id="认知分层"><a href="#认知分层" class="headerlink" title="认知分层"></a>认知分层</h3><p>人和猪的区别是基因的差别，是可以量化的；人和人的区别是认知的区别，是不可以被量化的。认知的不同使我们实际处在不同的平行世界之中。</p>
@@ -1490,67 +1836,9 @@ Z[数据价值]
       </tags>
   </entry>
   <entry>
-    <title>说通ABTest的数学逻辑</title>
-    <url>/2020/10/27/%E8%AF%B4%E9%80%9AABTest%E7%9A%84%E6%95%B0%E5%AD%A6%E9%80%BB%E8%BE%91/</url>
-    <content><![CDATA[<p><img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/X5cB3w6FrP6SUKsgm7qcghdicNt0bSU4O9Qib9CBica4Ofbhk2Rw5U5tQia1NscRe1aSxlCMuYKEk0p8GqPrpibH2IQ/0?wx_fmt=jpeg" alt="abtest"></p>
-<p><a href="https://solnotes.com/2016/10/08/simple-stats-in-abtesting/" target="_blank" rel="noopener">https://solnotes.com/2016/10/08/simple-stats-in-abtesting/</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzU1ODEzNjI2NA==&amp;mid=2247487223&amp;idx=1&amp;sn=306598fda6c931e7fbf023cf07959f20&amp;source=41#wechat_redirect" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzU1ODEzNjI2NA==&amp;mid=2247487223&amp;idx=1&amp;sn=306598fda6c931e7fbf023cf07959f20&amp;source=41#wechat_redirect</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzU1ODEzNjI2NA==&amp;mid=2247487225&amp;idx=1&amp;sn=3598f1caf4d3fd5c4a77962a9f86f692&amp;source=41#wechat_redirect" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzU1ODEzNjI2NA==&amp;mid=2247487225&amp;idx=1&amp;sn=3598f1caf4d3fd5c4a77962a9f86f692&amp;source=41#wechat_redirect</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>蔚来之夏•贝尔生存训练营•神农架站的几个瞬间</title>
-    <url>/2022/09/06/%E8%94%9A%E6%9D%A5%E4%B9%8B%E5%A4%8F%E2%80%A2%E8%B4%9D%E5%B0%94%E7%94%9F%E5%AD%98%E8%AE%AD%E7%BB%83%E8%90%A5%E2%80%A2%E7%A5%9E%E5%86%9C%E6%9E%B6%E7%AB%99/</url>
-    <content><![CDATA[<p><img src="/images/神农架穿越/大镖客.png" alt></p>
-<p>这是一段现实版的神农架荒野大镖客经历，更是一段堪称神奇的经历：核酸阻碍导致延误开营，大家决定披星戴月急行军13km荒野山路，互帮互助凌晨4点到达目的地；第二天吃虫、生火、滤水、翻岩壁、冲顶神农架、翻越高山草甸、露营荒野；第三天凌晨拔营，穿山野小涧，深入原始森林，海拔直降800米。翻山越岭总行程28km，累计海拔升降2300。</p>
-<blockquote>
-<p>总的来说两点收获</p>
-<ol>
-<li>荒野穿越可以激发善意</li>
-<li>离贝爷最近的一次</li>
-</ol>
-</blockquote>
-<a id="more"></a>
-<p>具体的训练营过程我们一起战斗的小伙伴们已经写的很详细了，我偷个懒，直接上传送门：<br><a href="https://app.nio.com/app/web/v2/share_comment?id=2118029&amp;type=essay" target="_blank" rel="noopener">一场心无旁骛的神农架穿越之旅</a><br><a href="https://app.nio.com/app/web/v2/share_comment?id=2117919&amp;type=essay" target="_blank" rel="noopener">蔚来勇士凯旋归来！</a><br><a href="https://app.nio.com/app/web/v2/share_comment?id=2117927&amp;type=essay" target="_blank" rel="noopener">48小时 · 穿越神农架</a><br><a href="https://app.nio.com/app/web/v2/share_comment?id=2118675&amp;type=essay" target="_blank" rel="noopener">湘西极地 鄂渝相连|48小时极限穿越神农架</a></p>
-<p>我说几个印象深刻的瞬间，正是这些瞬间就像珍珠，让整个体验熠熠生辉，难以忘怀。</p>
-<h4 id="1-个人的坚持"><a href="#1-个人的坚持" class="headerlink" title="1. 个人的坚持"></a>1. 个人的坚持</h4><p>本次行程有11名队员，分成两个组，我是一队的队长，组里的郝哥是年龄最长的成员。行程开始几公里进入海拔爬升阶段后，因为身上有十多斤的负重，郝哥的体力下降比较多，听教练说嘴唇都发白了，心率估计也非常高。说实话，看大哥的步态已经很沉了，可以感受到他每一步都需要咬牙才行。教练让我们帮忙分担重量，但是郝哥担心耽误大家的行进速度，执意要自己坚持负重自己走，大家劝了很多次，大哥还是想坚持。郝哥多大的负担都争取自己抗，决不拖累团队的精神很让人钦佩！体力可以下降，精神永远在线！就这样大哥自己又坚持了好几公里，真心不易。</p>
-<p><img src="/images/神农架穿越/出发.jpeg" alt><br><img src="/images/神农架穿越/夜行.jpeg" alt><br><img src="/images/神农架穿越/夜行2.jpeg" alt></p>
-<h4 id="2-团队的协作"><a href="#2-团队的协作" class="headerlink" title="2. 团队的协作"></a>2. 团队的协作</h4><p>郝哥体力下降越来越快，团队的小伙伴就开始不断询问他的情况，逐步帮他分担负重。梁哥是第一个帮忙的，把郝哥的水都默默分担在自己包上了，走了很久。后来遇到大上坡，我几乎是从郝哥身上抢过来了冲锋包（因为他不愿意给），两个包负重30多斤，再加上很陡的上坡，我能力也有限，走了半个多小时腰就明显开始酸了，心率从130到160+，喘得不行。后面轩轩小伙接力，一直背着2个包走，坡比我走的还要陡，身体素质是真的强，解决了大问题。再后来二组的小伙伴也来帮忙，昊哥、鹏哥、balance和其他小伙伴都接力分担。大家大多初次相识，勇于出手相助，让我突然意识到，原来徒步穿越最大的作用其实不是锻炼身体和游玩，而是激发善意。而这些东西在城市生活久了，可能我们自己都已经忘了。靠着团队的力量，郝哥也顺利完成了第一天的11公里山地穿越。<br><img src="/images/神农架穿越/分担.jpeg" alt></p>
-<h4 id="3-挑战自我：吃虫、攀岩"><a href="#3-挑战自我：吃虫、攀岩" class="headerlink" title="3. 挑战自我：吃虫、攀岩"></a>3. 挑战自我：吃虫、攀岩</h4><p>第二天早上直接两个挑战吃虫和户外攀岩对大部分人还说都是第一次，但是从大家脸上看到的更多是兴奋，甚至是有点渴望。说实话，教官刚拿出来一条做演示的时候，我还是心态很平衡的，但是当一整盒“蛆”摆在面前的时候我还是大为震撼的。不过很快纠结的内心就被小哥哥小姐姐们垂涎的口水给抚慰了，当我还在自豪搞定2条的时候，听说mumu已经消化了5条！<br>攀岩大家多是小白，近乎垂直的崖壁让我们不敢相信这是前进的“必经之路”。我有一次攀冰的经验，但是事后证明和没有经验也没什么区别……岩点很多，但是每个都很小，踩上去信心不足，不过除了历哥脚趾有伤之外，最终大家都能顺利完成15米的崖壁攀升。<br>这两个挑战中，大家表现出的勇气和探索欲让人印象深刻～<br><img src="/images/神农架穿越/虫子.jpeg" alt><br><img src="/images/神农架穿越/吃虫.jpeg" alt><br><img src="/images/神农架穿越/崖壁.jpeg" alt><br><img src="/images/神农架穿越/崖壁2.jpeg" alt><br><img src="/images/神农架穿越/崖壁3.jpeg" alt></p>
-<h4 id="4-篝火夜话"><a href="#4-篝火夜话" class="headerlink" title="4. 篝火夜话"></a>4. 篝火夜话</h4><p>篝火夜话环节的达成要给balance一个赞，在我们吹了一身灰最后火势还是很小之后，balance力挽狂澜，让干柴相互穿插堆叠，很快就让我们拥有了一个可以在0度温暖所有人的篝火。<br>这里不得不插播一下雷人教练教得两个很重要的生存要点：1. 身子暖和的情况下再进睡袋！ 2. 用减压节搭一个结实的三脚架放锅。真是又实用又能狗头保命～  当然还有如何系一个不会松的鞋扣在户外你会发现也是太重要。<br>夜话过程每个人轮流发言，讲了各自的收获和感想，其中balance对自己和团队的思考，晓哥对家庭和自己的反思，都让我受益匪浅。<br><img src="/images/神农架穿越/夜话.jpeg" alt></p>
-<h4 id="5-最后时刻登机"><a href="#5-最后时刻登机" class="headerlink" title="5. 最后时刻登机"></a>5. 最后时刻登机</h4><p>因为疫情，我们是今年进入神农架的第一批散客；而这一路，我们又经历了核酸晚出导致连夜急行军（教练带队无数次依然是第一次遇到这种意外情况）；太多意外和让人兴奋的经历后，没想到临别到了机场再遇挑战。我们两天前的20：16分出核酸检测结果，大家都以为是进入机场或过安检在48小时以内即可，但是机场回复是以起飞时间为准的48小时内核酸。上午补做的核酸此时又迟迟出不来，每个人都归家心切，那叫心急如焚。正在大家找机场发动感情攻势的时候做最后的争取时，神奇的事情来了，最后登机时间前7分钟核酸结果居然出来了！立刻分散办理登机手续，手里的机票怎么看都像是中了奖之后的彩票！<br><img src="/images/神农架穿越/机票.jpeg" alt></p>
-<p>最后非常非常感谢蔚来NHS铁蓓、sam，不仅要和我们一样经受身心的考验，同时还要忙前忙后帮大家处理行程中的各种问题，还有户外星球的教练员们的努力和付出，让我们真正感受了一把神农架版的荒野大镖客！</p>
-<h4 id="其它花絮"><a href="#其它花絮" class="headerlink" title="其它花絮"></a>其它花絮</h4><p><img src="/images/神农架穿越/f11.jpeg" alt><br><img src="/images/神农架穿越/木屋.jpeg" alt><br><img src="/images/神农架穿越/木屋2.jpeg" alt><br><img src="/images/神农架穿越/山.jpeg" alt><br><img src="/images/神农架穿越/山顶.jpeg" alt><br><img src="/images/神农架穿越/登山.jpeg" alt><br><img src="/images/神农架穿越/登山2.jpeg" alt><br><img src="/images/神农架穿越/登山3.jpeg" alt><br><img src="/images/神农架穿越/原始森林.jpeg" alt><br><img src="/images/神农架穿越/原始森林2.jpeg" alt></p>
-<p><img src="/images/神农架穿越/终点.jpeg" alt><br><img src="/images/神农架穿越/毕业.jpeg" alt></p>
-]]></content>
-      <tags>
-        <tag>户外</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>走吧，去火星！</title>
-    <url>/2019/05/22/%E8%B5%B0%E5%90%A7%EF%BC%8C%E5%8E%BB%E7%81%AB%E6%98%9F%EF%BC%81/</url>
-    <content><![CDATA[<p>没有时间解释了！<a href="https://go.nasa.gov/Mars2020Pass" target="_blank" rel="noopener">快上船！</a></p>
-<iframe width="980" height="410" src="https://mars.nasa.gov/layout/embed/send-your-name/mars2020/certificate/?cn=781873778280" frameborder="0"></iframe>
-]]></content>
-      <categories>
-        <category>黑科技</category>
-      </categories>
-      <tags>
-        <tag>火星船票</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>跨学科工具箱1——热力学第二定律</title>
     <url>/2021/06/04/%E8%B7%A8%E5%AD%A6%E7%A7%91%E5%B7%A5%E5%85%B7%E7%AE%B11%E2%80%94%E2%80%94%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B/</url>
     <content><![CDATA[<p><img src="/images/热力学第二定律.jpg" alt></p>
-]]></content>
-      <tags>
-        <tag>知识模型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>跨学科工具箱2——系统论</title>
-    <url>/2021/06/04/%E8%B7%A8%E5%AD%A6%E7%A7%91%E5%B7%A5%E5%85%B7%E7%AE%B12%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E8%AE%BA/</url>
-    <content><![CDATA[<p><img src="/images/系统论.jpg" alt></p>
 ]]></content>
       <tags>
         <tag>知识模型</tag>
@@ -1651,292 +1939,12 @@ Z[数据价值]
       </tags>
   </entry>
   <entry>
-    <title>Dynamic-PB-Parser：搞定Protobuf数据动态解析</title>
-    <url>/2019/04/17/dynamic-pb-parser-%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="核心痛点"><a href="#核心痛点" class="headerlink" title="核心痛点"></a>核心痛点</h3><p>使用ODPS(hive) SQL解析JSON数据的时候你可能用过get_json_object这个内置UDF，其灵活性给JSON数据解析带来了很多的便利。</p>
-<p>但是对于Protobuf描述的数据，解析工作就麻烦太多了，即使解析一个字段，也要写一个完整的UDF(或UDTF)，并且上传各种protobuf的jar，然而这还没有完，如果新需求来了，即使仅改了一个字段的解析需求，也需要再重新开发一个新的UDF来完成。时间久了，项目里会有很多地方散落着各种Protobuf数据解析的逻辑，如果再有些公共逻辑改变，还要涉及到重构。维护工作繁重。<br><a id="more"></a></p>
-<h3 id="本质原因"><a href="#本质原因" class="headerlink" title="本质原因"></a>本质原因</h3><p>出现以上问题的本质原因实际上是我们把“我们想要A字段”和“我们如何得到A字段”两件事给耦合在一起了。按照函数式的编程思想，“控制”和“逻辑”要分开，并且互不干扰，这个问题里，“我们如何得到A字段”就是控制，而“我们想要A字段”就是逻辑。</p>
-<h3 id="破局"><a href="#破局" class="headerlink" title="破局"></a>破局</h3><p>既然找到了耦合点，想办法解耦就是出路了。<br>首先，定义一套描述字段路径的语法规则，让它去表达“我们想要A字段”这件事；然后，开发一个可以解析这套语法的程序（类似编译器），去完成“我们如何得到A字段”这件事。这样就可以让两件事互相独立演进了。至此， <code>Dynamic-PB-Parser</code>也就呼之欲出了。</p>
-<h2 id="Dynamic-PB-Parser-能做什么"><a href="#Dynamic-PB-Parser-能做什么" class="headerlink" title="Dynamic-PB-Parser 能做什么"></a><code>Dynamic-PB-Parser</code> 能做什么</h2><p>一句话概括<code>Dynamic-PB-Parser</code>的功能：</p>
-<blockquote>
-<p>按一种简单的语法规则描述字段路径，并动态解析Protobuf数据中对应的字段值。</p>
-</blockquote>
-<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DynamicPBParser parser = DynamicPBParser.newBuilder()  </span><br><span class="line">.descFilePath(<span class="string">"xxx/xxx.desc"</span>)  </span><br><span class="line">.syntax(<span class="string">"StandardSyntax"</span>)  </span><br><span class="line">.build(); </span><br><span class="line">String name = parser.parse(content, <span class="string">'me.lihongyu.bean.Person$name'</span>);  </span><br><span class="line">BrandType brandType = parser.parse(content, <span class="string">'me.lihongyu.bean.Person$cloth.brand.type'</span>);  </span><br><span class="line">String email = parser.parse(parser.parse(content, <span class="string">'me.lihongyu.bean.Person$proto_data'</span>), <span class="string">'me.lihongyu.bean.AddressBook$email'</span>);</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
-<h2 id="Dynamic-PB-Parser-怎么做的"><a href="#Dynamic-PB-Parser-怎么做的" class="headerlink" title="Dynamic-PB-Parser 怎么做的"></a><code>Dynamic-PB-Parser</code> 怎么做的</h2><p>总体的思路：动态拿到schema(也就是message的定义)，用schema解析pb的数据得到一个完整对象，沿着字段路径，不断循环得到下一级对象直到最后一级。一图胜千言：<br><img src="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/acda938c9e08972c18fb2217c0fab686.png" alt="图片.png"></p>
-<h3 id="实现过程中的一些细节"><a href="#实现过程中的一些细节" class="headerlink" title="实现过程中的一些细节"></a>实现过程中的一些细节</h3><h4 id="可扩展的语法接口"><a href="#可扩展的语法接口" class="headerlink" title="可扩展的语法接口"></a>可扩展的语法接口</h4><p>在<code>Dynamic-PB-Parser</code>里定义了<code>Syntax</code>接口，其中定义了语法相关的解析逻辑，实现此接口，可以自定义一套自己的字段路径语法规则。默认提供的标准语法类似这样：<code>pkg1.XXX $ field1.field2[*].(pkg1.extension_field)[1]</code>，既支持数据，也支持用<code>()</code>表达的扩展字段。详细介绍见参考中的ATA文章。</p>
-<h4 id="获取FieldValue"><a href="#获取FieldValue" class="headerlink" title="获取FieldValue"></a>获取FieldValue</h4><p>按FieldDescriptor获取FieldValue时，如果是扩展字段，需要在<code>UnknownFields</code>里找到字段值，并按不同字段类型选择不同的取值逻辑。</p>
-<table>
-<thead>
-<tr>
-<th>字段值存储位置(in Field)</th>
-<th>字段类型</th>
-<th>取值逻辑</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>VarintList</td>
-<td>ENUM</td>
-<td>按ENUM定义的序号获取</td>
-</tr>
-<tr>
-<td>VarintList</td>
-<td>BOOLEAN</td>
-<td>0代表FALSE、1代表TRUE</td>
-</tr>
-<tr>
-<td>VarintList</td>
-<td>INT</td>
-<td>直接取VarintList[0]</td>
-</tr>
-<tr>
-<td>VarintList</td>
-<td>LONG</td>
-<td>直接取VarintList[0]</td>
-</tr>
-<tr>
-<td>Fixed32List</td>
-<td>FLOAT</td>
-<td>将用int表达的字节转为float：Float.intBitsToFloat</td>
-</tr>
-<tr>
-<td>Fixed64List</td>
-<td>DOUBLE</td>
-<td>将用long表达的字节转为double：Double.longBitsToDouble</td>
-</tr>
-<tr>
-<td>LengthDelimitedList</td>
-<td>MESSAGE</td>
-<td>DynamicMessage.parseFrom(LengthDelimitedList[0])</td>
-</tr>
-<tr>
-<td>LengthDelimitedList</td>
-<td>STRING</td>
-<td>LengthDelimitedList[0].toStringUtf8()</td>
-</tr>
-<tr>
-<td>LengthDelimitedList</td>
-<td>BYTE_STRING</td>
-<td>直接输出LengthDelimitedList[0]</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Dynamic-PB-Parser-的性能优化"><a href="#Dynamic-PB-Parser-的性能优化" class="headerlink" title="Dynamic-PB-Parser 的性能优化"></a><code>Dynamic-PB-Parser</code> 的性能优化</h2><h3 id="解析逻辑的两个阶段"><a href="#解析逻辑的两个阶段" class="headerlink" title="解析逻辑的两个阶段"></a>解析逻辑的两个阶段</h3><p><code>Dynamic-PB-Parser</code>将解析逻辑分为<code>load</code>和<code>parse</code>两个阶段：</p>
-<ol>
-<li><code>load</code>阶段完成schema的加载过程，其中包括了对扩展字段的schema处理</li>
-<li><code>parse</code>阶段完成字段路径的解析，和按路径逐步找到字段值的功能</li>
-</ol>
-<h3 id="通过缓存减少重复的parse逻辑"><a href="#通过缓存减少重复的parse逻辑" class="headerlink" title="通过缓存减少重复的parse逻辑"></a>通过缓存减少重复的parse逻辑</h3><ol>
-<li><code>descriptorCache</code>在<code>load</code>阶段初始化，缓存了descriptorName和descriptor的对应关系，在同一个JVM里只需要初始化一次即可</li>
-<li><code>extensionFieldCache</code>在<code>load</code>阶段初始化，缓存了desc文件里全部扩展字段名和扩展字段实例的对应关系。用于后续解析扩展字段时提取FieldDescriptor</li>
-<li><code>fieldPathCache</code>在<code>parse</code>阶段初始化，缓存了完整字段路径和字段拆分后结果的对应关系。避免每次都需要做split和对<code>()</code>表达的扩展字段路径的解析</li>
-<li><code>fieldNameCache</code>和<code>fieldIndexCache</code>在<code>parse</code>阶段初始化，分别缓存了field和fieldName（<code>abc[*]-&gt;abc</code>），以及field和fieldIndex（<code>abc[*]-&gt;*</code>）的对应关系，避免每次解析都要执行正则匹配。</li>
-</ol>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p><code>Dynamic-PB-Parser</code>具体的实现细节还有很多，感兴趣的同学可以checkout Github repo。虽然不是什么高深的技术，但是背后也是对“控制和逻辑正交”的函数式编程思维的一次成功实践。<br>由于所在项目组的特殊性，这种用Protobuf描述的数据又非常多且普遍，用传统的protobuf的解析方式给开发人员的维护工作带来了很大痛苦，因此开发了<code>Dynamic-PB-Parser</code>这个工具，希望能帮助到更多和我有类似问题的开发同学。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>hive UDFJson:<a href="https://github.com/apache/hive/blob/master/ql/src/java/org/apache/hadoop/hive/ql/udf/UDFJson.java" target="_blank" rel="noopener">https://github.com/apache/hive/blob/master/ql/src/java/org/apache/hadoop/hive/ql/udf/UDFJson.java</a><br>github：<a href="https://github.com/lhyundeadsoul/pb-parser" target="_blank" rel="noopener">https://github.com/lhyundeadsoul/pb-parser</a><br>欢迎提issue和MR</p>
-]]></content>
-      <categories>
-        <category>开源产品</category>
-      </categories>
-      <tags>
-        <tag>pb-parser</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2018 AI&amp;ML（自然语言识别、计算机视觉、强化学习）技术概览及2019技术趋势</title>
-    <url>/2019/04/02/2018-AI-ML%EF%BC%88%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E8%AF%86%E5%88%AB%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E3%80%81%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%89%E6%8A%80%E6%9C%AF%E6%A6%82%E8%A7%88%E5%8F%8A2019%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/</url>
-    <content><![CDATA[<blockquote>
-<p>一篇国外AI&amp;ML领域大咖的总结文章，翻译的时候我是奔着“信达雅”去的，结果脸着地还没接住，翻译的水平有限，有兴趣的也可以看<a href="https://www.analyticsvidhya.com/blog/2018/12/key-breakthroughs-ai-ml-2018-trends-2019/" target="_blank" rel="noopener">原文</a></p>
-</blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近几年，人工智能的热度和机器学习技术的成熟度有了一个梦幻般的增长。这些技术已经从边缘领域发展成为了技术主流，并且已经现如今已经影响了数以百万计的人。各个国家也增加了在AI领域的投入以使自己保持竞争优势。</p>
-<p>对于数据科学专家来说情况也是一样的， 在过去几年，即使只懂一点相关工具和技术你就可以高枕无忧了。但是现在已经完全不行了。在这个领域发生了太多事情，且有太多东西需要学习以保持和业界同步，这有时令人难以置信。</p>
-<p>这就是我为什么想以一个数据科学从业者的视角，回顾一下在几个关键领域里人工智能领域里都取得了哪些发展？哪些突破？2018发生了些什么？2019又有哪些期待？</p>
-<h2 id="我们将会在文中提到的领域"><a href="#我们将会在文中提到的领域" class="headerlink" title="我们将会在文中提到的领域"></a>我们将会在文中提到的领域</h2><ul>
-<li>自然语言处理</li>
-<li>计算机视觉</li>
-<li>工具和库</li>
-<li>强化学习</li>
-<li>AI伦理</li>
-</ul>
-<a id="more"></a>
-<h2 id="自然语言处理NLP"><a href="#自然语言处理NLP" class="headerlink" title="自然语言处理NLP"></a>自然语言处理NLP</h2><p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/11/asset-v1AnalyticsVidhyaNLP1012018_T1type%40assetblock%40nlp2.jpg" alt></p>
-<p>让机器理解单词和句子在之前一直是一个梦，即使是人类自己在面对语言巨量的细节时，有时也会显得手足无措。但是2018年绝对是NLP的转折年。</p>
-<p>我们已经看到一个接一个的技术突破—— ULMFiT, ELMO, OpenAI的 Transformer 以及 Google的BERT 等等。迁移学习在NLP任务上的成功应用打开了一扇通往无限可能的大门。Sebastian Ruder 的播客让我们相信在他的这个领域里有了多么长足的发展。</p>
-<p>现在我们来更细致地看一下这些关键的进展吧。如果你希望在NLP领域里找学习的切入点，或者正在找相关的库，请先确保你已经学习过<a href="https://trainings.analyticsvidhya.com/courses/course-v1:AnalyticsVidhya+NLP101+2018_T1/about" target="_blank" rel="noopener">NLP using Python</a>的课程了。这是一个开始NLP学习的好地方。</p>
-<h3 id="ULMFiT"><a href="#ULMFiT" class="headerlink" title="ULMFiT"></a>ULMFiT</h3><p>由Sebastian Ruder 和 fast.ai的 Jeremy Howard共同设计的ULMFiT是让迁移学习成为热点的首个框架。对于没有多少经验的人来说，它代表了“通用语言模型”，Jeremy和Sebastian在这个框架中真正实现了通用二字的含义，它几乎可以应用于所有NLP任务。</p>
-<p>不需要更多的ULMFiT或其它的框架介绍了，因为你根本不需要从头开始训练模型！这些研究人员已经做好了最困难的部分。你只需要在你的项目中，学会并应用他们的研究成果即可。ULMFiT在六个文本分类任务里表现优于其他最先进的方法。</p>
-<p>关于如何使用此框架解决文本分类问题，你可以阅读由Prateek写的这个很棒的<a href="https://www.analyticsvidhya.com/blog/2018/11/tutorial-text-classification-ulmfit-fastai-library/" target="_blank" rel="noopener">教程</a>。</p>
-<h3 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h3><p>ELMo是Embeddings from Language Models的简写，即使不提它奇怪的名字，ELMo在发布后依然能迅速获得机器学习社区的关注。</p>
-<p>ELMo在考虑了单词在句子和段落中的上下文之后，使用了各种模型去获知单词的内在含义(embeddings)。语境是一个很重要，同时又大部分人都没有掌握的NLP的组成部分。ELMo使用了双向的LSTMs去理解单词内含(embeddings)。你可以阅读<a href="https://www.analyticsvidhya.com/blog/2017/12/fundamentals-of-deep-learning-introduction-to-lstm/" target="_blank" rel="noopener">这篇文章</a>去快速了解LSTMs的工作原理。</p>
-<p>就像ULMFiT一样，ELMo显著地提高了各种类型NLP任务的计算性能，比如情绪分析和问答分析。可以阅读<a href="https://allennlp.org/elmo" target="_blank" rel="noopener">这篇文章</a>了解更多。</p>
-<h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>不少专家认为BERT的发布开启了NLP的新纪元。继ULMFiT 和 ELMo之后，BERT在性能表现上碾压了对手。正如<a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">原始论文</a>里说的“BERT是概念极简且经验强大的(BERT is conceptually simple and empirically powerful)”。</p>
-<p>BERT在11项NLP任务中获得了最优的结果，可以看一下他们在SQuAD基准测试中的表现：</p>
-<table>
-<thead>
-<tr>
-<th>SQuAD v1.1 Leaderboard (Oct 8th 2018)</th>
-<th>Test EM</th>
-<th>Test F1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1st Place Ensemble – BERT</td>
-<td>87.4</td>
-<td>93.2</td>
-</tr>
-<tr>
-<td>2nd Place Ensemble – nlnet</td>
-<td>86.0</td>
-<td>91.7</td>
-</tr>
-<tr>
-<td>1st Place Single Model – BERT</td>
-<td>85.1</td>
-<td>91.8</td>
-</tr>
-<tr>
-<td>2nd Place Single Model – nlnet</td>
-<td>83.5</td>
-<td>90.1</td>
-</tr>
-</tbody>
-</table>
-<p>你可以在自己的机器上使用<a href="https://github.com/huggingface/pytorch-pretrained-BERT" target="_blank" rel="noopener">PyTorch的实现</a>或者Google的<a href="https://github.com/google-research/bert" target="_blank" rel="noopener">Tensorflow实现</a>去验证这个结果。</p>
-<p>我非常肯定你会好奇BERT在这一点上代表了什么。它是翻译机的双向编码表示(Bidirectional Encoder Representations from Transformers)。如果第一次能做对，就会是满分。</p>
-<h3 id="Facebook-PyText"><a href="#Facebook-PyText" class="headerlink" title="Facebook PyText"></a>Facebook PyText</h3><p>Facebook怎么会离开赛道呢？他们已经开源了自己的深度学习NLP框架，叫PyText。它在本周初早些时候刚刚发布，所以我还在实验当中，但是从早期的评论来看，是非常有潜力的。根据Facebook发表的研究，PyText使对话模型的准确率提升了10%的同时降低了训练时间。</p>
-<p>PyText实际上还是弱于Facebook其它产品的，比如FB Messenger。因此，使用这个框架可以为你的工作(your own portfolio)添加现实世界的价值(除了您将获得的宝贵知识以外)。</p>
-<p>你可以在他们的<a href="https://github.com/facebookresearch/pytext" target="_blank" rel="noopener">GitHub repo</a>里下载源码。</p>
-<h3 id="Google-Duplex"><a href="#Google-Duplex" class="headerlink" title="Google Duplex"></a>Google Duplex</h3><p>如果你还没有听说过Google Duplex，那你可能out了。Sundar Pichai 用这个demo震撼了当时在场的观众，并且从那以为它就一直是新闻的头条了。</p>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/NO0-5MuJvew" frameborder="0" allowfullscreen></iframe>
-
-
-<p>因为这是一个Google的产品，所以他们很可能会在未来将其开源。这的确是一个非常棒的音频处理应用。当然它也带来了道德和隐私问题，但那是本文后面才要说的了。现在，还是让我们感慨一下这些年我们已经和机器学习走了多远吧。</p>
-<h3 id="2019年NLP值得期待的事"><a href="#2019年NLP值得期待的事" class="headerlink" title="2019年NLP值得期待的事"></a>2019年NLP值得期待的事</h3><p>还有谁比 Sebastian Ruder 他自己更能预测NLP在2019年的发展呢，他的想法如下：</p>
-<blockquote>
-<p>预训练语言模型内含(embeddings)将会变得普遍。不使用此类方法，将很难得到最优的模型。<br>我们将看到预训练的表示( pretrained representations)可以给语言模型内含提供补充的专业信息。我们将可以根据任务的需求组合不同类型的预训练的表示.<br>我们将可以看到会在多语言应用和跨语言模型上会有更多的进展。尤其在跨语言单词内含的基础上，我们将会看到深入的预训练跨语言表示。</p>
-</blockquote>
-<h2 id="计算机视觉"><a href="#计算机视觉" class="headerlink" title="计算机视觉"></a>计算机视觉</h2><p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/12/CV.jpg" alt></p>
-<p>这是现在深度学习领域中最受欢迎的领域了。我认为现在已经渡过了计算机视觉的初期，进入了精炼化的阶段。无论是图像还是视频，我们都已经看到了太多可以轻而易举完成计算机视觉任务的框架。</p>
-<p>在 Analytics Vidhya，我们已经用了很多时间去普及这些概念。你可以从<a href="https://www.analyticsvidhya.com/blog/category/deep-learning/" target="_blank" rel="noopener">这里</a>看到我们关于计算机视觉的文章，主题涵盖了从“在图像和视频中完成物体识别”到“预训练模型列表”，这些资料可以帮助你开始你的深度学习旅程。</p>
-<p>以下是我精心挑选的计算机视觉的优秀项目。</p>
-<p>如果你对这个领域很好奇（实际上这可能是未来工业界最火的工作之一），那么可以通过学习我们的<a href="https://trainings.analyticsvidhya.com/courses/course-v1:AnalyticsVidhya+CVDL101+CVDL101_T1/about" target="_blank" rel="noopener">深度学习和计算机视觉</a>课程。</p>
-<h3 id="BigGANs"><a href="#BigGANs" class="headerlink" title="BigGANs"></a>BigGANs</h3><p>Ian Goodfellow在2014年设计了GANs（生成对抗网络）概念，并在随后的时间里这一概念衍生出了很多多样化的应用。每年我们都可以看到这个原始的概念通过调整适应了很多实际的案例。但是有一件事从今年开始发生——机器生成的图像非常好辨认出来。框架里总是会有一些不一致性会导致区别非常明显。</p>
-<p>但是最近几个月，这一边界已经开始变得模糊。随着<a href="https://arxiv.org/pdf/1809.11096.pdf" target="_blank" rel="noopener">BigGANs</a>的建立，这一边界有可能被彻底消除。看看下面机器生成的图片，你几乎无法看出这些图片有什么问题。<br><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/12/Screenshot-from-2018-12-18-18-06-19.png" alt><br>无论是忧虑还是兴奋，我们不得不承认GANs正在重塑我们对数字图像（视频）的认知。</p>
-<p>对于一些数据科学家来说，这些模型首先在ImageNet上训练，然后是JFT-300M，以展示它们可以很好的从一个数据集迁移到另一个数据集。我同样会引导你到一个可视化理解的GAN的<a href="https://gandissect.csail.mit.edu/" target="_blank" rel="noopener">学习页</a>。</p>
-<h3 id="Fast-ai可以在18分钟内完成在-ImageNet上的训练"><a href="#Fast-ai可以在18分钟内完成在-ImageNet上的训练" class="headerlink" title="Fast.ai可以在18分钟内完成在 ImageNet上的训练"></a>Fast.ai可以在18分钟内完成在 ImageNet上的训练</h3><p>这是一个非常大的进展。 我们通常认为要想获得一个合适的深度学习任务，往往需要大量的数据以及繁重的计算任务。这里包括了在ImageNet上从头开始的训练。我可以肯定我们所有人都是这么认为的，而Fast.ai的人找到了这么快的办法证明我们其实想错了。</p>
-<p>他们用18分钟训练出的模型可以达到93%的准确率。而他们在<a href="http://www.fast.ai/2018/08/10/fastai-diu-imagenet/" target="_blank" rel="noopener">blog</a>中提到他们用的硬件，仅是16台包涵了8个 NVIDIA V100 GPU的AWS公开实例。他们是使用Fastai和PyTorch库构建的此算法。</p>
-<p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/08/v2-718f95df083b2d715ee29b018d9eb5c2_r.jpg" alt></p>
-<p>所有这些加在一起的成本仅有40美元！<a href="http://www.fast.ai/2018/08/10/fastai-diu-imagenet/" target="_blank" rel="noopener">这里</a>有Jeremy关于这项技术更详细的说明。这是所有人的胜利！</p>
-<h3 id="NVIDIA的-vid2vid-技术"><a href="#NVIDIA的-vid2vid-技术" class="headerlink" title="NVIDIA的 vid2vid 技术"></a>NVIDIA的 vid2vid 技术</h3><p>图像处理在最近4、5年有了巨大的飞跃，但是视频呢？事实证明，从单帧到多帧的方法迁移比大多数人想像的还要难一些。你能拿着一个视频的时间序列数据去预测下一帧是什么内容吗？之前有过一些探索，但是最好的结论也都并不明确。</p>
-<p>NVIDIA在今年早些时候开源了他们的方案，并获得了广泛的赞誉。他们的vid2vid技术的目标是学习一个从输入视频到输出视频的映射函数，而输出视频可以以令人难以置信的准确度延续了输入视频的内容。</p>
-<p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/08/v2V1.png" alt></p>
-<p>你可以从<a href="https://github.com/NVIDIA/vid2vid" target="_blank" rel="noopener">他们的Github</a>上看到他们的PyTorch的实现。</p>
-<h3 id="2019年计算机视觉领域展望"><a href="#2019年计算机视觉领域展望" class="headerlink" title="2019年计算机视觉领域展望"></a>2019年计算机视觉领域展望</h3><p>正如我之前提到的，我们在2019年应该只会看到一些改进，但不会是大的发明。自动驾驶、人脸识别和虚拟现实貌似都没有什么太多的变化。你可以随便质疑我此处的观点，并加上你的观点，我非常想知道还有什么是我们现在还没看到，但是还值得期待的。</p>
-<p>即使有政治因素的干预和政府的许可限制，无人机最终会在美国获得批准（印度还远远不能）。个人角度上说，我希望有更多的研究成果可以在真实场景里实施出来。像CVPR和ICML这些会议已经代表了最新进展，但是他们的成果离现实应用又有多远的距离啊？</p>
-<p>视觉问题解答和视觉对话系统最终可能很快完成他们让人期待以久的首次亮相。这些系统缺少泛化能力，但是值得期待的是，我们将会很快看到一些多模型整合的方案。</p>
-<p>有监督学习是今年的主角。我可以打赌在明年它将被用在更多的研究之中。有一个非常棒的学习思路——让我们的输入数据直接决定标签，而不是浪费很多时间手工标注。让我们祈祷吧。</p>
-<h2 id="工具和类库"><a href="#工具和类库" class="headerlink" title="工具和类库"></a>工具和类库</h2><p>本节将会吸引很多数据科学家的注意，因为工具和类库是数据科学家的工作基础。我参与了大量关于哪个工具最好，哪个框架取代了哪个框架，哪个类库是金融计算的代表之类的争论。我相信这些问题有很多也与你的工作相关。</p>
-<p>但是有一点我们得承认：我们需要保持对这个领域里最新工具的跟进，否则就会埋下更多的风险。Python极速取代一切并成为行业领导者的故事就是一个充分的例子。虽然很多问题的答案可能是一些主观的选择（比如你们公司用什么工具，你们从现有框架迁移到新框架的可行性决策等），但是如果你现在还没有在考虑最优解决方案，我劝你现在就开始吧。</p>
-<p>所以到底明年谁会是头条呢？让我们拭目以待吧。</p>
-<h3 id="PyTorch-1-0"><a href="#PyTorch-1-0" class="headerlink" title="PyTorch 1.0"></a>PyTorch 1.0</h3><p>PyTorch炒作得太厉害了，我在本文已经提到了很多次，我会让我的同事 Faizan Shaikh去<a href="https://www.analyticsvidhya.com/blog/2018/02/pytorch-tutorial/" target="_blank" rel="noopener">介绍这个框架的细节</a>。</p>
-<p>这是我非常欣赏的必读文章之一，因为有时候TensorFlow运行会很慢，所以给PyTorch了一个迅速抢占市场的机会，PyTorch流行起来的速度比TensorFlow快了一倍。我看到的大部分开源代码都是对PyTorch概念的实现。这绝非巧合，PyTorch非常灵活，并且它的最新版本已经大规模的增强了Facebook的产品和服务，其中包括每天60亿次的文本翻译工作。</p>
-<p>PyTorch的2019年的采用率正在增长，所以对于任何人来说，现在就是上车的好时候。</p>
-<h3 id="AutoML"><a href="#AutoML" class="headerlink" title="AutoML"></a>AutoML</h3><p>自动化机器学习技术在过去几年中取得了很大的进展。一些像RapidMiner, KNIME, DataRobot and H2O.ai这样的公司，凭借着他们出色的产品展示了这项服务巨大的潜力。</p>
-<p>你能想像只需要拖拽，而不需要编码就能完成机器学习和深度学习的任务吗？这个场景在未来已经不难实现了。除了这些公司的产品外，机器学习领域还有一个重大的产品发布——Auto Keras！</p>
-<p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/08/auto-keras.png" alt></p>
-<p>它是一个可以执行AutoML任务的开源库，这个项目的初衷是让不懂机器学习的领域专家们也可以使用深度学习技术。你可以在<a href="https://autokeras.com/" target="_blank" rel="noopener">这里</a>看到这个项目，未来几年它将蓄势待发。</p>
-<h3 id="TensorFlow-js——浏览器里的深度学习"><a href="#TensorFlow-js——浏览器里的深度学习" class="headerlink" title="TensorFlow.js——浏览器里的深度学习"></a>TensorFlow.js——浏览器里的深度学习</h3><p>我们已经在IDE和Notebook里设计构建了很多机器学习的模型。为什么不向外走一步，去尝试一些新的技术呢？没错，我们可以在我们的浏览器里的去运行深度学习模型了！<br><img src="https://js.tensorflow.org/images/TF_JS_lockup.png" alt></p>
-<p>这要感谢<a href="https://js.tensorflow.org/" target="_blank" rel="noopener">TensorFlow.js项目</a>，它有一些demo，充分展示了这个想法有多酷。以下是TensorFlow.js的三个主要特点：</p>
-<p>用JavaScript开发和部署机器学习模型<br>在浏览器里运行已经存在的TensorFlow模型<br>重训练已经存在的TensorFlow模型</p>
-<h3 id="2019年AutoML展望"><a href="#2019年AutoML展望" class="headerlink" title="2019年AutoML展望"></a>2019年AutoML展望</h3><p>我想在本章中只强调AutoML技术。因为我认为这项技术才是未来数据科学领域里的游戏规则改变者。不要只是听我说，让我们来看看H2O.ai的 <a href="https://soundcloud.com/datahack-radio/episode-3-marios-michailidis" target="_blank" rel="noopener">Marios Michailidis</a>和 Kaggle Grandmaste是怎么看待2019AutoML的：</p>
-<blockquote>
-<p>机器学习在成为未来重要趋势的道路上一路高歌猛进。这一扩展增加了对这一领域熟练应用的需求。鉴于它的成长，自动化是把数据科学资源最优化利用的关键。这一技术的应用范围无限宽广：信用，保险，欺诈，计算机视觉，声学，传感器，推荐器，预测，NLP，你来定义它。在这个领域里工作是一种荣幸。这个重要的趋势可以这么理解：</p>
-</blockquote>
-<ol>
-<li>为辅助描述和理解数据，提供智能化的可视化操作界面</li>
-<li>在给定的数据集上寻找、构建、抽象更好的特征</li>
-<li>快速建立强大的有预见能力的模型</li>
-<li>通过机器学习，给黑盒模型和生产模型提供可解释性</li>
-<li>促进这些模型的产生</li>
-</ol>
-<h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/11/RL.png" alt></p>
-<p>如果让我选一个希望看到更多进展的领域，我想会是强化学习。除了偶尔能看到不定期的头条新闻之外，还没有发现有什么颠覆性的突破。社区里，大家普遍认为它太重数学，没有可以使用的真正可工业化的应用。</p>
-<p>虽然这在某种程度上可能是正确的，但是我仍然希望在明年看到更多关于强化学习的使用案例。在我每个月发布的GitHub和Reddit系列里，我倾向于至少保留有一个git仓库或相关讨论。在所有研究方向里，这里可能会诞生下一个重大突破。</p>
-<p>OpenAI已经发布了一个非常有用的工具包，可以帮助初学者了解这个领域，你也可以看看这篇<a href="https://www.analyticsvidhya.com/blog/2017/01/introduction-to-reinforcement-learning-implementation/" target="_blank" rel="noopener">对初学者非常友好的文章</a>（对我真的非常有帮助）。</p>
-<h3 id="OpenAI在深度强化学习的应用"><a href="#OpenAI在深度强化学习的应用" class="headerlink" title="OpenAI在深度强化学习的应用"></a>OpenAI在深度强化学习的应用</h3><p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/12/spinning-up-in-rl-768x461.png" alt></p>
-<p>如果说强化学习的研究进展缓慢，那么相关的教育材料就可以说是非常少了。但是就像OpenAI说的那样，他们已经开源了关于这个主题的一些非常棒的材料。他们管这个项目叫“Spinning Up in Deep RL”，你可以从<a href="https://spinningup.openai.com/en/latest/" target="_blank" rel="noopener">这里</a>了解到它们。</p>
-<p>它是一个非常全面的关于强化学习的资源列表，他们让代码和名词解释保持尽可能简单。它里面包含很多有用的材料，比如强化学习的术语，如何成长为强化学习研究员的建议，一个重要论文的列表，一个拥有非常好文档的代码仓库，甚至还有一些帮助你入门的练习。</p>
-<p>不要再拖延，如果你计划入门强化学习，现在就开始吧。</p>
-<h3 id="Google开源的Dopamine"><a href="#Google开源的Dopamine" class="headerlink" title="Google开源的Dopamine"></a>Google开源的Dopamine</h3><p>为了加速强化学习的研究进度，同时让社区更多的参与到这个方向中来，Google AI团队开源了Dopamine，它是一个Tensorflow的框架，旨在更灵活和可重复性的创建实验。</p>
-<p><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/08/goog.png" alt><br></p>
-<p>在<a href="https://github.com/google/dopamine" target="_blank" rel="noopener">这里</a>，你可以找到一个完整的训练数据以及TensorFlow的代码。在受控且灵活的环境下进行简单的实验，它应该是一个完美的选择了。在数据科学家看来，这些听起来就像梦一样。</p>
-<h3 id="2019强化学习预期的发展趋势"><a href="#2019强化学习预期的发展趋势" class="headerlink" title="2019强化学习预期的发展趋势"></a>2019强化学习预期的发展趋势</h3><p>Xander Steenbrugge，作为2018 DataHack大会的演讲者和ArxivInsights频道的创建者，应该说已经是强化学习领域里的专家了。以下是他对强化学习在2019年的预期：</p>
-<p>我现在在这信领域能看到三个主要的问题：</p>
-<blockquote>
-</blockquote>
-<ul>
-<li>样本复杂：为了学习，代理需要大量的数据经验</li>
-<li>泛化和迁移学习：在任务A上训练，在相关的任务B上测试</li>
-<li>分层的强化学习：自动化子目标分解</li>
-</ul>
-<h2 id="AI-for-Good——通往AI伦理"><a href="#AI-for-Good——通往AI伦理" class="headerlink" title="AI for Good——通往AI伦理"></a>AI for Good——通往AI伦理</h2><p>想像一个由算法控制人类行为的世界吧，这并不仅仅是一个乐观的设想对吧？AI的道德伦理一直是Analytics Vidhya非常热衷讨论问题。在所有的技术讨论中，它会让其它讨论陷入困境。</p>
-<p>一小部分公司今年因为身陷Facebook和Google内部充斥着的设计武器的丑闻而颜面扫地。但是这一切促使大公司开始制定规章和指导方针。</p>
-<p>关于AI的伦理问题，并不存在一个一劳永逸或者开箱即用的解决方案。它的解决，需要结合细致入微的方案和由领导层给出的结构化的路径共同作用。让我们看一些今年早些时候对这一问题取得突破的举措。</p>
-<h3 id="Google和Microsoft之间的战争"><a href="#Google和Microsoft之间的战争" class="headerlink" title="Google和Microsoft之间的战争"></a>Google和Microsoft之间的战争</h3><p>看到大公司把重点放在AI的这个方面是令人振奋的。可以看看这两家公司发布的AI原则：</p>
-<ul>
-<li><a href="https://www.blog.google/technology/ai/ai-principles/" target="_blank" rel="noopener">Google的AI原则</a></li>
-<li><a href="https://www.microsoft.com/en-us/ai/our-approach-to-ai" target="_blank" rel="noopener">Microsoft的AI原则</a></li>
-</ul>
-<p>这些都基本上谈到了AI的公平性以及什么时候在什么地方划清界线。在你开始一个AI工程之前，参考这些原则会是一个好的建议。</p>
-<h3 id="GDPR对局面有什么影响"><a href="#GDPR对局面有什么影响" class="headerlink" title="GDPR对局面有什么影响"></a>GDPR对局面有什么影响</h3><p>GDPR法律法规对那些收集用户信息去构建AI应用的公司有很大的影响。GDPR给了用户更多的权利去控制自己的数据。</p>
-<p>所以这个政策对AI有什么影响呢？如果没有数据，构建任何模型就都没有了基础。这无疑给社交平台和其它网站提供了工具。GDPR正在进行一个非常引人注目的相关研究，但是现在来看，它限制了AI在很多平台的实用性。</p>
-<h3 id="2019AI伦理展望"><a href="#2019AI伦理展望" class="headerlink" title="2019AI伦理展望"></a>2019AI伦理展望</h3><p>这其实是一个灰色地带。目前没有一个可行的方案去解决它。我们需要一起协作，努力把伦理注入到AI的项目中去。我们该怎么实现这一点呢？就像Analytics Vidhya的CEO Kunal Jain说的那样，我们会制定一个讨论框架，大家可以基于它去讨论这个问题。</p>
-<p>我期望看到在组织中加入更多的规则去处理AI伦理的问题。随着AI成为公司的愿景，公司的最佳实践需要重构，组织方式也需要重建。我还希望政府发挥更加积极的作用，制定新的或修改原有的政策。2019将是非常有趣的一年。</p>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>强而有力——这是我对2018年那些令人惊叹的发展的最简洁的表达。今年我是ULMFiT的热心用户，同时我将尽快去探索一下BERT，这将是令人兴奋的时光。</p>
-<p>我也非常想听到你的声音，有哪些发展你认为是最重要的？你正在使用文章中提到的工具去工作吗？你对接下来的一年有什么预期？我很期望在留言区看到你的回复。</p>
-]]></content>
-      <categories>
-        <category>技术趋势</category>
-      </categories>
-      <tags>
-        <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Why do we need Paxos and and How it works</title>
-    <url>/2022/06/30/Why-do-we-need-Paxos-and-and-How-it-works/</url>
-    <content><![CDATA[<blockquote>
-<p>参考<a href="https://blog.openacid.com/algo/paxos/" target="_blank" rel="noopener">《可靠分布式系统-paxos的直观解释》</a></p>
-</blockquote>
-<pre class="mermaid" style="text-align: center;">
-            journey
-            %%{init: {'theme':'default'}}%%
-	title Why do we need Paxos？How it works?
-	section 单机
-		单机: 1 : 可用性低
-	section 多副本
-		异步复制:  2: 一致性低
-		同步复制:  2: 可用性低
-		半同步复制:  3: 一致性低, 2个写并发导致2个状态
-		多数派读写+时间戳: 5: 一致性低, client宕机导致读到2个状态, 2并发写覆盖
-	section Paxos
-		写前读: 7
-          </pre>
-<a id="more"></a>
-<p>一些方便理解的重点</p>
-<ul>
-<li>每个Paxos实例只维护一个值的状态</li>
-<li>每个Paxos实例有多轮（Round）尝试写入，每个Round有2个Phase(Phase-1 写前读，Phase-2 写)，只有Phase-1和Phase-2之间没有任何其他终端进行过Phase-1和Phase-2时才能成功完成Phase-2</li>
-<li>客户端取到时间戳不一致的两个不同值时，有义务让更早的向更新的版本去对齐</li>
-<li>每个Round都必然有且仅有一个多数派读，但是不一定有多数派写（可能Phase-2之前有更新的Round的Phase-1出现）</li>
-</ul>
-<p><em>mermaid 的图有遮盖，看下面这个脑补看不到的汉字吧 :)</em></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">journey</span><br><span class="line">	title Why do we need Paxos？How it works?</span><br><span class="line">	section 单机</span><br><span class="line">		单机: 1 : 可用性低</span><br><span class="line">	section 多副本</span><br><span class="line">		异步复制:  2: 一致性低</span><br><span class="line">		同步复制:  2: 可用性低</span><br><span class="line">		半同步复制:  3: 一致性低, 2个写并发导致2个状态</span><br><span class="line">		多数派读写+时间戳: 5: 一致性低, client宕机导致读到2个状态, 2并发写覆盖</span><br><span class="line">	section Paxos</span><br><span class="line">		写前读: 7</span><br></pre></td></tr></table></figure>
-<h3 id="Raft-动画演示"><a href="#Raft-动画演示" class="headerlink" title="Raft 动画演示"></a>Raft 动画演示</h3><p><a href="http://www.kailing.pub/raft/index.html" target="_blank" rel="noopener">http://www.kailing.pub/raft/index.html</a></p>
+    <title>跨学科工具箱2——系统论</title>
+    <url>/2021/06/04/%E8%B7%A8%E5%AD%A6%E7%A7%91%E5%B7%A5%E5%85%B7%E7%AE%B12%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E8%AE%BA/</url>
+    <content><![CDATA[<p><img src="/images/系统论.jpg" alt></p>
 ]]></content>
       <tags>
-        <tag>一致性共识</tag>
+        <tag>知识模型</tag>
       </tags>
   </entry>
 </search>

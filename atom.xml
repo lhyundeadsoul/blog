@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lihongyu.me/"/>
-  <updated>2023-03-02T14:16:10.073Z</updated>
+  <updated>2023-03-21T02:23:32.358Z</updated>
   <id>http://lihongyu.me/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数学学科分枝关系</title>
+    <link href="http://lihongyu.me/2023/03/21/%E6%95%B0%E5%AD%A6%E5%AD%A6%E7%A7%91%E5%88%86%E6%9E%9D%E5%85%B3%E7%B3%BB/"/>
+    <id>http://lihongyu.me/2023/03/21/数学学科分枝关系/</id>
+    <published>2023-03-21T02:21:34.000Z</published>
+    <updated>2023-03-21T02:23:32.358Z</updated>
+    
+    <content type="html"><![CDATA[<p>from ChatGPT</p><a id="more"></a><p>数学<br>├─代数学<br>│  ├─线性代数<br>│  │  ├─向量空间<br>│  │  ├─矩阵论<br>│  │  └─行列式<br>│  ├─抽象代数<br>│  │  ├─群论<br>│  │  ├─环论<br>│  │  └─域论<br>│  └─代数几何<br>│     ├─仿射几何<br>│     ├─射影几何<br>│     ├─代数曲线<br>│     └─代数曲面<br>├─几何学<br>│  ├─欧几里得几何<br>│  │  ├─平面几何<br>│  │  ├─空间几何<br>│  │  └─解析几何<br>│  ├─拓扑学<br>│  │  ├─点集拓扑学<br>│  │  ├─代数拓扑学<br>│  │  └─微分拓扑学<br>│  └─非欧几何<br>│     ├─椭圆几何<br>│     ├─双曲几何<br>│     └─椭球几何<br>├─数论<br>│  ├─初等数论<br>│  ├─解析数论<br>│  ├─代数数论<br>│  └─算术几何<br>├─数学分析<br>│  ├─微积分学<br>│  │  ├─一元微积分学<br>│  │  ├─多元微积分学<br>│  │  └─变分法<br>│  ├─实分析<br>│  │  ├─实变函数<br>│  │  ├─泛函分析<br>│  │  └─微分方程<br>│  └─复分析<br>│     ├─复变函数<br>│     ├─解析函数<br>│     ├─调和函数<br>│     └─复流形<br>├─离散数学<br>│  ├─图论<br>│  │  ├─平面图论<br>│  │  ├─网络流<br>│  │  └─拓扑图论<br>│  ├─组合数学<br>│  │  ├─图论组合<br>│  │  ├─Ramsey理论<br>│  │  └─生成函数<br>│  └─离散优化<br>│     ├─整数规划<br>│     ├─组合优化<br>│     └─图像处理<br>└─统计学<br>   ├─数理统计学<br>   │  ├─参数估计<br>   │  ├─假设检验<br>   │  └─方差分析<br>   └─概率论<br>      ├─分布函数<br>      ├─随机过程<br>      └─极限理论</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;from ChatGPT&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Materials for IELTS speaking test</title>
@@ -501,36 +519,6 @@
     
     
       <category term="认知升级" scheme="http://lihongyu.me/tags/%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>怎么变得越来越差？</title>
-    <link href="http://lihongyu.me/2021/07/13/%E6%80%8E%E4%B9%88%E5%8F%98%E5%BE%97%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%B7%AE/"/>
-    <id>http://lihongyu.me/2021/07/13/怎么变得越来越差/</id>
-    <published>2021-07-13T10:43:15.000Z</published>
-    <updated>2022-12-03T04:25:50.636Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>应激反应<ol><li>急功近利：短视地看问题</li><li>线性规划：静态地看问题</li><li>自我视角：自我地看问题</li><li>追求免费：贪便宜</li></ol></li><li>无目标<ol><li>不懂放弃：因为无目标，所以不知道要争什么，进而放弃什么，所以全部都不放弃</li></ol></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;应激反应&lt;ol&gt;
-&lt;li&gt;急功近利：短视地看问题&lt;/li&gt;
-&lt;li&gt;线性规划：静态地看问题&lt;/li&gt;
-&lt;li&gt;自我视角：自我地看问题&lt;/li&gt;
-&lt;li&gt;追求免费：贪便宜&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;无目标&lt;ol&gt;
-&lt;li&gt;不懂放弃：因为无目标，所以
-      
-    
-    </summary>
-    
     
   </entry>
   
