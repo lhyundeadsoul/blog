@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lihongyu.me/"/>
-  <updated>2023-03-21T02:45:36.354Z</updated>
+  <updated>2023-04-14T02:12:47.925Z</updated>
   <id>http://lihongyu.me/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从ChatGPT给出了十种鸡兔同笼问题的解法想到的</title>
+    <link href="http://lihongyu.me/2023/04/14/%E4%BB%8EChatGPT%E7%BB%99%E5%87%BA%E4%BA%86%E5%8D%81%E7%A7%8D%E9%B8%A1%E5%85%94%E5%90%8C%E7%AC%BC%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E6%B3%95%E6%83%B3%E5%88%B0%E7%9A%84/"/>
+    <id>http://lihongyu.me/2023/04/14/从ChatGPT给出了十种鸡兔同笼问题的解法想到的/</id>
+    <published>2023-04-14T02:12:47.000Z</published>
+    <updated>2023-04-14T02:12:47.925Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://lihongyu.me/2023/04/13/1.%20Seatunnel%E7%9A%84%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E5%9B%BE%20%E6%98%AF%E5%90%A6%E6%9C%89%E6%9B%B4%E6%96%B0%E7%9A%84%EF%BC%9F%E6%AF%94%E5%A6%82%E7%8E%B0%E5%9C%A8%E7%9A%84zeta%E5%BC%95%E6%93%8E/"/>
+    <id>http://lihongyu.me/2023/04/13/1. Seatunnel的整体架构图 是否有更新的？比如现在的zeta引擎/</id>
+    <published>2023-04-13T06:05:16.280Z</published>
+    <updated>2023-04-13T06:10:08.441Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>Seatunnel的整体架构图是否有更新的？比如加入了现在的zeta引擎的</li><li>SeaTunnel Connector生态现在最新的状态还是看<a href="https://github.com/apache/incubator-seatunnel/issues/1946" target="_blank" rel="noopener">https://github.com/apache/incubator-seatunnel/issues/1946</a> 吗</li><li>ppt里会加入《如何参与贡献》一章，目前seatunnel社区最需要哪些方面的贡献，现在是否还有类似原来connector共建计划的开发计划</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;Seatunnel的整体架构图是否有更新的？比如加入了现在的zeta引擎的&lt;/li&gt;
+&lt;li&gt;SeaTunnel Connector生态现在最新的状态还是看&lt;a href=&quot;https://github.com/apache/incubator-seatunne
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>物理学科分枝关系</title>
@@ -459,58 +496,6 @@
     
     
       <category term="教育" scheme="http://lihongyu.me/tags/%E6%95%99%E8%82%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《家庭财务管理》笔记</title>
-    <link href="http://lihongyu.me/2022/03/08/%E3%80%8A%E5%AE%B6%E5%BA%AD%E8%B4%A2%E5%8A%A1%E7%AE%A1%E7%90%86%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
-    <id>http://lihongyu.me/2022/03/08/《家庭财务管理》笔记/</id>
-    <published>2022-03-08T06:56:20.000Z</published>
-    <updated>2022-12-03T04:25:50.630Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ol><li><strong>财务管理</strong>本质是<strong>事务管理</strong>，而不是投资赚钱</li><li>财务管理就是定目标、选策略、用工具（理财工具、负债工具）</li><li><strong>目标事务</strong>：医疗&gt;买房&gt;养老（生存问题）&gt;教育（发展问题）<ol><li>日常开支账户：随时保证3-6个月应急储备，不能动</li></ol></li></ol><a id="more"></a><ol start="4"><li><strong>理财工具</strong><ol><li>明确为什么事而理财更重要！旅行？教育？专款专用</li><li>三步法确定理财方案：事务的时间点、可以承担的风险、可以参与的本金（本金=收入-日常-储蓄-负债）</li><li>收入盈余（就是上一条的本金）20-50万的，防守:稳定:进攻=2:7:1</li></ol></li><li><strong>负债工具</strong><ol><li>负债是一种未来收入折现的现金流管理方案，可以提供流动性，是中性的产品</li><li>刚性支出可负债，柔性支出酌情负债，投资支出不可负债</li><li>健康负责标准：收入-日常消费-储蓄&gt;负债</li></ol></li><li><strong>健康是第一要务</strong><ol><li>小病：医保+普惠医疗（京惠保？）</li><li>中病：医疗险-&gt;保医疗费用（保当下）</li><li>重疾：重疾险-&gt;赔付（保未来）<ol><li>保额=5年生活支出总额（重疾平均5年治疗期）</li><li>消费型（保额大）要优先于储蓄型（有返还），因为这笔钱就是要解决重疾问题</li></ol></li></ol></li><li><strong>买房</strong><ol><li>自住？投资？逻辑完全不同</li><li>房贷占收入比40-60%</li></ol></li><li><strong>孩子</strong>，只需要关注健康和教育<ol><li>健康：“一老一小”</li><li>教育：非义务教育阶段（高中、大学）的规划</li><li>自己的优先级要高于孩子</li></ol></li><li><strong>养老</strong>，未来百岁人生是常态，需要有三个账户处理养老问题<ol><li>日常支出：社保养老、房租养老、商业养老</li><li>应急支出：储蓄、重疾险</li><li>休闲支出：剩余闲钱，可承担一定风险</li><li>养老三阶段：自由养老、居家养老、介入式养老；花钱由少变多</li></ol></li><li><strong>遗产传承</strong>，每个家庭的标准动作，不是富人的专利<ol><li>传：钱给谁？给多少？怎么给？什么时间给？<ol><li>立遗嘱：找律师，录视频，避免家庭纠纷</li><li>现金杠杆：保险（年金保险）</li></ol></li><li>承：要下一代用得好这笔钱：信托、慈善基金会</li></ol></li></ol><h3 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h3><ul><li style="list-style: none"><input type="checkbox"> 应急账户</li><li style="list-style: none"><input type="checkbox"> 医疗保险不足</li><li style="list-style: none"><input type="checkbox"> 养老保险不足</li><li style="list-style: none"><input type="checkbox"> 理财目标不明确，没有做到专款专用</li><li style="list-style: none"><input type="checkbox"> 盈余理财结构不合理</li><li style="list-style: none"><input type="checkbox"> 京惠保？</li><li style="list-style: none"><input type="checkbox"> 教育规划不明确？</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;笔记&quot;&gt;&lt;a href=&quot;#笔记&quot; class=&quot;headerlink&quot; title=&quot;笔记&quot;&gt;&lt;/a&gt;笔记&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;财务管理&lt;/strong&gt;本质是&lt;strong&gt;事务管理&lt;/strong&gt;，而不是投资赚钱&lt;/li&gt;
-&lt;li&gt;财务管理就是定目标、选策略、用工具（理财工具、负债工具）&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;目标事务&lt;/strong&gt;：医疗&amp;gt;买房&amp;gt;养老（生存问题）&amp;gt;教育（发展问题）&lt;ol&gt;
-&lt;li&gt;日常开支账户：随时保证3-6个月应急储备，不能动&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="读后感" scheme="http://lihongyu.me/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
-    
-    
-      <category term="理财" scheme="http://lihongyu.me/tags/%E7%90%86%E8%B4%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搞定睡眠这件大事</title>
-    <link href="http://lihongyu.me/2022/02/21/%E6%90%9E%E5%AE%9A%E7%9D%A1%E7%9C%A0%E8%BF%99%E4%BB%B6%E5%A4%A7%E4%BA%8B/"/>
-    <id>http://lihongyu.me/2022/02/21/搞定睡眠这件大事/</id>
-    <published>2022-02-21T06:30:03.000Z</published>
-    <updated>2022-12-03T04:25:50.636Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="增加睡眠动力"><a href="#增加睡眠动力" class="headerlink" title="增加睡眠动力"></a>增加睡眠动力</h2><ol><li>确定睡眠周期</li><li>有氧运动</li><li>晒太阳</li><li>避免白天睡觉</li></ol><a id="more"></a><h2 id="减少睡眠阻力"><a href="#减少睡眠阻力" class="headerlink" title="减少睡眠阻力"></a>减少睡眠阻力</h2><ol><li>睡眠仪式感：隔离日常生活和睡眠：散步，泡脚，听得到</li><li>放松反射：重复一个词10分钟</li><li>缓解心理焦虑：不要怕失眠。死不了人<h2 id="构建好的睡眠环境"><a href="#构建好的睡眠环境" class="headerlink" title="构建好的睡眠环境"></a>构建好的睡眠环境</h2><img src="/images/好的睡眠环境.jpeg" alt></li></ol><h2 id="怎么执行起来"><a href="#怎么执行起来" class="headerlink" title="怎么执行起来"></a>怎么执行起来</h2><p>可以落地执行的方法，叫做睡眠改善微习惯，“每天一二三，睡眠就改善”。一二三，意思是 “早上一个点起床，白天晒两分钟太阳，睡前做三件事”。哪三件事？</p><blockquote><p>一是把窗帘拉好，房间调暗，避免蓝光。<br>二是把房间的温度调到22到25摄氏度，让环境能够凉下来。<br>三是给自己一些有意识的放松，比如看一看书，听一听得到，做一做冥想或者放松反射练习。</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;增加睡眠动力&quot;&gt;&lt;a href=&quot;#增加睡眠动力&quot; class=&quot;headerlink&quot; title=&quot;增加睡眠动力&quot;&gt;&lt;/a&gt;增加睡眠动力&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;确定睡眠周期&lt;/li&gt;
-&lt;li&gt;有氧运动&lt;/li&gt;
-&lt;li&gt;晒太阳&lt;/li&gt;
-&lt;li&gt;避免白天睡觉&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
     
   </entry>
   
