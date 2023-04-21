@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lihongyu.me/"/>
-  <updated>2023-04-14T02:18:53.382Z</updated>
+  <updated>2023-04-21T09:34:42.040Z</updated>
   <id>http://lihongyu.me/</id>
   
   <author>
@@ -17,43 +17,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>30 phrasal verbs with explanation and 3 examples for each</title>
+    <link href="http://lihongyu.me/2023/04/21/30-phrasal-verbs-with-explanation-and-3-examples-for-each/"/>
+    <id>http://lihongyu.me/2023/04/21/30-phrasal-verbs-with-explanation-and-3-examples-for-each/</id>
+    <published>2023-04-21T09:15:29.000Z</published>
+    <updated>2023-04-21T09:34:42.040Z</updated>
+    
+    <content type="html"><![CDATA[<table><thead><tr><th>#</th><th>Phrasal Verb</th><th>Explanation</th><th>Example Sentences</th></tr></thead><tbody><tr><td>1</td><td>Add up</td><td>To make sense, to be reasonable</td><td>1. The total cost of the items in my shopping cart didn’t add up to what the cashier was charging me. 2. The story he told just doesn’t add up. 3. I added up all my expenses for the month and was surprised by how much I spent.</td></tr><tr><td>2</td><td>Ask around</td><td>To ask many people for information</td><td>1. I’m not sure where to find a good restaurant, so I’ll ask around. 2. He asked around for a good mechanic. 3. She asked around to find out who was responsible for the mistake.</td></tr><tr><td>3</td><td>Back up</td><td>To move backwards, to reverse</td><td>1. He had to back up the car to get out of the narrow street. 2. She backed up the truck so that it was closer to the loading dock. 3. The car behind me backed up too quickly and almost hit me.</td></tr><tr><td>4</td><td>Blow up</td><td>To explode, to become angry suddenly</td><td>1. The fireworks factory blew up, causing a huge explosion. 2. I’m going to blow up this balloon until it pops. 3. She blew up at her boss when he criticized her work.</td></tr><tr><td>5</td><td>Break down</td><td>To stop working properly</td><td>1. My car broke down on the highway, and I had to call a tow truck. 2. The computer system broke down and we lost all our data. 3. The communication between the two departments broke down, causing a delay in the project.</td></tr><tr><td>6</td><td>Bring up</td><td>To start talking about a subject</td><td>1. I don’t want to bring up the topic of politics at dinner. 2. He brought up the idea of starting a new business. 3. She brought up a good point during the meeting.</td></tr><tr><td>7</td><td>Call off</td><td>To cancel</td><td>1. They called off the wedding at the last minute. 2. The game was called off due to bad weather. 3. We had to call off our plans for the weekend because of an emergency.</td></tr><tr><td>8</td><td>Carry on</td><td>To continue</td><td>1. We’ll have to carry on with the project even though it’s behind schedule. 2. The meeting carried on until late in the evening. 3. I hope we can carry on with our friendship despite our differences.</td></tr><tr><td>9</td><td>Catch up</td><td>To reach the same level or status as others</td><td>1. I need to catch up on my work because I’ve been sick for a week. 2. He’s been working hard to catch up with the other students in his class. 3. She wants to catch up with her friends who are all successful in their careers.</td></tr><tr><td>10</td><td>Check out</td><td>To investigate, to leave a hotel or place of accommodation</td><td>1. I need to check out this new restaurant everyone is talking about. 2. The police checked out the suspicious activity in the area. 3. We need to check out of the hotel by noon.</td></tr><tr><td>11</td><td>Come across</td><td>To find by chance</td><td>1. I came across an old photo of my grandparents while cleaning out the attic. 2. She came across a great deal on a new car. 3. He came across a problem that he didn’t know</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Phrasal Verb&lt;/th&gt;
+&lt;th&gt;Explanation&lt;/th&gt;
+&lt;th&gt;Example Sentences&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="English" scheme="http://lihongyu.me/tags/English/"/>
+    
+  </entry>
+  
+  <entry>
     <title>从ChatGPT给出了十种鸡兔同笼问题的解法想到的</title>
     <link href="http://lihongyu.me/2023/04/14/%E4%BB%8EChatGPT%E7%BB%99%E5%87%BA%E4%BA%86%E5%8D%81%E7%A7%8D%E9%B8%A1%E5%85%94%E5%90%8C%E7%AC%BC%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E6%B3%95%E6%83%B3%E5%88%B0%E7%9A%84/"/>
     <id>http://lihongyu.me/2023/04/14/从ChatGPT给出了十种鸡兔同笼问题的解法想到的/</id>
     <published>2023-04-14T02:12:47.000Z</published>
-    <updated>2023-04-14T02:18:53.382Z</updated>
+    <updated>2023-04-14T02:26:28.548Z</updated>
     
-    <content type="html"><![CDATA[<p>我们上学学的是 x+y=7; x-y=5;<br>但是生活中面临的问题是 1694x+9474y=58234; 2358x-7575y=4841;</p><p>你以为你学会了二元一次方程的解法，但是在真正的问题面前往往是低效且无力的，<br>就像你受的教育是“你要刻苦努力学习，长大找个好工作”，而当你真的长大后，面临的问题是“怎么在收入三五万的情况下，给孩子买上1000万的学区房，否则会输在起跑线”</p><p>在认知面前，金钱几乎一文不值</p><p>TBC</p>]]></content>
+    <content type="html"><![CDATA[<p>我们上学学的是 x+y=7; x-y=5;<br>但是生活中面临的问题是 1694x+9474y=58234; 2358x-7575y=4841;</p><p>你以为你学会了二元一次方程的解法，你已经很优秀了，但是在真正的问题面前往往是低效且无力的，你是否知道还有遗传算法可以解决这类问题？<br>就像你受的教育是“你要刻苦努力学习，长大找个好工作”，而当你真的长大后，面临的问题是“怎么在收入几万甚至几千的情况下，给孩子买上1000万的学区房，否则会输在起跑线”</p><p>在认知面前，金钱几乎一文不值</p><p>TBC</p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;我们上学学的是 x+y=7; x-y=5;&lt;br&gt;但是生活中面临的问题是 1694x+9474y=58234; 2358x-7575y=4841;&lt;/p&gt;
-&lt;p&gt;你以为你学会了二元一次方程的解法，但是在真正的问题面前往往是低效且无力的，&lt;br&gt;就像你受的教育是“你要刻苦努力
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://lihongyu.me/2023/04/13/1.%20Seatunnel%E7%9A%84%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E5%9B%BE%20%E6%98%AF%E5%90%A6%E6%9C%89%E6%9B%B4%E6%96%B0%E7%9A%84%EF%BC%9F%E6%AF%94%E5%A6%82%E7%8E%B0%E5%9C%A8%E7%9A%84zeta%E5%BC%95%E6%93%8E/"/>
-    <id>http://lihongyu.me/2023/04/13/1. Seatunnel的整体架构图 是否有更新的？比如现在的zeta引擎/</id>
-    <published>2023-04-13T06:05:16.280Z</published>
-    <updated>2023-04-13T06:10:08.441Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>Seatunnel的整体架构图是否有更新的？比如加入了现在的zeta引擎的</li><li>SeaTunnel Connector生态现在最新的状态还是看<a href="https://github.com/apache/incubator-seatunnel/issues/1946" target="_blank" rel="noopener">https://github.com/apache/incubator-seatunnel/issues/1946</a> 吗</li><li>ppt里会加入《如何参与贡献》一章，目前seatunnel社区最需要哪些方面的贡献，现在是否还有类似原来connector共建计划的开发计划</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;Seatunnel的整体架构图是否有更新的？比如加入了现在的zeta引擎的&lt;/li&gt;
-&lt;li&gt;SeaTunnel Connector生态现在最新的状态还是看&lt;a href=&quot;https://github.com/apache/incubator-seatunne
+&lt;p&gt;你以为你学会了二元一次方程的解法，你已经很优秀了，但是在真正的问题面前往往是低效且无力的，你是否知道还有遗传算法
       
     
     </summary>
