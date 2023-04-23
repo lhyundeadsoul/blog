@@ -58,4 +58,25 @@ tags: English
 | 34 | Show up | To appear or arrive at a place | - He showed up late for the meeting. <br> - She showed up at the party in a stunning dress. <br> - They showed up at the concert just in time for the opening act. |
 | 35 | Turn down | To reject or refuse an offer or request | - She turned down the job offer because of the low salary. <br> - He turned down the invitation to the party because he had other plans. <br> - They turned down the volume on the TV because it was too loud. |
 | 36 | Back up | To support or defend someone or something | - She backed up her colleague during the presentation. <br> - He backed up his argument with solid evidence. <br> - They backed up their friend when he was accused of a crime. |
-| 37 | Come up | To happen or occur | - She came up with a great idea for the project. <br
+| 37 | Come up | To happen or occur | - She came up with a great idea for the project. <br/>|
+
+
+
+| Sequence ID | Phrasal Verb | Explanation | Example Sentences |
+| --- | --- | --- | --- |
+| 38 | Get along | To have a good relationship with someone | - She gets along well with her coworkers. <br> - He gets along with his neighbors despite their differences. <br> - They get along famously with their in-laws. |
+| 39 | Hold on | To wait or pause for a moment | - She asked him to hold on while she answered the phone. <br> - He held on to his dreams despite the obstacles. <br> - They held on to each other during the rollercoaster ride. |
+| 40 | Make up | To reconcile or create something | - She made up with her best friend after a fight. <br> - He made up a story to explain his absence. <br> - They made up their minds to travel the world. |
+| 41 | Set up | To arrange or organize something | - She set up a meeting with her boss to discuss her performance. <br> - He set up a tent for the camping trip. <br> - They set up a charity to help the homeless. |
+| 42 | Break up | To end a relationship or group | - She broke up with her boyfriend after a long argument. <br> - He broke up the fight between the two boys. <br> - They broke up the old furniture to use as firewood. |
+| 43 | Come out | To be released or become public | - She came out with her new book last month. <br> - He came out as gay to his family and friends. <br> - They came out victorious in the final match. |
+| 44 | Get over | To recover from or move past something difficult | - She got over her fear of flying after taking a course. <br> - He got over his ex-girlfriend after some time. <br> - They got over the loss of their beloved pet. |
+| 45 | Hold up | To delay or impede progress | - She held up the meeting with her long speech. <br> - He held up the line by arguing with the cashier. <br> - They held up the construction due to bad weather. |
+| 46 | Take off | To leave or begin to succeed | - She took off her shoes before entering the house. <br> - He took off his hat as a sign of respect. <br> - They took off on their new adventure. |
+| 47 | Break down | To fail or stop working properly | - She broke down in tears after hearing the news. <br> - He broke down the problem into smaller parts. <br> - They broke down on the highway and had to call for help. |
+| 48 | Come up with | To invent or think of an idea or solution | - She came up with a brilliant plan to save the company. <br> - He came up with a new recipe for his restaurant. <br> - They came up with a name for their band. |
+| 49 | Get away | To escape or take a break from something | - She got away from her busy schedule by taking a vacation. <br> - He got away with the stolen money. <br> - They got away from the noisy city to enjoy some peace and quiet. |
+| 50 | Look up | To search for information | - She looked up the meaning of the word in the dictionary. <br> - He looked up at the sky to see
+
+
+
