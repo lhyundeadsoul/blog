@@ -3,6 +3,9 @@ title: Another 50 phrasal verbs
 date: 2023-09-04 18:16:03
 tags: English
 ---
+
+<!-- more -->
+
 * To Add Up
 	* Her story didn't add up, I think she is lying
 * To Back sb. up
