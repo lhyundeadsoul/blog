@@ -1,4 +1,4 @@
-	---
+---
 title: 50 phrasal verbs with explanation and 3 examples for each
 date: 2023-04-21 17:15:29
 tags:  English

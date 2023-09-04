@@ -4,15 +4,26 @@ date: 2023-09-04 18:16:03
 tags: English
 ---
 * To Add Up
-* To Back
+	* Her story didn't add up, I think she is lying
+* To Back sb. up
+	* My parents backed me up when I decided to apply for graduate school
+	* I've got you back
 * To Blow up
+	* When I told her I couldn't come to her party, she blew up
 * Bring It On
+	* Another 50 phrasal verbs? bring it on!
 * Bring Up
+	* You shouldn't bring up politics in this house unless you are ready for a long conversation
 * To Call Off
+	* Instead of calling off the wedding, the couple decided to elope
 * To Calm Down
+	* When I have a stressful day, I like to calm down by taking a nice, long walk outside
 * To Catch Up
+	* Do you want to meet for coffee and catch up?
 * To Check In
+	* I checked in while my wife parked the car
 * To Check Out
+	* I'm excited to check out the new park in our city.
 * To Chip In
 * To Close Down
 * To Come Down With
