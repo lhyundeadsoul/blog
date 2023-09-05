@@ -4,6 +4,8 @@ date: 2023-09-04 18:16:03
 tags: English
 ---
 
+
+derived by [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 <!-- more -->
 
 * To Add Up
@@ -28,16 +30,27 @@ tags: English
 * To Check Out
 	* I'm excited to check out the new park in our city.
 * To Chip In
+	* I couldn't participate in the party, but I still wanted to chip in for a gift
 * To Close Down
+	* During the pandemic, a lot of restaurants closed down.
 * To Come Down With
+	* I'm not feeling so well, I think I'm coming down with something.
 * To Come Up
+	* I need to come up with a great present for Mom's birthday
 * To Cut Back On
+	* I'm trying to cut back on fried food, but it's so tasty.
 * To Cut Off
-* To Drop By or In
+	* The driver in the red car cut me off and almost caused a wreck!
+* To Drop By or In (to stop for a short visit)
+	* Drop in whenever you want 
 * To Ended Up
+	* He doesn't want to end up like his father
 * To Figure Out
+	* The mechanic tried to figure out what was wrong with my car.
 * To Fill In
+	* I missed the meeting. Can someone fill me in?
 * To Fill out
+	* Can you fill out these forms?
 * To Find Out
 * To Get Along
 * To Get Around
@@ -58,6 +71,8 @@ tags: English
 * To Run Into
 * To Run Out
 * To Stick With
+* To Take up + time
+* To Take after sb.
 * To Think Over
 * To Turn Down
 * To Turn Off
