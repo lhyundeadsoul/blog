@@ -52,15 +52,25 @@ derived by [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 * To Fill out
 	* Can you fill out these forms?
 * To Find Out
+	* In the next episode, we will find out who the mysterious man is!
 * To Get Along
+	* I get along with my neighbors quite well
 * To Get Around
+	* I finally got around to cleaning the garage
 * To Get Back At
+	* My sister took my shoes to get back at me for taking her sweater.
 * To Give Up
+	* After trying to change the oil in my car for a couple of hours, I gave up and went to a mechanic
 * To Grow Up
+	* That wasn't funny, Grow up!
 * To Hang On
+	* Can you hang on for just a second while I check this message?
 * To Hang Out
+	* Do you want to come over to my house and hang out
 * To Hold On
+	* I'm holding on to hope that someday we'll be able to travel again.
 * To Keep On
+	* If you keep on practicing, you will get better. So keep on keeping on!
 * To Look Forward
 * To Look Out
 * To Look Up
