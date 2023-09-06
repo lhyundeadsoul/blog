@@ -8,6 +8,7 @@ tags: English
 derived by [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 <!-- more -->
 
+Day1
 * To Add Up
 	* Her story didn't add up, I think she is lying
 * To Back sb. up
@@ -29,6 +30,8 @@ derived by [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 	* I checked in while my wife parked the car
 * To Check Out
 	* I'm excited to check out the new park in our city.
+
+Day 2
 * To Chip In
 	* I couldn't participate in the party, but I still wanted to chip in for a gift
 * To Close Down
@@ -53,6 +56,8 @@ derived by [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 	* Can you fill out these forms?
 * To Find Out
 	* In the next episode, we will find out who the mysterious man is!
+
+Day 3
 * To Get Along
 	* I get along with my neighbors quite well
 * To Get Around
@@ -71,6 +76,8 @@ derived by [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 	* I'm holding on to hope that someday we'll be able to travel again.
 * To Keep On
 	* If you keep on practicing, you will get better. So keep on keeping on!
+ 
+Day 4
 * To Look Forward
 * To Look Out
 * To Look Up
@@ -81,6 +88,8 @@ derived by [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 * To Run Into
 * To Run Out
 * To Stick With
+
+Day 5
 * To Take up + time
 * To Take after sb.
 * To Think Over
