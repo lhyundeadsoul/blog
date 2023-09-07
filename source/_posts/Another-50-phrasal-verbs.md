@@ -79,19 +79,31 @@ Day 3
  
 Day 4
 * To Look Forward
+	* No one looks forward to tax time
 * To Look Out
+	* When you hike, look out for snakes.
 * To Look Up
+	* You can look it up in the dictionary
 * To Pull Over
+	* When I saw police lights behind me, I pulled over.
 * To Put Off
+	* I put off learning phrasal verbs for too long, It's time to start today.
 * To Put Up With
+	* My friends put up with my terrible singing
 * To Run Away
+	* Have you run away from home as a kid?
 * To Run Into
+	* I don't want to run into a bear while I'm hiking
 * To Run Out
+	* We ran out of milk and eggs yesterday, so I need to go to the store.
 * To Stick With
+	* Good friends stick with each other even through hard times.
 
 Day 5
-* To Take up + time
+* To Take up to + time
+	* It has taken me up to 10 days to learn the phrasal verbs.
 * To Take after sb.
+	* I take after my father more than my mother.
 * To Think Over
 * To Turn Down
 * To Turn Off
