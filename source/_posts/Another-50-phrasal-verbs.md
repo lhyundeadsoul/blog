@@ -105,10 +105,24 @@ Day 5
 * To Take after sb.
 	* I take after my father more than my mother.
 * To Think Over
+	* It's a good idea to think over big purchases before you buy them.
 * To Turn Down
+	* I had to turn down the dessert because I am full
 * To Turn Off
+	* It's a good habit to turn off the phone an hour before bed
 * To Turn Up
+	* I surprised my family when I turned up to the party unannounced.
 * To Warm Up To
-* To Watch Out
+	* I didn't want to get to swim, but after some time I started to warm up to the idea.
 * To Wear Off
+	* The marker is starting to wear off.
 * To Work Out
+	* My wife likes the beach, but I like the mountains, so for our next vacation, we need to work something out.
+
+Day 6
+* To Perk up
+	* I'm not a morning person, so I need some coffee every morning to help me perk up.
+* To reflect on
+	* I reflect on my day and write my thoughts in a diary.
+* To doze off
+	* I dozed off working on this project.
