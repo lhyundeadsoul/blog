@@ -5,7 +5,7 @@ tags: English
 ---
 
 
-derived by [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
+summary from [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 <!-- more -->
 
 Day1
