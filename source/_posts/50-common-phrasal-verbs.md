@@ -1,5 +1,5 @@
 ---
-title: 50 phrasal verbs
+title: 50 common phrasal verbs
 date: 2023-09-04 18:16:03
 tags: English
 ---
