@@ -1,5 +1,5 @@
 ---
-title: Another 50 phrasal verbs
+title: 50 phrasal verbs
 date: 2023-09-04 18:16:03
 tags: English
 ---
@@ -120,9 +120,13 @@ Day 5
 	* My wife likes the beach, but I like the mountains, so for our next vacation, we need to work something out.
 
 Day 6
-* To Perk up
+* To Perk Up
 	* I'm not a morning person, so I need some coffee every morning to help me perk up.
-* To reflect on
+* To Reflect On
 	* I reflect on my day and write my thoughts in a diary.
-* To doze off
+* To Doze Off
 	* I dozed off working on this project.
+* To Go through
+	* They went through a tough training program to become athletes.
+* To Come across
+	* They came across a hidden treasure during their hike.
