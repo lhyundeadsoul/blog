@@ -8,7 +8,7 @@ tags: English
 summary from [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 <!-- more -->
 
-Day1
+### Day1
 * To Add Up
 	* Her story didn't add up, I think she is lying
 * To Back sb. up
@@ -31,7 +31,7 @@ Day1
 * To Check Out
 	* I'm excited to check out the new park in our city.
 
-Day 2
+### Day 2
 * To Chip In
 	* I couldn't participate in the party, but I still wanted to chip in for a gift
 * To Close Down
@@ -57,7 +57,7 @@ Day 2
 * To Find Out
 	* In the next episode, we will find out who the mysterious man is!
 
-Day 3
+### Day 3
 * To Get Along
 	* I get along with my neighbors quite well
 * To Get Around
@@ -77,7 +77,7 @@ Day 3
 * To Keep On
 	* If you keep on practicing, you will get better. So keep on keeping on!
  
-Day 4
+### Day 4
 * To Look Forward
 	* No one looks forward to tax time
 * To Look Out
@@ -99,7 +99,7 @@ Day 4
 * To Stick With
 	* Good friends stick with each other even through hard times.
 
-Day 5
+### Day 5
 * To Take up to + time
 	* It has taken me up to 10 days to learn the phrasal verbs.
 * To Take after sb.
@@ -119,7 +119,7 @@ Day 5
 * To Work Out
 	* My wife likes the beach, but I like the mountains, so for our next vacation, we need to work something out.
 
-Day 6
+### Day 6
 * To Perk Up
 	* I'm not a morning person, so I need some coffee every morning to help me perk up.
 * To Reflect On
