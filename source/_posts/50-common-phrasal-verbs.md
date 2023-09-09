@@ -8,7 +8,7 @@ tags: English
 summary from [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 <!-- more -->
 
-### Day1
+### Day 1
 * To Add Up
 	* Her story didn't add up, I think she is lying
 * To Back sb. up
