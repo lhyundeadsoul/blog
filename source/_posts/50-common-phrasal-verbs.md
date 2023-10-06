@@ -126,7 +126,12 @@ summary from [youtube](https://www.youtube.com/watch?v=nIlnxm8m2ec)
 	* I reflect on my day and write my thoughts in a diary.
 * To Doze Off
 	* I dozed off working on this project.
-* To Go through
+* To Go Through
 	* They went through a tough training program to become athletes.
+* To Get Through
+	* The cow got through the fence.
+	* I couldn't get through to him.//persuade  & convey sth to sb.
+	* His book got me though some hard times.
+	* He got me through the statistics.
 * To Come across
 	* They came across a hidden treasure during their hike.
