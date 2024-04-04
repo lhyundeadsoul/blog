@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>在线服务设计方法论 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="工作多年，期间既做过要求强一致的系统，也做过要求低延时、高吞吐的系统，还搞过微服务的拆分和管理等工作。 在这个领域里做了这么久，零零散散写过些东西，但是一直没有完整、系统地总结过这个领域里的方法论，现在是时候完成它了。 千言万语一张表：（注意里面子项有链接，可以深入了解）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在线服务设计方法论">
+<meta property="og:url" content="https://lhyundeadsoul.github.io/blog/2020/05/12/%E5%9C%A8%E7%BA%BF%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="工作多年，期间既做过要求强一致的系统，也做过要求低延时、高吞吐的系统，还搞过微服务的拆分和管理等工作。 在这个领域里做了这么久，零零散散写过些东西，但是一直没有完整、系统地总结过这个领域里的方法论，现在是时候完成它了。 千言万语一张表：（注意里面子项有链接，可以深入了解）">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-12T13:09:36.000Z">
+<meta property="article:modified_time" content="2024-03-19T02:31:28.021Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="心领神会">
+<meta property="article:tag" content="设计原则">
+<meta property="article:tag" content="方法论">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="微服务">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://lhyundeadsoul.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-在线服务设计方法论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog/2020/05/12/%E5%9C%A8%E7%BA%BF%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/" class="article-date">
+  <time class="dt-published" datetime="2020-05-12T13:09:36.000Z" itemprop="datePublished">2020-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/%E6%80%BB%E7%BB%93%E6%80%9D%E8%80%83/">总结思考</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      在线服务设计方法论
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>工作多年，期间既做过要求强一致的系统，也做过要求低延时、高吞吐的系统，还搞过微服务的拆分和管理等工作。</p>
+<p>在这个领域里做了这么久，零零散散写过些东西，但是一直没有完整、系统地总结过这个领域里的方法论，现在是时候完成它了。</p>
+<p>千言万语一张表：（注意里面子项有链接，可以深入了解）</p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th>分层</th>
+<th>细节</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>道</strong></td>
+<td><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/saFW6DfkSenR5rg9KlY5uA">生态系统论</a>：像构建一个生态系统一样构建一个IT系统</td>
+<td><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/10652.html">控制逻辑正交</a>：本质是<br />『做什么(逻辑)』和<br />『怎么做(控制)』的隔离</td>
+<td>掌握越多细节，优化空间越大<br /></td>
+</tr>
+<tr>
+<td><strong>术</strong></td>
+<td><strong>收容数据</strong></td>
+<td><strong>处理数据</strong></td>
+<td><strong>产出数据</strong></td>
+</tr>
+<tr>
+<td>高性能（资源有限时处理不能慢）</td>
+<td>【怎么划分数据】动静、读写、冷热、时空、业务<br />【按什么结构存储数据】倒排结构、列存、顺序存、多级存储<br />【怎么描述数据】二进制描述<br />【怎么写入数据】并发写：<a target="_blank" rel="noopener" href="https://lihongyu.me/2019/04/18/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%97%E6%AE%B5%E8%A7%84%E8%8C%83%E5%8F%8A%E4%B9%90%E8%A7%82%E9%94%81%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/">乐观锁</a><br /></td>
+<td>分治<br />优秀的算法喜欢有序的数据<br />无锁</td>
+<td><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TDJz9WLQercAvlMhHc1QDQ">牺牲精确性</a><br /><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/17416.html">缓存</a></td>
+</tr>
+<tr>
+<td>高可靠（数据不能丢、不能乱）</td>
+<td><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aDYOrZdebNxMQEauu2_z3w">WAL(write ahead log)</a><br /> 对象尽量不可变，可变对象要避免线程竞争</td>
+<td>【失败】fast fail原则<br /></td>
+<td>幂等</td>
+</tr>
+<tr>
+<td>高可用（服务不能死）</td>
+<td>多副本、Master-slave、Raft&#x2F;Paxos</td>
+<td>【状态】无状态设计<br />【依赖】尽量不依赖，<br />必须依赖的尽量异步依赖，<br />必须要同步依赖的就四步曲：<br />打日志，加超时，加限流，加降级</td>
+<td>分页切片<br />探活</td>
+</tr>
+</tbody></table>
+<h3 id="开发原则总结"><a href="#开发原则总结" class="headerlink" title="开发原则总结"></a>开发原则总结</h3><ol>
+<li>用下一次的同步来表征上一次同步的ack，减少ack过程</li>
+<li>运营支撑系统很重要，看不到业务监控等于没有业务</li>
+<li>实现需求最大的困难不是设计出一个方案并实现出来，而是需要在若干个可能的方案中，甄选出最简单实用的那个。</li>
+<li>大系统小做：除了最原子的业务（e.g.支付、打标）是开发出来的，大部分业务是涌现出来的（e.g.支付+补全—&gt;下发、微信单聊&#x2F;群聊 对接收消息逻辑来说是统一的）</li>
+<li>极简设计：最简单的方案最一致，最一致的方案最可靠</li>
+<li>监控</li>
+<li><ol>
+<li>COE报告侧重于：如何避免同类型故障再次发生、提高故障主动发现能力、缩短故障响应和处理过程</li>
+<li>ump key—&gt;agent collect—&gt;统一监控页面和报警配置</li>
+</ol>
+</li>
+<li>master-master</li>
+<li>协程</li>
+</ol>
+<h3 id="订单系统感悟汇总"><a href="#订单系统感悟汇总" class="headerlink" title="订单系统感悟汇总"></a>订单系统感悟汇总</h3><p>在订单二期需求讨论过程中，订单中心的定位和各字段的理解在不断更新和变化。拥抱需求变化，但是要以开发过程有可固化的原则为前提。</p>
+<p>以下是讨论过程中形成的订单中心系统构建原则，欢迎拍砖，没被砖拍到的地方就默认可以执行了：</p>
+<p>to 产品：</p>
+<p>1、订单类型用于区分不同的状态流（如：实物、服务），订单打标用于区分同一状态流下的不同业务分支（如：定时达、周期送）</p>
+<p>2、订单中心与外系统的关联关系只通过系统id保持（如：订单号，支付单号，结算单号……），不存储外系统内部业务信息</p>
+<p>3、只提供订单号到外系统id的正向翻译功能，不提供逆向翻译功能</p>
+<p>4、废除的原则：订单中心不主动改变订单状态，一切状态变更由外系统触发；改为：订单中心只做业务状态（如：等待付款、配送中）和系统状态（系统取消、暂停）的互转</p>
+<p>to 研发：</p>
+<p>1、如订单状态、订单类型等一切业务属性定义的变更都以支撑业务运转为准，只要系统技术结构不变，开发人员无需过多干预</p>
+<p>2、领域系统（订单系统、结算系统）是骨骼，骨骼和骨骼之间要有关节，跨领域的领域语言翻译工作应在“关节”上进行</p>
+<p>to All：</p>
+<p>个人认为：</p>
+<p>系统最后僵化死亡，往往是因为过多的业务限制，而不是技术无法支持，典型：京东现有的订单系统。所以在业务梳理中，最好不要以“流程是通的，流程可用”为目标。</p>
+<p>订单中心做为业务核心系统，无论在业务上还是技术上，都应尽量将其设计成功能可插拔的插件式结构，方便扩展维护。</p>
+<p>目前，业务上可以认为各系统id就是业务数据上的唯一插件接口，希望各位尽量保持这个插件接口的纯洁性。</p>
+<p>技术上的插件式结构还在探索中，欢迎提供好的建议。</p>
+<p>另外，有一个观点，欢迎大家拍砖：</p>
+<p>系统开发是有边界的，不能和现实世界所有特殊情况都完全对应（例如系统里不会有“配送员发生交通事故，正在就医”这种状态，但是现实世界会有），实际业务开展应该以系统操作和线下灵活处理共同完成，不能一切都依赖系统。实际业务中的特殊情况应首要考虑线下灵活处理，而不是增加系统功能。总之，系统功能应该是可预期的，功能数量应该是可收敛的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://lhyundeadsoul.github.io/blog/2020/05/12/%E5%9C%A8%E7%BA%BF%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E8%AE%BA/" data-id="clul16b5i001s7jd5gqa37t65" data-title="在线服务设计方法论" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/web/" rel="tag">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%BF%83%E9%A2%86%E7%A5%9E%E4%BC%9A/" rel="tag">心领神会</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="tag">方法论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag">设计原则</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2020/10/26/%E5%85%B3%E4%BA%8E%E8%82%A1%E7%A5%A8%E5%92%8C%E8%82%A1%E5%B8%82/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于股票和股市
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2020/04/14/%E9%83%A8%E7%BD%B2Metabase%E5%88%B0Kubernetes%E9%9B%86%E7%BE%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">部署Metabase到Kubernetes集群</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%BC%80%E6%BA%90%E4%BA%A7%E5%93%81/">开源产品</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%80%BB%E7%BB%93%E6%80%9D%E8%80%83/">总结思考</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">技术趋势</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/">读后感</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E9%BB%91%E7%A7%91%E6%8A%80/">黑科技</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%8B%B1%E6%96%87%E5%8E%9F%E6%96%87/" rel="tag">#英文原文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Flink/" rel="tag">Flink</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/UnitTest/" rel="tag">UnitTest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pb-parser/" rel="tag">pb-parser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%B9%90%E8%A7%82%E9%94%81/" rel="tag">乐观锁</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%8E%86%E5%8F%B2/" rel="tag">历史</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/" rel="tag">商业模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BF%83%E9%A2%86%E7%A5%9E%E4%BC%9A/" rel="tag">心领神会</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%80%9D%E8%80%83/" rel="tag">思考</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%88%B7%E5%A4%96/" rel="tag">户外</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%89%B9%E6%B5%81%E4%B8%80%E4%BD%93/" rel="tag">批流一体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%95%99%E8%82%B2/" rel="tag">教育</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%96%87%E6%98%8E/" rel="tag">文明</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="tag">方法论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="tag">最佳实践</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%BC%94%E8%AE%B2/" rel="tag">演讲</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%81%AB%E6%98%9F%E8%88%B9%E7%A5%A8/" rel="tag">火星船票</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%94%BB%E5%9B%BE/" rel="tag">画图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%9F%A5%E8%AF%86%E6%A8%A1%E5%9E%8B/" rel="tag">知识模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BB%8F%E6%B5%8E/" rel="tag">经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BB%8F%E6%B5%8E%E9%87%91%E8%9E%8D/" rel="tag">经济金融</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BE%8E%E8%81%94%E5%82%A8/" rel="tag">美联储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag">计算机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A4%E7%9F%A5/" rel="tag">认知</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7/" rel="tag">认知升级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag">设计原则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E5%A4%8D%E6%9D%82%E5%BA%A6/" rel="tag">软件复杂度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%87%91%E8%9E%8D/" rel="tag">金融</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E/" rel="tag">零知识证明</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/%E8%8B%B1%E6%96%87%E5%8E%9F%E6%96%87/" style="font-size: 10px;">#英文原文</a> <a href="/blog/tags/AI/" style="font-size: 10px;">AI</a> <a href="/blog/tags/English/" style="font-size: 20px;">English</a> <a href="/blog/tags/Flink/" style="font-size: 10px;">Flink</a> <a href="/blog/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/blog/tags/UnitTest/" style="font-size: 10px;">UnitTest</a> <a href="/blog/tags/java/" style="font-size: 10px;">java</a> <a href="/blog/tags/pb-parser/" style="font-size: 10px;">pb-parser</a> <a href="/blog/tags/web/" style="font-size: 15px;">web</a> <a href="/blog/tags/%E4%B9%90%E8%A7%82%E9%94%81/" style="font-size: 10px;">乐观锁</a> <a href="/blog/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">人工智能</a> <a href="/blog/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 15px;">历史</a> <a href="/blog/tags/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">商业模式</a> <a href="/blog/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 15px;">大数据</a> <a href="/blog/tags/%E5%BC%80%E6%BA%90/" style="font-size: 20px;">开源</a> <a href="/blog/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/blog/tags/%E5%BF%83%E9%A2%86%E7%A5%9E%E4%BC%9A/" style="font-size: 20px;">心领神会</a> <a href="/blog/tags/%E6%80%9D%E8%80%83/" style="font-size: 10px;">思考</a> <a href="/blog/tags/%E6%88%B7%E5%A4%96/" style="font-size: 10px;">户外</a> <a href="/blog/tags/%E6%89%B9%E6%B5%81%E4%B8%80%E4%BD%93/" style="font-size: 10px;">批流一体</a> <a href="/blog/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/blog/tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a> <a href="/blog/tags/%E6%95%99%E8%82%B2/" style="font-size: 10px;">教育</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 15px;">数据库</a> <a href="/blog/tags/%E6%96%87%E6%98%8E/" style="font-size: 10px;">文明</a> <a href="/blog/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 20px;">方法论</a> <a href="/blog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" style="font-size: 10px;">最佳实践</a> <a href="/blog/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/blog/tags/%E6%BC%94%E8%AE%B2/" style="font-size: 10px;">演讲</a> <a href="/blog/tags/%E7%81%AB%E6%98%9F%E8%88%B9%E7%A5%A8/" style="font-size: 10px;">火星船票</a> <a href="/blog/tags/%E7%90%86%E8%B4%A2/" style="font-size: 10px;">理财</a> <a href="/blog/tags/%E7%94%BB%E5%9B%BE/" style="font-size: 10px;">画图</a> <a href="/blog/tags/%E7%9F%A5%E8%AF%86%E6%A8%A1%E5%9E%8B/" style="font-size: 15px;">知识模型</a> <a href="/blog/tags/%E7%BB%8F%E6%B5%8E/" style="font-size: 15px;">经济</a> <a href="/blog/tags/%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 15px;">经济学</a> <a href="/blog/tags/%E7%BB%8F%E6%B5%8E%E9%87%91%E8%9E%8D/" style="font-size: 10px;">经济金融</a> <a href="/blog/tags/%E7%BE%8E%E8%81%94%E5%82%A8/" style="font-size: 10px;">美联储</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 10px;">计算机</a> <a href="/blog/tags/%E8%AE%A4%E7%9F%A5/" style="font-size: 10px;">认知</a> <a href="/blog/tags/%E8%AE%A4%E7%9F%A5%E5%8D%87%E7%BA%A7/" style="font-size: 10px;">认知升级</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 15px;">设计原则</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E5%A4%8D%E6%9D%82%E5%BA%A6/" style="font-size: 10px;">软件复杂度</a> <a href="/blog/tags/%E9%87%91%E8%9E%8D/" style="font-size: 10px;">金融</a> <a href="/blog/tags/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E/" style="font-size: 10px;">零知识证明</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2023/10/06/Why-South-Korea-is-dying-out/">Why South Korea is dying out?</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2023/09/04/50-common-phrasal-verbs/">50 common phrasal verbs</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2023/04/14/%E4%BB%8EChatGPT%E7%BB%99%E5%87%BA%E4%BA%86%E5%8D%81%E7%A7%8D%E9%B8%A1%E5%85%94%E5%90%8C%E7%AC%BC%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E6%B3%95%E6%83%B3%E5%88%B0%E7%9A%84/">从ChatGPT给出了十种鸡兔同笼问题的解法想到的</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2023/03/21/%E7%89%A9%E7%90%86%E5%AD%A6%E7%A7%91%E5%88%86%E6%9E%9D%E5%85%B3%E7%B3%BB/">物理学科分枝关系</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2023/03/21/%E6%95%B0%E5%AD%A6%E5%AD%A6%E7%A7%91%E5%88%86%E6%9E%9D%E5%85%B3%E7%B3%BB/">数学学科分枝关系</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
