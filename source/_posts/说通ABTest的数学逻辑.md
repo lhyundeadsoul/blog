@@ -2,7 +2,13 @@
 title: 说通ABTest的数学逻辑
 date: 2020-10-27 11:24:23
 tags:
+  - 测试
+  - 大数据
+  - 方法论
 ---
+A/B实验从本质上来说是一个基于统计的假设检验过程
+
+
 ![abtest](https://mmbiz.qpic.cn/sz_mmbiz_jpg/X5cB3w6FrP6SUKsgm7qcghdicNt0bSU4O9Qib9CBica4Ofbhk2Rw5U5tQia1NscRe1aSxlCMuYKEk0p8GqPrpibH2IQ/0?wx_fmt=jpeg)
 ![abTest](/images/abtest.jpeg)
 
